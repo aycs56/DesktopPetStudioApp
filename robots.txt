@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aycs56.github.io/DesktopPetStudioApp/sitemap.xml

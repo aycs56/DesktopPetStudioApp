@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Support and troubleshooting for Desktop Pet Studio.">
+  <meta name="theme-color" content="#0d8f84">
+  <title>Support | Desktop Pet Studio</title>
+  <link rel="icon" href="assets/images/app-icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="site.config.js"></script>
+  <script src="assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">跳至主要內容</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Desktop Pet Studio home"><span class="brand-mark"><img src="assets/images/app-icon.png" alt=""></span><span>Desktop Pet Studio</span></a>
+    <nav class="main-nav" id="primary-nav" aria-label="Primary navigation"><a href="index.html" data-i18n="product">產品介紹</a><a href="privacy.html" data-i18n="privacy">隱私權政策</a><a href="terms.html" data-i18n="terms">使用條款</a><a href="support.html" aria-current="page" data-i18n="support">支援資訊</a></nav>
+    <div class="header-actions"><label class="sr-only" for="language" data-i18n="language">語言</label><select class="language-select" id="language" aria-label="Language"><option value="zh-Hant">繁體中文</option><option value="zh-Hans">简体中文</option><option value="en">English</option></select><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="開啟導覽選單" data-i18n-aria="menu">&#8801;</button></div>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="section-inner" data-lang-content="zh-Hant"><p class="section-kicker">SUPPORT</p><h1>讓陪伴順順地待在你的桌面上。</h1><p>先從這裡排除常見問題；也可以透過公開問題回報入口告訴我們你遇到的狀況。</p></div>
+      <div class="section-inner" data-lang-content="zh-Hans" hidden><p class="section-kicker">SUPPORT</p><h1>让陪伴顺顺地待在你的桌面上。</h1><p>先从这里排除常见问题；也可以通过公开问题反馈入口告诉我们你遇到的情况。</p></div>
+      <div class="section-inner" data-lang-content="en" hidden><p class="section-kicker">SUPPORT</p><h1>Keep your companion happily on your desktop.</h1><p>Start here for common fixes, or use the public issue-reporting channel to tell us what happened.</p></div>
+    </section>
+    <section class="section section-butter"><div class="section-inner">
+      <div class="support-banner" data-lang-content="zh-Hant"><div><h2>需要協助時，請附上足夠的背景</h2><p>問題回報請包含 Windows 版本、程式版本、重現步驟、是否使用多螢幕，以及不含個人資料的錯誤畫面。</p></div><div><p data-support-pending><strong>公開支援信箱準備中</strong></p><p data-config-email hidden></p><p data-config-support-url hidden></p></div></div>
+      <div class="support-banner" data-lang-content="zh-Hans" hidden><div><h2>需要帮助时，请附上足够的背景</h2><p>问题反馈请包含 Windows 版本、程序版本、重现步骤、是否使用多屏幕，以及不含个人信息的错误画面。</p></div><div><p data-support-pending><strong>公开支持邮箱准备中</strong></p><p data-config-email hidden></p><p data-config-support-url hidden></p></div></div>
+      <div class="support-banner" data-lang-content="en" hidden><div><h2>Bring enough context when you need help</h2><p>Please include your Windows version, app version, steps to reproduce, multi-monitor status, and an error image with personal information removed.</p></div><div><p data-support-pending><strong>Public support email is being prepared</strong></p><p data-config-email hidden></p><p data-config-support-url hidden></p></div></div>
+    </div></section>
+    <section class="section"><div class="section-inner">
+      <div data-lang-content="zh-Hant"><p class="section-kicker">COMMON QUESTIONS</p><h2>常見問題</h2><div class="faq-list">
+        <details><summary>桌寵沒有顯示或不小心隱藏了，怎麼辦？</summary><p>先開啟設定視窗，使用「顯示桌寵」切換鈕確認目前狀態。也可檢查快捷鍵頁籤的顯示／隱藏設定，預設為 F12。</p></details>
+        <details><summary>姿勢動畫看起來抖動或走動不自然？</summary><p>請確認各影格的角色中心點一致。走動素材建議上傳朝右的連續動作，系統會在左行時自動鏡像。一般示範採約 6 張影格、每秒約 6 幀；程式可依你實際上傳的影格數或 GIF 自動播放。</p></details>
+        <details><summary>提醒、行事曆或計時器沒有出現？</summary><p>確認提醒已啟用，並檢查時間、上午／下午與週期條件。可用「測試提醒」先確認姿勢、氣泡、音效與全螢幕效果。全螢幕提醒會將桌寵放到提醒畫面指定位置。</p></details>
+        <details><summary>如何連接或中斷 Google Calendar？</summary><p>在行事曆提醒區按下「Google 同步」，預設瀏覽器會開啟登入與授權畫面。成功後，程式會於啟動與每天 00:00 同步一次。選擇「中斷 Google」即可停止後續同步；既有本機提醒不會自動刪除。</p></details>
+        <details><summary>Google 登入失敗或無法回到程式？</summary><p>確認預設瀏覽器可正常登入 Google，且防火牆或安全軟體沒有封鎖 Desktop Pet Studio 的本機 loopback 回呼。不要在問題回報中附上 OAuth 金鑰、授權碼或權杖；這些屬於私人資料。</p></details>
+        <details><summary>匯入姿勢、音效或工作坊 JSON 失敗？</summary><p>請確認檔案仍在原始位置、格式符合程式提示，並使用工作坊頁的掃描或匯入功能。創作者可參考程式內「創作者說明」了解 JSON 欄位與 AI 素材模板。</p></details>
+      </div></div>
+      <div data-lang-content="zh-Hans" hidden><p class="section-kicker">COMMON QUESTIONS</p><h2>常见问题</h2><div class="faq-list">
+        <details><summary>桌宠没有显示或不小心隐藏了，怎么办？</summary><p>先打开设置窗口，使用“显示桌宠”切换钮确认当前状态。也可检查快捷键页签的显示／隐藏设置，默认是 F12。</p></details>
+        <details><summary>姿势动画看起来抖动或走动不自然？</summary><p>请确认各帧的角色中心点一致。走动素材建议上传朝右的连续动作，系统会在左行时自动镜像。一般示范采用约 6 张帧、每秒约 6 帧；程序可依你实际上传的帧数或 GIF 自动播放。</p></details>
+        <details><summary>提醒、日历或计时器没有出现？</summary><p>确认提醒已启用，并检查时间、上午／下午与周期条件。可用“测试提醒”先确认姿势、气泡、音效与全屏效果。全屏提醒会将桌宠放到提醒画面指定位置。</p></details>
+        <details><summary>如何连接或断开 Google Calendar？</summary><p>在日历提醒区按下“Google 同步”，默认浏览器会打开登录与授权画面。成功后，程序会于启动与每天 00:00 同步一次。选择“断开 Google”即可停止后续同步；既有本地提醒不会自动删除。</p></details>
+        <details><summary>Google 登录失败或无法回到程序？</summary><p>确认默认浏览器可正常登录 Google，且防火墙或安全软件没有阻止 Desktop Pet Studio 的本地 loopback 回呼。不要在问题反馈中附上 OAuth 密钥、授权码或令牌；这些属于私人数据。</p></details>
+        <details><summary>导入姿势、音效或创意工坊 JSON 失败？</summary><p>请确认文件仍在原始位置、格式符合程序提示，并使用创意工坊页面的扫描或导入功能。创作者可参考程序内“创作者说明”了解 JSON 字段与 AI 素材模板。</p></details>
+      </div></div>
+      <div data-lang-content="en" hidden><p class="section-kicker">COMMON QUESTIONS</p><h2>Common questions</h2><div class="faq-list">
+        <details><summary>My pet is hidden or not showing. What should I do?</summary><p>Open the settings window and confirm the current state with the Show Pet toggle. You can also check the Show/Hide setting in Hotkeys; F12 is the default.</p></details>
+        <details><summary>Why does my pose animation shake or walk unnaturally?</summary><p>Make sure the character's visual center is consistent in every frame. Upload continuous walking art facing right; the app mirrors it for leftward movement. The default examples use roughly six frames at about six FPS, while the app can play the number of frames in your upload or GIF automatically.</p></details>
+        <details><summary>Why did a reminder, calendar event, or timer not appear?</summary><p>Confirm that the reminder is enabled and recheck its time, AM/PM, and recurrence. Use Test Reminder to verify pose, bubble, sound, and fullscreen behavior. Fullscreen reminders position the pet in the designated reminder area.</p></details>
+        <details><summary>How do I connect or disconnect Google Calendar?</summary><p>Press Google Sync in the calendar reminder area. Your default browser opens the sign-in and consent flow. After success, the app syncs at launch and daily at 00:00. Choose Disconnect Google to stop future sync without deleting existing local reminders.</p></details>
+        <details><summary>Google sign-in fails or does not return to the app.</summary><p>Make sure your default browser can sign in to Google and that your firewall or security software is not blocking Desktop Pet Studio's local loopback callback. Never include OAuth keys, authorization codes, or tokens in a support report; they are private data.</p></details>
+        <details><summary>Why did a pose, sound, or workshop JSON import fail?</summary><p>Check that the file remains in its original location and follows the format named by the app. Use the workshop page's scan or import action. Creators can use the in-app Creator Guide for JSON fields and AI asset templates.</p></details>
+      </div></div>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><div><div class="footer-brand">Desktop Pet Studio</div><p class="footer-note">(c) <span data-year></span> <span data-i18n="copyright">Desktop Pet Studio. 保留所有權利。</span></p></div><div class="footer-links"><a href="index.html" data-i18n="product">產品介紹</a><a href="privacy.html" data-i18n="privacy">隱私權政策</a><a href="terms.html" data-i18n="terms">使用條款</a><a href="docs/ai-team/google-oauth-verification-checklist.md" data-i18n="launch">發布前設定</a></div></div></footer>
+</body>
+</html>

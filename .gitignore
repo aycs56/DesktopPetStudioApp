@@ -1,0 +1,7 @@
+# Local validation artifacts
+__pycache__/
+*.py[cod]
+
+# Editor and operating-system metadata
+.DS_Store
+Thumbs.db
