@@ -293,7 +293,7 @@ details ul { padding-left: 38px; }
 .footer-links a { color: #c6ded9; }
 .footer-note { margin: 10px 0 0; color: #96b7b1; font-size: 0.86rem; }
 
-.lang-content[hidden] { display: none !important; }
+[data-lang-content][hidden] { display: none !important; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 @media (max-width: 860px) {

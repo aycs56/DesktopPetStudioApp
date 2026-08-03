@@ -5,7 +5,7 @@
  * domain and public support email before it is submitted.
  */
 window.DESKTOP_PET_SITE_CONFIG = Object.freeze({
-  publisherName: "Desktop Pet Studio",
+  publisherName: "DesktopPetStudio",
   supportEmail: "",
   supportUrl: "https://github.com/aycs56/DesktopPetStudioApp/issues",
   githubRepository: "aycs56/DesktopPetStudioApp",

@@ -4,7 +4,11 @@
 
 ## 已由網站與程式設計支援
 
-- [x] 官網首頁能說明 Desktop Pet Studio 的功能與 Google Calendar 同步用途。
+- [x] 官網首頁能說明 DesktopPetStudio 的功能與 Google Calendar 同步用途。
+- [x] 官網與 OAuth 同意畫面使用相同的產品名稱：`DesktopPetStudio`。
+- [x] 首頁已明確說明 DesktopPetStudio 是 Windows 桌面寵物創作與提醒應用程式。
+- [x] 多語內容區塊使用 `data-lang-content` 與強制隱藏規則，不會同時顯示三種語言。
+- [x] 發佈驗證會檢查所有 HTML 與 CSS 素材引用，阻擋遺失圖片。
 - [x] 網站有獨立隱私權政策、使用條款與支援頁。
 - [x] 隱私權政策描述 Google Calendar 的唯讀事件權限、外部瀏覽器登入、資料保存位置與中斷方式。
 - [x] 桌面程式的同步流程使用系統預設瀏覽器與 loopback 回呼，而非嵌入式瀏覽器。

@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+from html.parser import HTMLParser
 from pathlib import Path
 
 
@@ -19,6 +20,17 @@ REQUIRED_ASSETS = (
     "sitemap.xml",
 )
 FORBIDDEN_SECRET_MARKERS = ("GOCSPX-", "client_secret", "oauth_client.json", "refresh_token")
+
+
+class AssetReferenceParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.sources: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        for name, value in attrs:
+            if name == "src" and value:
+                self.sources.append(value)
 
 
 def fail(errors: list[str], message: str) -> None:
@@ -49,6 +61,26 @@ def main() -> int:
         for language in ("zh-Hant", "zh-Hans", "en"):
             if f'data-lang-content="{language}"' not in text:
                 fail(errors, f"{page} is missing {language} content")
+        parser = AssetReferenceParser()
+        parser.feed(text)
+        for source in parser.sources:
+            if source.startswith(("https://", "http://", "data:")):
+                continue
+            if not ((ROOT / page).parent / source).is_file():
+                fail(errors, f"{page} references a missing asset: {source}")
+
+    stylesheet = (ROOT / "assets/css/site.css").read_text(encoding="utf-8")
+    for source in re.findall(r"url\((?:['\"])?([^'\")]+)", stylesheet):
+        if source.startswith("data:"):
+            continue
+        if not ((ROOT / "assets/css") / source).resolve().is_file():
+            fail(errors, f"site.css references a missing asset: {source}")
+
+    homepage = page_text["index.html"]
+    if "DesktopPetStudio is a Windows desktop-pet creation and reminder app." not in homepage:
+        fail(errors, "index.html must clearly state the DesktopPetStudio application purpose")
+    if "Desktop Pet Studio" in homepage:
+        fail(errors, "index.html uses a brand name that differs from the OAuth application name")
 
     privacy = page_text["privacy.html"]
     for token in ("calendar.events.readonly", "Windows DPAPI", "Google", "local"):
