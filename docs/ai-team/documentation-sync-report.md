@@ -1,5 +1,13 @@
 # 文件同步與 QA 報告
 
+## GitHub Pages 部署紀錄
+
+- 儲存庫：`aycs56/DesktopPetStudioApp`
+- 發佈提交：`b7f03f5 Publish Desktop Pet Studio official website`
+- 官方網址：`https://aycs56.github.io/DesktopPetStudioApp/`
+- GitHub Actions：`Validate and deploy GitHub Pages` 已於 2026-08-03 成功完成驗證、Pages 設定、成品上傳與部署。
+- 發佈範圍：僅官方靜態網站、素材、文件與 Pages workflow；不含 Windows 桌寵 App、打包輸出、OAuth client 檔、權杖或其他私密設定。
+
 ## 交付範圍
 
 - 建立獨立 `official-site` 靜態網站專案，不影響既有 Windows 桌寵專案。
