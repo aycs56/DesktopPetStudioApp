@@ -19,7 +19,12 @@
     const lang = supported.includes(language) ? language : "zh-Hant";
     document.documentElement.lang = lang === "zh-Hans" ? "zh-CN" : lang === "zh-Hant" ? "zh-Hant" : "en";
     document.querySelectorAll("[data-lang-content]").forEach((element) => {
-      element.hidden = element.dataset.langContent !== lang;
+      const isSelected = element.dataset.langContent === lang;
+      element.hidden = !isSelected;
+      if (isSelected) {
+        element.classList.add("is-visible");
+        element.querySelectorAll("[data-reveal]").forEach((child) => child.classList.add("is-visible"));
+      }
     });
     document.querySelectorAll("[data-i18n]").forEach((element) => {
       const message = labels[lang][element.dataset.i18n];
@@ -89,6 +94,39 @@
     }
   }
 
+  function setupMotion() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const targets = Array.from(document.querySelectorAll(
+      ".hero-content, .feature-card, .step, .image-stage, .support-banner, .faq-list, .legal-copy"
+    ));
+    if (!targets.length) return;
+
+    document.documentElement.classList.add("motion-ready");
+    targets.forEach((target, index) => {
+      target.dataset.reveal = "";
+      target.style.setProperty("--reveal-order", String(index % 4));
+    });
+
+    const reveal = (target) => target.classList.add("is-visible");
+    if (!("IntersectionObserver" in window)) {
+      targets.forEach(reveal);
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        reveal(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12 });
+
+    targets.forEach((target) => {
+      if (!target.closest("[hidden]")) observer.observe(target);
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     const language = initialLanguage();
     document.querySelectorAll(".language-select").forEach((select) => {
@@ -98,5 +136,6 @@
     renderPublicConfig();
     document.querySelectorAll("[data-year]").forEach((element) => { element.textContent = String(new Date().getFullYear()); });
     setLanguage(language);
+    setupMotion();
   });
 }());
