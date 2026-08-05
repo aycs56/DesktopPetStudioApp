@@ -172,10 +172,10 @@ code {
 .hero-content { position: relative; z-index: 2; width: min(1080px, calc(100% - 112px)); margin: 0 auto; padding: 72px 0 88px; }
 
 .hero-pet {
-  position: absolute;
-  z-index: 1;
-  right: clamp(42px, 10vw, 160px);
-  bottom: 48px;
+  position: fixed;
+  z-index: 10;
+  right: clamp(28px, 5vw, 88px);
+  bottom: clamp(24px, 5vh, 52px);
   width: clamp(106px, 12vw, 176px);
   pointer-events: none;
 }
@@ -434,7 +434,7 @@ details ul { padding-left: 38px; }
   .hero { min-height: calc(100svh - 64px); background-position: center; background-size: auto 100%; }
   .hero::before { background: rgba(8, 43, 54, 0.46); }
   .hero-content { width: min(calc(100% - 48px), 1080px); padding: 56px 0 70px; }
-  .hero-pet { right: 22px; bottom: 20px; width: 98px; }
+  .hero-pet { right: 16px; bottom: 18px; width: 76px; }
   .hero-pixel-one { left: -16%; }
   .hero-pixel-two { right: -12%; }
   h1 { font-size: 2.6rem; }
