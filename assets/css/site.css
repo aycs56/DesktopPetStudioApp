@@ -158,7 +158,7 @@ code {
   min-height: min(680px, calc(100svh - 72px));
   overflow: hidden;
   color: #fff;
-  background: #123e49 url("../images/hero-pixel-studio.png") center / cover no-repeat;
+  background: #123e49 url("../images/hero-pixel-studio.png") center / contain no-repeat;
   isolation: isolate;
 }
 
@@ -431,7 +431,7 @@ details ul { padding-left: 38px; }
   .site-header { min-height: 64px; padding: 10px 16px; }
   .brand { font-size: 0.93rem; }
   .brand-mark { width: 30px; height: 30px; }
-  .hero { min-height: calc(100svh - 64px); background-position: 61% center; }
+  .hero { min-height: calc(100svh - 64px); background-position: center; }
   .hero::before { background: rgba(8, 43, 54, 0.46); }
   .hero-content { width: min(calc(100% - 48px), 1080px); padding: 56px 0 70px; }
   .hero-pet { right: 22px; bottom: 20px; width: 98px; }

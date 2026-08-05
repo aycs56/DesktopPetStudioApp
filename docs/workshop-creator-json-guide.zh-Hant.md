@@ -208,6 +208,7 @@ WorkshopLibrary/
   "enabled": true,
   "min_bits": 100,
   "max_bits": 499,
+  "duration_sec": 8,
   "bubble_texts": [
     "謝謝 {viewer_name} 的 {amount} {currency}！",
     "{viewer_name} 說：{viewer_message}"
@@ -220,6 +221,7 @@ WorkshopLibrary/
 | `enabled` | boolean | `false` | 匯入後是否啟用這個 Bits 規則。 |
 | `min_bits` | number | `1` | 觸發所需的最低 Bits，最小為 `1`。 |
 | `max_bits` | number | `0` | 觸發上限；填 `0` 代表不設上限。不可小於 `min_bits`。 |
+| `duration_sec` | number | `8` | `1` 到 `60` 秒。直播姿勢播放多久後自動回到觸發前的動作。 |
 | `bubble_texts` | array | `[]` | 命中後隨機顯示一則專用氣泡。 |
 
 氣泡可使用 `{viewer_name}`、`{viewer_message}`、`{amount}`、`{currency}`、`{platform}`、`{event_type}`。多個姿勢的金額範圍重疊時，系統會選擇範圍較精準的規則。訂閱者必須在「直播主模式」連接自己的 Twitch；工作坊 JSON 不應也無法放入任何 Twitch 私人授權資料。

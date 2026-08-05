@@ -208,6 +208,7 @@ Creators can add `twitch_trigger` to any base or custom pose. Once a player conn
   "enabled": true,
   "min_bits": 100,
   "max_bits": 499,
+  "duration_sec": 8,
   "bubble_texts": [
     "Thank you, {viewer_name}, for {amount} {currency}!",
     "{viewer_name} says: {viewer_message}"
@@ -220,6 +221,7 @@ Creators can add `twitch_trigger` to any base or custom pose. Once a player conn
 | `enabled` | boolean | `false` | Enables this Bits rule after import. |
 | `min_bits` | number | `1` | Minimum Bits needed to trigger, at least `1`. |
 | `max_bits` | number | `0` | Maximum Bits; use `0` for no upper limit. It cannot be lower than `min_bits`. |
+| `duration_sec` | number | `8` | `1` to `60` seconds. How long the live pose plays before the pet returns to its previous action. |
 | `bubble_texts` | array | `[]` | Dedicated lines; the app randomly picks one after a match. |
 
 Bubble templates support `{viewer_name}`, `{viewer_message}`, `{amount}`, `{currency}`, `{platform}`, and `{event_type}`. If several rules overlap, the narrowest matching range wins. Subscribers must connect their own Twitch account in Streamer Mode; Workshop JSON must not and cannot include private Twitch authorization data.
