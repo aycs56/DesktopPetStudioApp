@@ -1,6 +1,9 @@
 # Local validation artifacts
 __pycache__/
 *.py[cod]
+.playwright-cli/
+output/
+tmp/
 
 # Editor and operating-system metadata
 .DS_Store

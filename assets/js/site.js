@@ -4,9 +4,9 @@
   const STORAGE_KEY = "desktop-pet-studio-site-language";
   const supported = ["zh-Hant", "zh-Hans", "en"];
   const labels = {
-    "zh-Hant": { product: "產品介紹", privacy: "隱私權政策", terms: "使用條款", support: "支援資訊", language: "語言", menu: "開啟導覽選單", closeMenu: "關閉導覽選單", skip: "跳至主要內容", copyright: "DesktopPetStudio. 保留所有權利。", launch: "發布前設定" },
-    "zh-Hans": { product: "产品介绍", privacy: "隐私政策", terms: "使用条款", support: "支持信息", language: "语言", menu: "打开导航菜单", closeMenu: "关闭导航菜单", skip: "跳至主要内容", copyright: "DesktopPetStudio. 保留所有权利。", launch: "发布前设置" },
-    en: { product: "Product", privacy: "Privacy", terms: "Terms", support: "Support", language: "Language", menu: "Open navigation menu", closeMenu: "Close navigation menu", skip: "Skip to main content", copyright: "DesktopPetStudio. All rights reserved.", launch: "Pre-launch settings" }
+    "zh-Hant": { product: "產品介紹", workshop: "自訂與工作坊", privacy: "隱私權政策", terms: "使用條款", support: "支援資訊", language: "語言", menu: "開啟導覽選單", closeMenu: "關閉導覽選單", skip: "跳至主要內容", copyright: "DesktopPetStudio. 保留所有權利。", launch: "發布前設定" },
+    "zh-Hans": { product: "产品介绍", workshop: "自定义与创意工坊", privacy: "隐私政策", terms: "使用条款", support: "支持信息", language: "语言", menu: "打开导航菜单", closeMenu: "关闭导航菜单", skip: "跳至主要内容", copyright: "DesktopPetStudio. 保留所有权利。", launch: "发布前设置" },
+    en: { product: "Product", workshop: "Customize & Workshop", privacy: "Privacy", terms: "Terms", support: "Support", language: "Language", menu: "Open navigation menu", closeMenu: "Close navigation menu", skip: "Skip to main content", copyright: "DesktopPetStudio. All rights reserved.", launch: "Pre-launch settings" }
   };
 
   function initialLanguage() {
@@ -98,7 +98,7 @@
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const targets = Array.from(document.querySelectorAll(
-      ".hero-content, .feature-card, .step, .image-stage, .support-banner, .faq-list, .legal-copy"
+      ".hero-content, .feature-card, .step, .image-stage, .creator-path, .creator-pet-rail, .creator-guide-intro, .code-panel, .support-banner, .faq-list, .legal-copy"
     ));
     if (!targets.length) return;
 

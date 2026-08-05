@@ -14,10 +14,10 @@ Then open `http://localhost:4173`.
 
 ## Before publishing
 
-1. This repository publishes to `https://aycs56.github.io/DesktopPetStudioApp/`. Do not add OAuth secrets, client configuration JSON, access tokens, or any private credentials to this repository.
+1. The public canonical URL is `https://www.desktoppetstudio.com/`. Do not add OAuth secrets, client configuration JSON, access tokens, or any private credentials to this repository.
 2. Push `main`; the Pages workflow validates and deploys automatically. In the repository, set **Settings > Pages > Build and deployment > GitHub Actions** if GitHub has not already enabled it.
-3. GitHub Issues is the initial public support route. Before Google OAuth verification, set a real support email and an owned custom domain in `site.config.js`, then update `robots.txt` and `sitemap.xml` to that domain.
-4. Add the custom domain in GitHub Pages, enable HTTPS, then verify the domain in Google Search Console.
+3. GitHub Issues is the initial public support route. Before Google OAuth verification, set a real support email in `site.config.js`. Keep `publicSiteUrl`, `customDomain`, `robots.txt`, canonical links, and `sitemap.xml` on the same canonical domain.
+4. The GitHub Pages custom domain is `www.desktoppetstudio.com`; keep HTTPS enabled, then verify the registered root domain in Google Search Console.
 5. Set the deployed homepage, privacy policy, terms, support email, and verified authorized domain in Google Cloud before submitting OAuth verification.
 
 ## Validation
@@ -32,4 +32,4 @@ The first command validates the site. The second is the GitHub Pages release gat
 
 ## Content sources
 
-The copy describes the current local Google Calendar integration: optional read-only event sync through the system browser, local reminder creation, and a token protected on Windows with DPAPI. Review the content against the released application before every public deployment.
+The copy describes the current local Google Calendar integration: optional read-only event sync through the system browser, local reminder creation, and a token protected on Windows with DPAPI. The site also documents custom character workflows and the workshop-compatible JSON manifest. Review the content against the released application before every public deployment.

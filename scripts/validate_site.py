@@ -11,7 +11,11 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-PAGES = ("index.html", "privacy.html", "terms.html", "support.html", "404.html")
+PAGES = ("index.html", "creator-json.html", "privacy.html", "terms.html", "support.html", "404.html")
+PUBLIC_DOCUMENTS = (
+    "docs/workshop-creator-json-guide.zh-Hant.md",
+    "docs/workshop-creator-json-guide.en.md",
+)
 REQUIRED_ASSETS = (
     "assets/css/site.css",
     "assets/js/site.js",
@@ -44,7 +48,7 @@ def main() -> int:
     args = parser.parse_args()
     errors: list[str] = []
 
-    for relative_path in (*PAGES, *REQUIRED_ASSETS, "site.config.js"):
+    for relative_path in (*PAGES, *PUBLIC_DOCUMENTS, *REQUIRED_ASSETS, "site.config.js"):
         if not (ROOT / relative_path).is_file():
             fail(errors, f"Missing required file: {relative_path}")
 
@@ -77,7 +81,12 @@ def main() -> int:
             fail(errors, f"site.css references a missing asset: {source}")
 
     homepage = page_text["index.html"]
-    if "DesktopPetStudio is a Windows desktop-pet creation and reminder app." not in homepage:
+    purpose_statements = (
+        "DesktopPetStudio 是 Windows 桌面寵物應用程式。",
+        "DesktopPetStudio 是 Windows 桌面宠物应用程序。",
+        "DesktopPetStudio is a Windows desktop-pet app.",
+    )
+    if not all(statement in homepage for statement in purpose_statements):
         fail(errors, "index.html must clearly state the DesktopPetStudio application purpose")
     if "Desktop Pet Studio" in homepage:
         fail(errors, "index.html uses a brand name that differs from the OAuth application name")
@@ -87,7 +96,7 @@ def main() -> int:
         if token not in privacy:
             fail(errors, f"privacy.html is missing expected OAuth disclosure: {token}")
 
-    all_text = "\n".join((ROOT / path).read_text(encoding="utf-8", errors="ignore") for path in PAGES + ("site.config.js",))
+    all_text = "\n".join((ROOT / path).read_text(encoding="utf-8", errors="ignore") for path in PAGES + PUBLIC_DOCUMENTS + ("site.config.js",))
     for marker in FORBIDDEN_SECRET_MARKERS:
         if marker.lower() in all_text.lower():
             fail(errors, f"Potential secret marker found in public site: {marker}")

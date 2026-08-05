@@ -9,7 +9,7 @@ window.DESKTOP_PET_SITE_CONFIG = Object.freeze({
   supportEmail: "",
   supportUrl: "https://github.com/aycs56/DesktopPetStudioApp/issues",
   githubRepository: "aycs56/DesktopPetStudioApp",
-  publicSiteUrl: "https://aycs56.github.io/DesktopPetStudioApp",
-  customDomain: "",
+  publicSiteUrl: "https://www.desktoppetstudio.com",
+  customDomain: "www.desktoppetstudio.com",
   effectiveDate: "2026-08-03"
 });

@@ -3,13 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="DesktopPetStudio is a Windows desktop-pet creation and reminder app with custom poses, care features, and optional local Google Calendar sync.">
+  <meta name="description" content="DesktopPetStudio 是可自訂姿勢動畫、提醒、照顧日常與工作坊相容創作內容的 Windows 桌面寵物應用程式。">
   <meta name="theme-color" content="#0d8f84">
-  <title>DesktopPetStudio | Official Site</title>
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DesktopPetStudio">
+  <meta property="og:title" content="DesktopPetStudio | 自訂你的桌面寵物">
+  <meta property="og:description" content="用自己的角色素材建立姿勢動畫、提醒與日常互動，也能創作工作坊相容內容。">
+  <meta property="og:url" content="https://www.desktoppetstudio.com/">
+  <meta property="og:image" content="https://www.desktoppetstudio.com/assets/images/hero-pixel-studio.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.desktoppetstudio.com/">
+  <title>DesktopPetStudio | 自訂你的桌面寵物</title>
   <link rel="icon" href="assets/images/app-icon.png" type="image/png">
   <link rel="stylesheet" href="assets/css/site.css">
   <script src="site.config.js"></script>
   <script src="assets/js/site.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DesktopPetStudio",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Windows",
+    "description": "A customizable Windows desktop-pet creation and reminder application with multi-frame poses, care features, and workshop-compatible creator content.",
+    "url": "https://www.desktoppetstudio.com/",
+    "image": "https://www.desktoppetstudio.com/assets/images/hero-pixel-studio.png",
+    "inLanguage": ["zh-Hant", "zh-Hans", "en"]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">跳至主要內容</a>
@@ -20,6 +42,7 @@
     </a>
     <nav class="main-nav" id="primary-nav" aria-label="Primary navigation">
       <a href="index.html" aria-current="page" data-i18n="product">產品介紹</a>
+      <a href="#workshop" data-i18n="workshop">自訂與工作坊</a>
       <a href="privacy.html" data-i18n="privacy">隱私權政策</a>
       <a href="terms.html" data-i18n="terms">使用條款</a>
       <a href="support.html" data-i18n="support">支援資訊</a>
@@ -39,101 +62,146 @@
     <section class="hero">
       <div class="hero-content" data-lang-content="zh-Hant">
         <span class="eyebrow">Windows Desktop Companion</span>
-        <h1>讓每個桌面，都有自己的小小日常。</h1>
-        <p class="hero-copy">DesktopPetStudio 是一款可自訂姿勢動畫、提醒與日常互動的 Windows 桌面寵物創作應用程式。放入素材、設定提醒，讓牠陪你工作、吃飯與慢慢變得親近。</p>
-        <div class="hero-actions"><a class="button button-primary" href="#features">探索功能</a><a class="button button-secondary" href="support.html">取得支援</a></div>
+        <h1>做出專屬於你的桌面寵物。</h1>
+        <p class="hero-copy">DesktopPetStudio 是 Windows 桌面寵物應用程式。上傳角色動畫、設定動作與提醒，讓桌寵陪你工作和生活。</p>
+        <div class="hero-actions"><a class="button button-primary" href="#features">探索功能</a><a class="button button-secondary" href="#workshop">打造你的桌寵</a></div>
       </div>
       <div class="hero-content" data-lang-content="zh-Hans" hidden>
         <span class="eyebrow">Windows Desktop Companion</span>
-        <h1>让每个桌面，都有自己的小小日常。</h1>
-        <p class="hero-copy">DesktopPetStudio 是一款可自定义姿势动画、提醒与日常互动的 Windows 桌面宠物创作应用程序。放入素材、设置提醒，让它陪你工作、吃饭与慢慢变得亲近。</p>
-        <div class="hero-actions"><a class="button button-primary" href="#features">探索功能</a><a class="button button-secondary" href="support.html">获取支持</a></div>
+        <h1>做出专属于你的桌面宠物。</h1>
+        <p class="hero-copy">DesktopPetStudio 是 Windows 桌面宠物应用程序。上传角色动画、设置动作与提醒，让桌宠陪你工作和生活。</p>
+        <div class="hero-actions"><a class="button button-primary" href="#features">探索功能</a><a class="button button-secondary" href="#workshop">打造你的桌宠</a></div>
       </div>
       <div class="hero-content" data-lang-content="en" hidden>
         <span class="eyebrow">Windows Desktop Companion</span>
-        <h1>A little everyday life for every desktop.</h1>
-        <p class="hero-copy">DesktopPetStudio is a Windows desktop-pet creation and reminder app. Add pose animations, set reminders, and let your pet work, snack, and grow closer beside you.</p>
-        <div class="hero-actions"><a class="button button-primary" href="#features">Explore features</a><a class="button button-secondary" href="support.html">Get support</a></div>
+        <h1>Create a desktop pet that is yours.</h1>
+        <p class="hero-copy">DesktopPetStudio is a Windows desktop-pet app. Upload character animation, set poses and reminders, and let your pet accompany you while you work and live.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#features">Explore features</a><a class="button button-secondary" href="#workshop">Make it yours</a></div>
       </div>
       <div class="hero-pet" aria-hidden="true">
         <span class="hero-pixel hero-pixel-one"></span>
         <span class="hero-pixel hero-pixel-two"></span>
         <span class="hero-pixel hero-pixel-three"></span>
         <span class="hero-pixel hero-pixel-four"></span>
-        <img class="hero-pet-cat" src="assets/images/cat-walk.png" alt="">
+        <div class="hero-pet-stage">
+          <img class="hero-pet-frame hero-pet-frame-01" src="assets/images/hero-walk/walk_01.png" alt="">
+          <img class="hero-pet-frame hero-pet-frame-02" src="assets/images/hero-walk/walk_02.png" alt="">
+          <img class="hero-pet-frame hero-pet-frame-03" src="assets/images/hero-walk/walk_03.png" alt="">
+          <img class="hero-pet-frame hero-pet-frame-04" src="assets/images/hero-walk/walk_04.png" alt="">
+          <img class="hero-pet-frame hero-pet-frame-05" src="assets/images/hero-walk/walk_05.png" alt="">
+          <img class="hero-pet-frame hero-pet-frame-06" src="assets/images/hero-walk/walk_06.png" alt="">
+        </div>
       </div>
     </section>
 
     <section class="section" id="features">
       <div class="section-inner" data-lang-content="zh-Hant">
         <p class="section-kicker">CREATE, REMIND, CARE</p>
-        <h2>一隻真正照著你的節奏生活的桌寵</h2>
-        <p class="lead">從多張影格動畫到日常互動，所有核心玩法都圍繞著你的素材、時間與生活習慣而設計。</p>
+        <h2>桌寵需要的動作、提醒與日常功能</h2>
+        <p class="lead">上傳角色素材後，就能設定動作、提醒和日常互動，讓桌寵配合你的使用習慣。</p>
         <div class="feature-grid">
-          <article class="feature-card"><img src="assets/images/cat-walk.png" alt="像素貓走路姿勢"><div><h3>姿勢工作台</h3><p>上傳 PNG 或 GIF 動畫，設定拖曳、走動、休息、攀附與下墜等姿勢。</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-ribbon.png" alt="像素貓與緞帶"><div><h3>有生命的移動</h3><p>走動可隨機延伸至左右邊界，自動鏡像朝向；掉落後也會有自然的小彈跳。</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-work.png" alt="像素貓工作"><div><h3>提醒陪伴</h3><p>鬧鐘、行事曆、倒數計時與任務清單，都能搭配姿勢、氣泡、音效與全螢幕提醒。</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-eat.png" alt="像素貓吃東西"><div><h3>照顧日常</h3><p>透過工作、商城與背包照顧飽食度、親合度與心情，換來更有個性的回應。</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-screen-top.png" alt="像素貓攀附螢幕"><div><h3>專注與免打擾</h3><p>固定專注模式可停在你指定的位置；免打擾與快捷鍵讓陪伴不打斷重要時刻。</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-idle.png" alt="像素貓休息"><div><h3>AI 與工作坊素材</h3><p>內建 AI 素材助手與創作者 JSON 格式，讓新姿勢、文字與互動方式能被清楚分享。</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-walk" role="img" aria-label="像素貓走路姿勢"><img src="assets/images/pose-animations/walk/walk_01.png" alt=""><img src="assets/images/pose-animations/walk/walk_02.png" alt=""><img src="assets/images/pose-animations/walk/walk_03.png" alt=""><img src="assets/images/pose-animations/walk/walk_04.png" alt=""><img src="assets/images/pose-animations/walk/walk_05.png" alt=""><img src="assets/images/pose-animations/walk/walk_06.png" alt=""></div><div><h3>姿勢工作台</h3><p>上傳 PNG 或 GIF 動畫，設定拖曳、走動、休息、攀附與下墜等姿勢。</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-fall" role="img" aria-label="像素貓下墜姿勢"><img src="assets/images/pose-animations/fall/fall_01.png" alt=""><img src="assets/images/pose-animations/fall/fall_02.png" alt=""><img src="assets/images/pose-animations/fall/fall_03.png" alt=""><img src="assets/images/pose-animations/fall/fall_04.png" alt=""><img src="assets/images/pose-animations/fall/fall_05.png" alt=""><img src="assets/images/pose-animations/fall/fall_06.png" alt=""></div><div><h3>有生命的移動</h3><p>走動可隨機延伸至左右邊界，自動鏡像朝向；掉落後也會有自然的小彈跳。</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-idle" role="img" aria-label="像素貓原地休息姿勢"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""><img src="assets/images/pose-animations/idle/idle_02.png" alt=""><img src="assets/images/pose-animations/idle/idle_03.png" alt=""><img src="assets/images/pose-animations/idle/idle_04.png" alt=""><img src="assets/images/pose-animations/idle/idle_05.png" alt=""><img src="assets/images/pose-animations/idle/idle_06.png" alt=""></div><div><h3>提醒陪伴</h3><p>鬧鐘、行事曆、倒數計時與任務清單，都能搭配姿勢、氣泡、音效與全螢幕提醒。</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-focus" role="img" aria-label="像素貓專注姿勢"><img src="assets/images/pose-animations/focus/focus_01.png" alt=""><img src="assets/images/pose-animations/focus/focus_02.png" alt=""><img src="assets/images/pose-animations/focus/focus_03.png" alt=""><img src="assets/images/pose-animations/focus/focus_04.png" alt=""><img src="assets/images/pose-animations/focus/focus_05.png" alt=""><img src="assets/images/pose-animations/focus/focus_06.png" alt=""></div><div><h3>照顧日常</h3><p>透過工作、商城與背包照顧飽食度、親合度與心情，換來更有個性的回應。</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-drag" role="img" aria-label="左鍵提起像素貓姿勢"><img src="assets/images/pose-animations/drag/drag_01.png" alt=""><img src="assets/images/pose-animations/drag/drag_02.png" alt=""><img src="assets/images/pose-animations/drag/drag_03.png" alt=""><img src="assets/images/pose-animations/drag/drag_04.png" alt=""><img src="assets/images/pose-animations/drag/drag_05.png" alt=""><img src="assets/images/pose-animations/drag/drag_06.png" alt=""></div><div><h3>專注與免打擾</h3><p>固定專注模式可停在你指定的位置；免打擾與快捷鍵讓陪伴不打斷重要時刻。</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-screen-top" role="img" aria-label="像素貓攀附螢幕姿勢"><img src="assets/images/pose-animations/screen_top/screen_top_01.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_02.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_03.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_04.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_05.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_06.png" alt=""></div><div><h3>AI 與工作坊素材</h3><p>內建 AI 素材助手與創作者 JSON 格式，讓新姿勢、文字與互動方式能被清楚分享。</p></div></article>
         </div>
       </div>
       <div class="section-inner" data-lang-content="zh-Hans" hidden>
         <p class="section-kicker">CREATE, REMIND, CARE</p>
-        <h2>一只真正跟着你的节奏生活的桌宠</h2>
-        <p class="lead">从多张帧动画到日常互动，所有核心玩法都围绕你的素材、时间与生活习惯而设计。</p>
+        <h2>桌宠需要的动作、提醒与日常功能</h2>
+        <p class="lead">上传角色素材后，就能设置动作、提醒和日常互动，让桌宠配合你的使用习惯。</p>
         <div class="feature-grid">
-          <article class="feature-card"><img src="assets/images/cat-walk.png" alt="像素猫走路姿势"><div><h3>姿势工作台</h3><p>上传 PNG 或 GIF 动画，设置拖曳、走动、休息、攀附与下坠等姿势。</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-ribbon.png" alt="像素猫与缎带"><div><h3>有生命的移动</h3><p>走动可随机延伸至左右边界，自动镜像朝向；掉落后也会有自然的小弹跳。</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-work.png" alt="像素猫工作"><div><h3>提醒陪伴</h3><p>闹钟、日历、倒数计时与任务清单，都能搭配姿势、气泡、音效与全屏提醒。</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-eat.png" alt="像素猫吃东西"><div><h3>照顾日常</h3><p>透过工作、商城与背包照顾饱食度、亲合度与心情，换来更有个性的回应。</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-screen-top.png" alt="像素猫攀附屏幕"><div><h3>专注与免打扰</h3><p>固定专注模式可停在你指定的位置；免打扰与快捷键让陪伴不打断重要时刻。</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-idle.png" alt="像素猫休息"><div><h3>AI 与创意工坊素材</h3><p>内置 AI 素材助手与创作者 JSON 格式，让新姿势、文字与互动方式能被清楚分享。</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-walk" role="img" aria-label="像素猫走路姿势"><img src="assets/images/pose-animations/walk/walk_01.png" alt=""><img src="assets/images/pose-animations/walk/walk_02.png" alt=""><img src="assets/images/pose-animations/walk/walk_03.png" alt=""><img src="assets/images/pose-animations/walk/walk_04.png" alt=""><img src="assets/images/pose-animations/walk/walk_05.png" alt=""><img src="assets/images/pose-animations/walk/walk_06.png" alt=""></div><div><h3>姿势工作台</h3><p>上传 PNG 或 GIF 动画，设置拖曳、走动、休息、攀附与下坠等姿势。</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-fall" role="img" aria-label="像素猫下坠姿势"><img src="assets/images/pose-animations/fall/fall_01.png" alt=""><img src="assets/images/pose-animations/fall/fall_02.png" alt=""><img src="assets/images/pose-animations/fall/fall_03.png" alt=""><img src="assets/images/pose-animations/fall/fall_04.png" alt=""><img src="assets/images/pose-animations/fall/fall_05.png" alt=""><img src="assets/images/pose-animations/fall/fall_06.png" alt=""></div><div><h3>有生命的移动</h3><p>走动可随机延伸至左右边界，自动镜像朝向；掉落后也会有自然的小弹跳。</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-idle" role="img" aria-label="像素猫原地休息姿势"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""><img src="assets/images/pose-animations/idle/idle_02.png" alt=""><img src="assets/images/pose-animations/idle/idle_03.png" alt=""><img src="assets/images/pose-animations/idle/idle_04.png" alt=""><img src="assets/images/pose-animations/idle/idle_05.png" alt=""><img src="assets/images/pose-animations/idle/idle_06.png" alt=""></div><div><h3>提醒陪伴</h3><p>闹钟、日历、倒数计时与任务清单，都能搭配姿势、气泡、音效与全屏提醒。</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-focus" role="img" aria-label="像素猫专注姿势"><img src="assets/images/pose-animations/focus/focus_01.png" alt=""><img src="assets/images/pose-animations/focus/focus_02.png" alt=""><img src="assets/images/pose-animations/focus/focus_03.png" alt=""><img src="assets/images/pose-animations/focus/focus_04.png" alt=""><img src="assets/images/pose-animations/focus/focus_05.png" alt=""><img src="assets/images/pose-animations/focus/focus_06.png" alt=""></div><div><h3>照顾日常</h3><p>透过工作、商城与背包照顾饱食度、亲合度与心情，换来更有个性的回应。</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-drag" role="img" aria-label="左键提起像素猫姿势"><img src="assets/images/pose-animations/drag/drag_01.png" alt=""><img src="assets/images/pose-animations/drag/drag_02.png" alt=""><img src="assets/images/pose-animations/drag/drag_03.png" alt=""><img src="assets/images/pose-animations/drag/drag_04.png" alt=""><img src="assets/images/pose-animations/drag/drag_05.png" alt=""><img src="assets/images/pose-animations/drag/drag_06.png" alt=""></div><div><h3>专注与免打扰</h3><p>固定专注模式可停在你指定的位置；免打扰与快捷键让陪伴不打断重要时刻。</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-screen-top" role="img" aria-label="像素猫攀附屏幕姿势"><img src="assets/images/pose-animations/screen_top/screen_top_01.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_02.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_03.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_04.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_05.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_06.png" alt=""></div><div><h3>AI 与创意工坊素材</h3><p>内置 AI 素材助手与创作者 JSON 格式，让新姿势、文字与互动方式能被清楚分享。</p></div></article>
         </div>
       </div>
       <div class="section-inner" data-lang-content="en" hidden>
         <p class="section-kicker">CREATE, REMIND, CARE</p>
-        <h2>A desktop pet that lives to your rhythm</h2>
-        <p class="lead">From multi-frame animation to everyday interaction, every core feature is shaped around your art, time, and routines.</p>
+        <h2>Movement, reminders, and daily features for your desktop pet</h2>
+        <p class="lead">Upload character art, then set up poses, reminders, and daily interactions to fit the way you use your computer.</p>
         <div class="feature-grid">
-          <article class="feature-card"><img src="assets/images/cat-walk.png" alt="Pixel cat walking"><div><h3>Pose studio</h3><p>Upload PNG or GIF animation and define drag, walking, resting, edge-clinging, and falling poses.</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-ribbon.png" alt="Pixel cat with ribbon"><div><h3>Movement with life</h3><p>Walking reaches both desktop edges, mirrors direction automatically, and lands with a gentle little bounce.</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-work.png" alt="Pixel cat at work"><div><h3>Reminders with company</h3><p>Alarms, calendar events, timers, and task lists can all use a pose, bubble, sound, and fullscreen alert.</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-eat.png" alt="Pixel cat eating"><div><h3>Everyday care</h3><p>Use work, the shop, and your inventory to care for hunger, affinity, and mood with more personal reactions.</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-screen-top.png" alt="Pixel cat clinging to a screen"><div><h3>Focus and quiet time</h3><p>Focus mode stays where you place it, while do-not-disturb rules and shortcuts protect important moments.</p></div></article>
-          <article class="feature-card"><img src="assets/images/cat-idle.png" alt="Pixel cat resting"><div><h3>AI and workshop-ready art</h3><p>The AI Asset Helper and creator JSON format make it clear how to share poses, words, and new interactions.</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-walk" role="img" aria-label="Pixel cat walking pose"><img src="assets/images/pose-animations/walk/walk_01.png" alt=""><img src="assets/images/pose-animations/walk/walk_02.png" alt=""><img src="assets/images/pose-animations/walk/walk_03.png" alt=""><img src="assets/images/pose-animations/walk/walk_04.png" alt=""><img src="assets/images/pose-animations/walk/walk_05.png" alt=""><img src="assets/images/pose-animations/walk/walk_06.png" alt=""></div><div><h3>Pose studio</h3><p>Upload PNG or GIF animation and define drag, walking, resting, edge-clinging, and falling poses.</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-fall" role="img" aria-label="Pixel cat falling pose"><img src="assets/images/pose-animations/fall/fall_01.png" alt=""><img src="assets/images/pose-animations/fall/fall_02.png" alt=""><img src="assets/images/pose-animations/fall/fall_03.png" alt=""><img src="assets/images/pose-animations/fall/fall_04.png" alt=""><img src="assets/images/pose-animations/fall/fall_05.png" alt=""><img src="assets/images/pose-animations/fall/fall_06.png" alt=""></div><div><h3>Movement with life</h3><p>Walking reaches both desktop edges, mirrors direction automatically, and lands with a gentle little bounce.</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-idle" role="img" aria-label="Pixel cat idle pose"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""><img src="assets/images/pose-animations/idle/idle_02.png" alt=""><img src="assets/images/pose-animations/idle/idle_03.png" alt=""><img src="assets/images/pose-animations/idle/idle_04.png" alt=""><img src="assets/images/pose-animations/idle/idle_05.png" alt=""><img src="assets/images/pose-animations/idle/idle_06.png" alt=""></div><div><h3>Reminders with company</h3><p>Alarms, calendar events, timers, and task lists can all use a pose, bubble, sound, and fullscreen alert.</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-focus" role="img" aria-label="Pixel cat focus pose"><img src="assets/images/pose-animations/focus/focus_01.png" alt=""><img src="assets/images/pose-animations/focus/focus_02.png" alt=""><img src="assets/images/pose-animations/focus/focus_03.png" alt=""><img src="assets/images/pose-animations/focus/focus_04.png" alt=""><img src="assets/images/pose-animations/focus/focus_05.png" alt=""><img src="assets/images/pose-animations/focus/focus_06.png" alt=""></div><div><h3>Everyday care</h3><p>Use work, the shop, and your inventory to care for hunger, affinity, and mood with more personal reactions.</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-drag" role="img" aria-label="Pixel cat lifted by the left mouse button"><img src="assets/images/pose-animations/drag/drag_01.png" alt=""><img src="assets/images/pose-animations/drag/drag_02.png" alt=""><img src="assets/images/pose-animations/drag/drag_03.png" alt=""><img src="assets/images/pose-animations/drag/drag_04.png" alt=""><img src="assets/images/pose-animations/drag/drag_05.png" alt=""><img src="assets/images/pose-animations/drag/drag_06.png" alt=""></div><div><h3>Focus and quiet time</h3><p>Focus mode stays where you place it, while do-not-disturb rules and shortcuts protect important moments.</p></div></article>
+          <article class="feature-card"><div class="pose-animation pose-animation-screen-top" role="img" aria-label="Pixel cat clinging to a screen"><img src="assets/images/pose-animations/screen_top/screen_top_01.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_02.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_03.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_04.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_05.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_06.png" alt=""></div><div><h3>AI and workshop-ready art</h3><p>The AI Asset Helper and creator JSON format make it clear how to share poses, words, and new interactions.</p></div></article>
         </div>
       </div>
     </section>
 
     <section class="section section-soft">
       <div class="section-inner split" data-lang-content="zh-Hant">
-        <div><p class="section-kicker">OPTIONAL CALENDAR SYNC</p><h2>把重要的時間，交給熟悉的陪伴提醒</h2><p class="lead">你可以選擇連接 Google Calendar，將近期活動同步成桌寵的本機提醒。登入在預設瀏覽器完成，程式只讀取建立提醒所需的行事曆事件。</p><ul class="check-list"><li>可選擇同步近 30、60 或 180 天</li><li>啟動程式與每日 00:00 會再次同步</li><li>可隨時中斷連線或切換帳號，既有本機提醒不會被刪除</li></ul><div class="button-row"><a class="button button-teal" href="privacy.html">閱讀資料處理方式</a><a class="button button-secondary" href="support.html">查看同步支援</a></div></div>
-        <div class="image-stage"><img src="assets/images/cat-screen-top.png" alt="像素貓攀附在螢幕上方"></div>
+        <div><p class="section-kicker">OPTIONAL CALENDAR SYNC</p><h2>讓桌寵提醒你的重要行程</h2><p class="lead">連接 Google Calendar 後，程式會把近期行程建立成桌寵提醒。登入會在預設瀏覽器完成，程式只讀取建立提醒需要的行事曆事件。</p><ul class="check-list"><li>可選擇同步近 30、60 或 180 天</li><li>啟動程式與每日 00:00 會再次同步</li><li>可隨時中斷連線或切換帳號，既有本機提醒不會被刪除</li></ul><div class="button-row"><a class="button button-teal" href="privacy.html">閱讀資料處理方式</a><a class="button button-secondary" href="support.html">查看同步支援</a></div></div>
+        <div class="image-stage"><div class="pose-animation pose-animation-stage pose-animation-screen-top" role="img" aria-label="像素貓攀附在螢幕上方"><img src="assets/images/pose-animations/screen_top/screen_top_01.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_02.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_03.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_04.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_05.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_06.png" alt=""></div></div>
       </div>
       <div class="section-inner split" data-lang-content="zh-Hans" hidden>
-        <div><p class="section-kicker">OPTIONAL CALENDAR SYNC</p><h2>把重要时间，交给熟悉的陪伴提醒</h2><p class="lead">你可以选择连接 Google Calendar，将近期活动同步成桌宠的本地提醒。登录在默认浏览器完成，程序只读取建立提醒所需的日历事件。</p><ul class="check-list"><li>可选择同步近 30、60 或 180 天</li><li>启动程序与每日 00:00 会再次同步</li><li>可随时断开连接或切换账号，既有本地提醒不会被删除</li></ul><div class="button-row"><a class="button button-teal" href="privacy.html">阅读数据处理方式</a><a class="button button-secondary" href="support.html">查看同步支持</a></div></div>
-        <div class="image-stage"><img src="assets/images/cat-screen-top.png" alt="像素猫攀附在屏幕上方"></div>
+        <div><p class="section-kicker">OPTIONAL CALENDAR SYNC</p><h2>让桌宠提醒你的重要日程</h2><p class="lead">连接 Google Calendar 后，程序会把近期日程建立成桌宠提醒。登录会在默认浏览器完成，程序只读取建立提醒需要的日历事件。</p><ul class="check-list"><li>可选择同步近 30、60 或 180 天</li><li>启动程序与每日 00:00 会再次同步</li><li>可随时断开连接或切换账号，既有本地提醒不会被删除</li></ul><div class="button-row"><a class="button button-teal" href="privacy.html">阅读数据处理方式</a><a class="button button-secondary" href="support.html">查看同步支持</a></div></div>
+        <div class="image-stage"><div class="pose-animation pose-animation-stage pose-animation-screen-top" role="img" aria-label="像素猫攀附在屏幕上方"><img src="assets/images/pose-animations/screen_top/screen_top_01.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_02.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_03.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_04.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_05.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_06.png" alt=""></div></div>
       </div>
       <div class="section-inner split" data-lang-content="en" hidden>
-        <div><p class="section-kicker">OPTIONAL CALENDAR SYNC</p><h2>Let a familiar companion remember the important moments</h2><p class="lead">You may connect Google Calendar and turn upcoming events into local desktop-pet reminders. Sign-in happens in your default browser, and the app reads only the calendar events needed to create reminders.</p><ul class="check-list"><li>Choose a 30-, 60-, or 180-day sync window</li><li>Sync again when the app starts and every day at 00:00</li><li>Disconnect or change accounts anytime without deleting existing local reminders</li></ul><div class="button-row"><a class="button button-teal" href="privacy.html">See how data is handled</a><a class="button button-secondary" href="support.html">Calendar sync support</a></div></div>
-        <div class="image-stage"><img src="assets/images/cat-screen-top.png" alt="Pixel cat clinging to the top of a screen"></div>
+        <div><p class="section-kicker">OPTIONAL CALENDAR SYNC</p><h2>Let your pet remind you about important events</h2><p class="lead">After you connect Google Calendar, the app turns upcoming events into desktop-pet reminders. Sign-in happens in your default browser, and the app reads only the events needed to create reminders.</p><ul class="check-list"><li>Choose a 30-, 60-, or 180-day sync window</li><li>Sync again when the app starts and every day at 00:00</li><li>Disconnect or change accounts anytime without deleting existing local reminders</li></ul><div class="button-row"><a class="button button-teal" href="privacy.html">See how data is handled</a><a class="button button-secondary" href="support.html">Calendar sync support</a></div></div>
+        <div class="image-stage"><div class="pose-animation pose-animation-stage pose-animation-screen-top" role="img" aria-label="Pixel cat clinging to the top of a screen"><img src="assets/images/pose-animations/screen_top/screen_top_01.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_02.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_03.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_04.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_05.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_06.png" alt=""></div></div>
       </div>
     </section>
 
     <section class="section section-dark">
       <div class="section-inner" data-lang-content="zh-Hant">
-        <p class="section-kicker">YOUR DESKTOP, YOUR PET</p><h2>素材、節奏與個性，都能慢慢長成你的樣子。</h2><div class="steps"><div class="step"><strong>01</strong><h3>帶入你的角色</h3><p>使用 6 幀左右、每秒約 6 幀的動態素材建立基礎姿勢，走動圖請面向右方，系統會自動鏡像。</p></div><div class="step"><strong>02</strong><h3>安排牠的日常</h3><p>用提醒、氣泡文字與照顧系統，讓桌面角色會因時間和你的互動而有不同反應。</p></div><div class="step"><strong>03</strong><h3>分享新的可能</h3><p>使用工作坊相容的 JSON 設定，將姿勢、移動、音效與 AI 素材說明整理成創作內容。</p></div></div>
+        <p class="section-kicker">YOUR DESKTOP, YOUR PET</p><h2>三步建立你的桌寵</h2><div class="steps"><div class="step"><strong>01</strong><h3>匯入角色素材</h3><p>使用約 6 張、每秒約 6 幀的圖片建立基礎姿勢。走動圖請朝右，系統會自動鏡像。</p></div><div class="step"><strong>02</strong><h3>設定提醒與日常互動</h3><p>設定提醒、氣泡文字和照顧系統，讓角色依時間和互動做出不同反應。</p></div><div class="step"><strong>03</strong><h3>分享你的桌寵內容</h3><p>使用工作坊相容的 JSON，整理姿勢、移動、音效和 AI 素材說明。</p></div></div>
       </div>
       <div class="section-inner" data-lang-content="zh-Hans" hidden>
-        <p class="section-kicker">YOUR DESKTOP, YOUR PET</p><h2>素材、节奏与个性，都能慢慢长成你的样子。</h2><div class="steps"><div class="step"><strong>01</strong><h3>带入你的角色</h3><p>使用约 6 帧、每秒约 6 帧的动态素材建立基础姿势，走动图请面向右方，系统会自动镜像。</p></div><div class="step"><strong>02</strong><h3>安排它的日常</h3><p>用提醒、气泡文字与照顾系统，让桌面角色会因时间和你的互动而有不同反应。</p></div><div class="step"><strong>03</strong><h3>分享新的可能</h3><p>使用创意工坊兼容的 JSON 设置，将姿势、移动、音效与 AI 素材说明整理成创作内容。</p></div></div>
+        <p class="section-kicker">YOUR DESKTOP, YOUR PET</p><h2>三步建立你的桌宠</h2><div class="steps"><div class="step"><strong>01</strong><h3>导入角色素材</h3><p>使用约 6 张、每秒约 6 帧的图片建立基础姿势。走动图请朝右，系统会自动镜像。</p></div><div class="step"><strong>02</strong><h3>设置提醒与日常互动</h3><p>设置提醒、气泡文字和照顾系统，让角色依时间和互动做出不同反应。</p></div><div class="step"><strong>03</strong><h3>分享你的桌宠内容</h3><p>使用创意工坊兼容的 JSON，整理姿势、移动、音效和 AI 素材说明。</p></div></div>
       </div>
       <div class="section-inner" data-lang-content="en" hidden>
-        <p class="section-kicker">YOUR DESKTOP, YOUR PET</p><h2>Your art, pace, and personality can grow into something personal.</h2><div class="steps"><div class="step"><strong>01</strong><h3>Bring in your character</h3><p>Build base poses from roughly six frames at about six frames per second. Supply walking art facing right; the app mirrors it when needed.</p></div><div class="step"><strong>02</strong><h3>Set the everyday rhythm</h3><p>Use reminders, bubble text, and care systems so your companion reacts differently to time and your interactions.</p></div><div class="step"><strong>03</strong><h3>Share new possibilities</h3><p>Use workshop-compatible JSON to package poses, movement, sound effects, and AI asset guidance for creators.</p></div></div>
+        <p class="section-kicker">YOUR DESKTOP, YOUR PET</p><h2>Build your desktop pet in three steps</h2><div class="steps"><div class="step"><strong>01</strong><h3>Import your character art</h3><p>Use about six images at roughly six frames per second to create base poses. Supply walk art facing right; the app mirrors it automatically.</p></div><div class="step"><strong>02</strong><h3>Set reminders and daily interactions</h3><p>Set reminders, bubble text, and care systems so your character reacts to time and your interactions.</p></div><div class="step"><strong>03</strong><h3>Share your desktop-pet content</h3><p>Use workshop-compatible JSON to package poses, movement, sound, and AI asset guidance.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section section-butter workshop-spotlight" id="workshop">
+      <div class="section-inner" data-lang-content="zh-Hant">
+        <p class="section-kicker">MAKE IT YOURS, THEN SHARE IT</p>
+        <h2>把任何角色做成你的桌寵</h2>
+        <p class="lead">你可以上傳小貓、兔子、機器人或原創角色的圖片，設定姿勢、氣泡文字、音效和移動方式。也能把完整桌寵或單一姿勢打包分享給其他玩家。</p>
+        <div class="creator-paths">
+          <article class="creator-path"><p class="creator-path-kicker">FOR PLAYERS</p><h3>把角色帶進桌面</h3><ol class="creator-flow"><li><strong>準備角色素材</strong><span>可從原創圖片、委託作品或 AI 素材開始；走動姿勢請製作朝右的影格。</span></li><li><strong>建立多幀姿勢</strong><span>匯入約 6 張透明 PNG 或 GIF，設定播放速度、文字氣泡、音效與觸發方式。</span></li><li><strong>讓牠活在日常裡</strong><span>搭配提醒、照顧、快捷鍵與移動設定，角色會用你的節奏陪伴在桌面上。</span></li></ol></article>
+          <article class="creator-path creator-path-accent"><p class="creator-path-kicker">FOR CREATORS</p><h3>把一套玩法整理成可分享內容</h3><ol class="creator-flow"><li><strong>選擇分享範圍</strong><span>可只提供一個新姿勢，也可打包完整桌寵存檔，連同圖片、音效與設定一起帶入。</span></li><li><strong>用 JSON 描述玩法</strong><span>設定動畫影格、移動方式、氣泡、音效與 AI 素材提示，讓使用者知道如何正確使用內容。</span></li><li><strong>匯入、掃描與管理</strong><span>玩家可掃描工作坊資料夾、匯入內容並管理啟用狀態；創作者也能保留自己的創作版本。</span></li></ol><a class="button button-primary" href="creator-json.html">閱讀創作者 JSON 指南</a></article>
+        </div>
+      </div>
+      <div class="section-inner" data-lang-content="zh-Hans" hidden>
+        <p class="section-kicker">MAKE IT YOURS, THEN SHARE IT</p>
+        <h2>把任何角色做成你的桌宠</h2>
+        <p class="lead">你可以上传小猫、兔子、机器人或原创角色的图片，设置姿势、气泡文字、音效和移动方式。也能把完整桌宠或单一姿势打包分享给其他玩家。</p>
+        <div class="creator-paths">
+          <article class="creator-path"><p class="creator-path-kicker">FOR PLAYERS</p><h3>把角色带进桌面</h3><ol class="creator-flow"><li><strong>准备角色素材</strong><span>可从原创图片、委托作品或 AI 素材开始；走动姿势请制作朝右的帧。</span></li><li><strong>建立多帧姿势</strong><span>导入约 6 张透明 PNG 或 GIF，设置播放速度、气泡文字、音效与触发方式。</span></li><li><strong>让它活在日常里</strong><span>搭配提醒、照顾、快捷键与移动设置，角色会用你的节奏陪伴在桌面上。</span></li></ol></article>
+          <article class="creator-path creator-path-accent"><p class="creator-path-kicker">FOR CREATORS</p><h3>把一套玩法整理成可分享内容</h3><ol class="creator-flow"><li><strong>选择分享范围</strong><span>可只提供一个新姿势，也可打包完整桌宠存档，连同图片、音效与设置一起带入。</span></li><li><strong>用 JSON 描述玩法</strong><span>设置动画帧、移动方式、气泡、音效与 AI 素材提示，让使用者知道如何正确使用内容。</span></li><li><strong>导入、扫描与管理</strong><span>玩家可扫描创意工坊资料夹、导入内容并管理启用状态；创作者也能保留自己的创作版本。</span></li></ol><a class="button button-primary" href="creator-json.html">阅读创作者 JSON 指南</a></article>
+        </div>
+      </div>
+      <div class="section-inner" data-lang-content="en" hidden>
+        <p class="section-kicker">MAKE IT YOURS, THEN SHARE IT</p>
+        <h2>Turn any character into your desktop pet</h2>
+        <p class="lead">Upload art for a cat, rabbit, robot, or original character. Then set poses, bubble text, sound, and movement. You can also package a full pet or a single pose to share with other players.</p>
+        <div class="creator-paths">
+          <article class="creator-path"><p class="creator-path-kicker">FOR PLAYERS</p><h3>Bring your character to the desktop</h3><ol class="creator-flow"><li><strong>Prepare your art</strong><span>Start with original art, commissioned art, or AI-generated assets. Build walk frames facing right.</span></li><li><strong>Create a multi-frame pose</strong><span>Import roughly six transparent PNG frames or a GIF, then set playback, bubbles, sound, and triggers.</span></li><li><strong>Give it an everyday life</strong><span>Pair it with reminders, care, shortcuts, and movement so it can stay with you at your own pace.</span></li></ol></article>
+          <article class="creator-path creator-path-accent"><p class="creator-path-kicker">FOR CREATORS</p><h3>Package a new way to play</h3><ol class="creator-flow"><li><strong>Choose what to share</strong><span>Offer one new pose, or bundle a full pet save with its images, sound, and settings.</span></li><li><strong>Describe the experience in JSON</strong><span>Declare animation frames, movement, bubbles, sound, and AI asset prompts so people can use the content as intended.</span></li><li><strong>Import, scan, and manage</strong><span>Players can scan a workshop folder, import content, and manage its enabled state while creators retain their own version.</span></li></ol><a class="button button-primary" href="creator-json.html">Read the creator JSON guide</a></article>
+        </div>
+      </div>
+      <div class="section-inner creator-character-showcase" aria-label="桌寵角色動畫示範">
+        <div class="character-showcase-item"><div class="pose-animation pose-animation-showcase pose-animation-idle" role="img" aria-label="預設像素貓六幀動畫"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""><img src="assets/images/pose-animations/idle/idle_02.png" alt=""><img src="assets/images/pose-animations/idle/idle_03.png" alt=""><img src="assets/images/pose-animations/idle/idle_04.png" alt=""><img src="assets/images/pose-animations/idle/idle_05.png" alt=""><img src="assets/images/pose-animations/idle/idle_06.png" alt=""></div><strong data-lang-content="zh-Hant">預設像素貓</strong><strong data-lang-content="zh-Hans" hidden>默认像素猫</strong><strong data-lang-content="en" hidden>Default pixel cat</strong></div>
+        <div class="character-showcase-item"><div class="pose-animation pose-animation-showcase" role="img" aria-label="像素兔子六幀動畫"><img src="assets/images/demo-characters/bunny/bunny_01.png" alt=""><img src="assets/images/demo-characters/bunny/bunny_02.png" alt=""><img src="assets/images/demo-characters/bunny/bunny_03.png" alt=""><img src="assets/images/demo-characters/bunny/bunny_04.png" alt=""><img src="assets/images/demo-characters/bunny/bunny_05.png" alt=""><img src="assets/images/demo-characters/bunny/bunny_06.png" alt=""></div><strong data-lang-content="zh-Hant">像素兔子</strong><strong data-lang-content="zh-Hans" hidden>像素兔子</strong><strong data-lang-content="en" hidden>Pixel rabbit</strong></div>
+        <div class="character-showcase-item"><div class="pose-animation pose-animation-showcase" role="img" aria-label="像素機器人六幀動畫"><img src="assets/images/demo-characters/robot/robot_01.png" alt=""><img src="assets/images/demo-characters/robot/robot_02.png" alt=""><img src="assets/images/demo-characters/robot/robot_03.png" alt=""><img src="assets/images/demo-characters/robot/robot_04.png" alt=""><img src="assets/images/demo-characters/robot/robot_05.png" alt=""><img src="assets/images/demo-characters/robot/robot_06.png" alt=""></div><strong data-lang-content="zh-Hant">像素機器人</strong><strong data-lang-content="zh-Hans" hidden>像素机器人</strong><strong data-lang-content="en" hidden>Pixel robot</strong></div>
+        <p data-lang-content="zh-Hant">上傳你有使用權的角色素材，做成專屬於你的桌面寵物。</p>
+        <p data-lang-content="zh-Hans" hidden>上传你有使用权的角色素材，做成专属于你的桌面宠物。</p>
+        <p data-lang-content="en" hidden>Upload character art you have permission to use, then turn it into your own desktop pet.</p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="footer-inner"><div><div class="footer-brand">DesktopPetStudio</div><p class="footer-note">(c) <span data-year></span> <span data-i18n="copyright">DesktopPetStudio. 保留所有權利。</span></p></div><div class="footer-links"><a href="privacy.html" data-i18n="privacy">隱私權政策</a><a href="terms.html" data-i18n="terms">使用條款</a><a href="support.html" data-i18n="support">支援資訊</a><a href="docs/ai-team/google-oauth-verification-checklist.md" data-i18n="launch">發布前設定</a></div></div></footer>
+  <footer class="site-footer"><div class="footer-inner"><div><div class="footer-brand">DesktopPetStudio</div><p class="footer-note">(c) <span data-year></span> <span data-i18n="copyright">DesktopPetStudio. 保留所有權利。</span></p></div><div class="footer-links"><a href="privacy.html" data-i18n="privacy">隱私權政策</a><a href="terms.html" data-i18n="terms">使用條款</a><a href="support.html" data-i18n="support">支援資訊</a></div></div></footer>
 </body>
 </html>
