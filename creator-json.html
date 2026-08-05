@@ -93,7 +93,15 @@
             <div class="creator-field"><code>vertical_px</code><p>垂直距離或跳躍高度；負數可用於向上漂移。</p></div>
             <div class="creator-field"><code>gravity</code><p>設為 false 時，姿勢期間不會進入自然下墜流程。</p></div>
           </div>
-          <h2>4. 提供 AI 素材提示</h2>
+          <h2>4. 加入 Twitch Bits 直播姿勢規則</h2>
+          <p>可在任一姿勢內加入 <code>twitch_trigger</code>，依觀眾 Bits 金額播放對應動畫、音效與氣泡。工作坊會分享這組玩法規則，但不會包含 Twitch 帳號、授權碼或權杖；每位玩家都必須連接自己的 Twitch。</p>
+          <pre class="code-panel"><code>"twitch_trigger": {
+  "enabled": true,
+  "min_bits": 100,
+  "max_bits": 499,
+  "bubble_texts": ["謝謝 {viewer_name} 的 {amount} {currency}！"]
+}</code></pre>
+          <h2>5. 提供 AI 素材提示</h2>
           <p>可選用 <code>ai_asset_prompts</code>，引導玩家延伸同一角色的姿勢。至少提供一個語系文案；介面會優先顯示目前語言，沒有時回退為中文或英文。單一姿勢包會直接顯示提示；完整桌寵包則以整包標題建立可展開群組。</p>
           <pre class="code-panel"><code>"ai_asset_prompts": [{
   "id": "wave_ai_prompt",
@@ -142,7 +150,15 @@
 }</code></pre>
           <h2>3. 设计移动，而不是执行程序</h2>
           <p><code>movement</code> 只接受白名单数据，JSON 不会执行任意代码。可用模式为 <code>none</code>、<code>wander</code>、<code>patrol</code>、<code>hop</code>、<code>shake</code>、<code>drift</code> 与 <code>sequence</code>。可用 <code>speed</code>、<code>distance_px</code>、<code>vertical_px</code>、<code>duration_sec</code>、<code>loop</code> 与 <code>gravity</code> 调整演出。</p>
-          <h2>4. 提供 AI 素材提示</h2>
+          <h2>4. 加入 Twitch Bits 直播姿势规则</h2>
+          <p>可在任一姿势内加入 <code>twitch_trigger</code>，依观众 Bits 金额播放对应动画、音效与气泡。创意工坊会分享这组玩法规则，但不会包含 Twitch 账号、授权码或令牌；每位玩家都必须连接自己的 Twitch。</p>
+          <pre class="code-panel"><code>"twitch_trigger": {
+  "enabled": true,
+  "min_bits": 100,
+  "max_bits": 499,
+  "bubble_texts": ["谢谢 {viewer_name} 的 {amount} {currency}！"]
+}</code></pre>
+          <h2>5. 提供 AI 素材提示</h2>
           <p>可选用 <code>ai_asset_prompts</code>，引导玩家延伸同一角色的姿势。至少提供一个语言文案；单一姿势包会直接显示，完整桌宠包会以整包标题建立可展开群组。提示请明确要求 6 张独立透明背景 PNG，并说明不要六宫格或 sprite sheet。</p>
           <h2>分享前检查</h2>
           <div class="creator-checklist"><ul><li>每张帧的角色中心点尽量一致，避免播放时晃动。</li><li>完整桌宠包以 <code>config_path</code> 指向 <code>pet_config.json</code>，不要包含 Google token、OAuth 设置或其他私密资料。</li><li>只放入你拥有或已取得授权的图片、音效与文字，并先在干净资料夹测试导入。</li></ul></div>
@@ -183,7 +199,15 @@
 }</code></pre>
           <h2>3. Design movement, not executable code</h2>
           <p><code>movement</code> accepts only allow-listed data; JSON never executes arbitrary code. The available modes are <code>none</code>, <code>wander</code>, <code>patrol</code>, <code>hop</code>, <code>shake</code>, <code>drift</code>, and <code>sequence</code>. Tune an action with <code>speed</code>, <code>distance_px</code>, <code>vertical_px</code>, <code>duration_sec</code>, <code>loop</code>, and <code>gravity</code>.</p>
-          <h2>4. Add AI asset prompts</h2>
+          <h2>4. Add a Twitch Bits streamer pose rule</h2>
+          <p>Add <code>twitch_trigger</code> to any pose to play its animation, sound, and bubble for a viewer's Bits amount. Workshop packages share this gameplay rule, never a Twitch account, authorization code, or token; every player connects their own Twitch account.</p>
+          <pre class="code-panel"><code>"twitch_trigger": {
+  "enabled": true,
+  "min_bits": 100,
+  "max_bits": 499,
+  "bubble_texts": ["Thanks {viewer_name} for {amount} {currency}!"]
+}</code></pre>
+          <h2>5. Add AI asset prompts</h2>
           <p>Use optional <code>ai_asset_prompts</code> to show players how to extend a character. Provide at least one language. A pose pack is shown directly in the AI Asset Helper; a full-pet pack appears in an expandable group. Clearly ask for six separate transparent PNG frames, not a grid or sprite sheet.</p>
           <h2>Pre-share checklist</h2>
           <div class="creator-checklist"><ul><li>Keep the character center consistent across frames to prevent visual jitter.</li><li>For a full-pet pack, point <code>config_path</code> to <code>pet_config.json</code>; never include Google tokens, OAuth settings, or other private data.</li><li>Share only art, sound, and text you own or are licensed to distribute, then test importing from a clean folder.</li></ul></div>

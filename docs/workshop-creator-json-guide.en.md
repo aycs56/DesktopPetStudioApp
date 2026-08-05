@@ -1,6 +1,6 @@
 # Desktop Pet Studio Workshop JSON Creator Guide
 
-Version: v1.1.0  
+Version: v1.2.0
 Applies to: desktop pet packages and pose packages from Steam Workshop or manually added folders
 
 ## 1. Workshop Package Structure
@@ -154,7 +154,7 @@ Notes:
 - If a full pet package has `ai_asset_prompts`, the AI Asset Guide shows an expandable group with the package title, then the pose prompts underneath it.
 - If a full pet package does not have `ai_asset_prompts`, the app generates default prompts from the pose names in `pet_config.json`.
 - The Workshop tab shows `Go to Guide` when prompts are available and `No Guide` when they are not.
-- Prompt text should clearly request `six separate transparent-background PNG images`, `frame_01.png` through `frame_06.png`, no grid, no sprite sheet, no text, and no watermark.
+- Prompt text should clearly request `six separate transparent-background PNG images`, a `256 x 256 px` canvas for every frame, the same canvas and bottom-center anchor across all six frames, `frame_01.png` through `frame_06.png`, no grid, no sprite sheet, no text, and no watermark.
 
 ## 6. Pose Fields
 
@@ -171,6 +171,7 @@ Notes:
 | `bubble_interval_sec` | number | `45` | Auto bubble interval in seconds, minimum `1`. |
 | `enabled` | boolean | `true` | Whether the pose starts enabled after import. |
 | `movement` | object | disabled | Custom desktop pet movement. See the next section. |
+| `twitch_trigger` | object | disabled | Optional Twitch Bits live trigger rule. See below. |
 | `focus_key_speed_enabled` | boolean | `false` | Used by the `focus` base pose only. When enabled, a bubble shows the milliseconds between key presses. |
 | `focus_key_speed_prefix` | string | `按鍵速度 ` | Used by `focus` only. Text before the calculated value and built-in `ms`. |
 | `focus_key_speed_suffix` | string | `，主人手速快到出現殘影!!` | Used by `focus` only. Text after the calculated value and built-in `ms`. |
@@ -197,6 +198,31 @@ Full pet packages may define Fixed Focus Game Mode in `poses.focus`. When a play
 ```
 
 The app calculates only the time gap between key-down events. It never stores, shares, or writes the actual keys a player presses.
+
+### Twitch Bits Live Pose Rules
+
+Creators can add `twitch_trigger` to any base or custom pose. Once a player connects their own Twitch account, Bits in the configured range can trigger that pose. This is safe creator content: it never contains a Twitch account, authorization code, or token.
+
+```json
+"twitch_trigger": {
+  "enabled": true,
+  "min_bits": 100,
+  "max_bits": 499,
+  "bubble_texts": [
+    "Thank you, {viewer_name}, for {amount} {currency}!",
+    "{viewer_name} says: {viewer_message}"
+  ]
+}
+```
+
+| Field | Type | Default | Effect |
+| --- | --- | --- | --- |
+| `enabled` | boolean | `false` | Enables this Bits rule after import. |
+| `min_bits` | number | `1` | Minimum Bits needed to trigger, at least `1`. |
+| `max_bits` | number | `0` | Maximum Bits; use `0` for no upper limit. It cannot be lower than `min_bits`. |
+| `bubble_texts` | array | `[]` | Dedicated lines; the app randomly picks one after a match. |
+
+Bubble templates support `{viewer_name}`, `{viewer_message}`, `{amount}`, `{currency}`, `{platform}`, and `{event_type}`. If several rules overlap, the narrowest matching range wins. Subscribers must connect their own Twitch account in Streamer Mode; Workshop JSON must not and cannot include private Twitch authorization data.
 
 ## 7. Movement Fields
 

@@ -1,6 +1,6 @@
 # Desktop Pet Studio 工作坊 JSON 創作者指南
 
-版本：v1.1.0  
+版本：v1.2.0
 適用內容：Steam 工作坊或手動放入的桌寵包、姿勢包
 
 ## 1. 工作坊包基本結構
@@ -154,7 +154,7 @@ WorkshopLibrary/
 - 全桌寵包若有 `ai_asset_prompts`，AI 素材助手會顯示可展開群組：整包標題在上層，底下是各姿勢 Prompt。
 - 全桌寵包若沒有 `ai_asset_prompts`，系統會依 `pet_config.json` 裡的姿勢名稱產生預設 AI 素材說明。
 - 工作坊頁的「AI素材說明」欄會依是否有可用 Prompt 顯示「前往說明」或「無說明」。
-- Prompt 內建議明確要求：`6 張獨立透明背景 PNG`、`frame_01.png` 到 `frame_06.png`、不要六宮格、不要 sprite sheet、不要文字、不要浮水印。
+- Prompt 內建議明確要求：`6 張獨立透明背景 PNG`、每張 `256 x 256 px`、六張使用相同畫布與底部中心定位、`frame_01.png` 到 `frame_06.png`、不要六宮格、不要 sprite sheet、不要文字、不要浮水印。
 
 ## 6. Pose 參數
 
@@ -171,6 +171,7 @@ WorkshopLibrary/
 | `bubble_interval_sec` | number | `45` | 氣泡自動出現間隔秒數，最小 `1`。 |
 | `enabled` | boolean | `true` | 匯入後是否預設啟用。 |
 | `movement` | object | disabled | 自訂寵物移動方式。詳見下一節。 |
+| `twitch_trigger` | object | disabled | 選用的 Twitch Bits 直播觸發規則。詳見下方說明。 |
 | `focus_key_speed_enabled` | boolean | `false` | 僅供 `focus` 基礎姿勢使用；啟用時，玩家按鍵會顯示兩次按下之間的毫秒數氣泡。 |
 | `focus_key_speed_prefix` | string | `按鍵速度 ` | 僅供 `focus` 使用；顯示數值與內建 `ms` 前的文字。 |
 | `focus_key_speed_suffix` | string | `，主人手速快到出現殘影!!` | 僅供 `focus` 使用；顯示數值與內建 `ms` 後的文字。 |
@@ -197,6 +198,31 @@ WorkshopLibrary/
 ```
 
 系統只使用按下事件之間的時間差來計算毫秒數，不會儲存、分享或寫入玩家實際按下的按鍵內容。
+
+### Twitch Bits 直播姿勢規則
+
+創作者可在任何基礎或自訂姿勢加入 `twitch_trigger`，讓玩家連接自己的 Twitch 後，以 Bits 金額觸發這個姿勢。這是可安全分享的創作設定，不包含 Twitch 帳號、授權碼或權杖。
+
+```json
+"twitch_trigger": {
+  "enabled": true,
+  "min_bits": 100,
+  "max_bits": 499,
+  "bubble_texts": [
+    "謝謝 {viewer_name} 的 {amount} {currency}！",
+    "{viewer_name} 說：{viewer_message}"
+  ]
+}
+```
+
+| 參數 | 類型 | 預設 | 效果 |
+| --- | --- | --- | --- |
+| `enabled` | boolean | `false` | 匯入後是否啟用這個 Bits 規則。 |
+| `min_bits` | number | `1` | 觸發所需的最低 Bits，最小為 `1`。 |
+| `max_bits` | number | `0` | 觸發上限；填 `0` 代表不設上限。不可小於 `min_bits`。 |
+| `bubble_texts` | array | `[]` | 命中後隨機顯示一則專用氣泡。 |
+
+氣泡可使用 `{viewer_name}`、`{viewer_message}`、`{amount}`、`{currency}`、`{platform}`、`{event_type}`。多個姿勢的金額範圍重疊時，系統會選擇範圍較精準的規則。訂閱者必須在「直播主模式」連接自己的 Twitch；工作坊 JSON 不應也無法放入任何 Twitch 私人授權資料。
 
 ## 7. Movement 參數
 
