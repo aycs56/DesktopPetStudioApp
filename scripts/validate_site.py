@@ -68,9 +68,10 @@ def main() -> int:
         parser = AssetReferenceParser()
         parser.feed(text)
         for source in parser.sources:
-            if source.startswith(("https://", "http://", "data:")):
+            source_path = source.split("?", 1)[0].split("#", 1)[0]
+            if source_path.startswith(("https://", "http://", "data:")):
                 continue
-            if not ((ROOT / page).parent / source).is_file():
+            if not ((ROOT / page).parent / source_path).is_file():
                 fail(errors, f"{page} references a missing asset: {source}")
 
     stylesheet = (ROOT / "assets/css/site.css").read_text(encoding="utf-8")
