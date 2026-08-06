@@ -285,6 +285,7 @@
 
   function setupPageTools() {
     const header = document.querySelector(".site-header");
+    const footer = document.querySelector(".site-footer");
     const button = document.createElement("button");
     button.type = "button";
     button.className = "back-to-top";
@@ -298,8 +299,19 @@
       const shouldShow = window.scrollY > Math.max(260, window.innerHeight * 0.35);
       button.classList.toggle("is-visible", shouldShow);
       if (header) header.classList.toggle("is-scrolled", window.scrollY > 8);
+
+      const baseOffset = window.innerWidth <= 600 ? 88 : 72;
+      let offset = baseOffset;
+      if (footer) {
+        const footerTop = footer.getBoundingClientRect().top;
+        if (footerTop < window.innerHeight) {
+          offset = Math.max(baseOffset, Math.ceil(window.innerHeight - footerTop + 20));
+        }
+      }
+      button.style.setProperty("--back-to-top-offset", offset + "px");
     };
     window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
     update();
   }
 

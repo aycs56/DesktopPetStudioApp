@@ -458,18 +458,18 @@ code {
 .creator-pack-card h3 { font-size: 1.18rem; }
 .creator-pack-card p:not(.creator-card-kicker) { min-height: 74px; margin-bottom: 16px; color: var(--muted); font-size: 0.94rem; }
 .creator-pack-card a { color: var(--teal-deep); font-weight: 800; }
-.creator-pack-action { display: flex; justify-content: center; margin: 22px 0 0; }
-.creator-pack-action .button { min-width: 174px; }
+.creator-pack-action { display: flex; margin: 22px 0 0; }
+.creator-pack-action .button { width: 100%; min-height: 48px; }
 .creator-topic-heading { margin-top: 78px; }
-.creator-capability-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: 940px; margin-top: 32px; }
+.creator-capability-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 32px; }
 .creator-capability-card { position: relative; min-height: 0; padding: 0; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); }
 .creator-capability-card[open] { border-color: var(--teal); box-shadow: 0 10px 22px rgba(16, 43, 58, 0.08); }
-.creator-capability-visual { position: absolute; z-index: 1; top: 12px; right: 58px; display: grid; width: 58px; height: 58px; place-items: center; }
+.creator-capability-visual { position: absolute; z-index: 1; top: 12px; right: 76px; display: grid; width: 58px; height: 58px; place-items: center; }
 .creator-capability-visual img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
-.creator-capability-card summary { display: block; min-height: 82px; padding: 17px 142px 17px 20px; list-style: none; color: var(--ink); cursor: pointer; }
+.creator-capability-card summary { display: block; min-height: 82px; padding: 17px 166px 17px 20px; list-style: none; color: var(--ink); cursor: pointer; }
 .creator-capability-card summary::-webkit-details-marker { display: none; }
-.creator-capability-card summary::after { position: absolute; top: 50%; right: 20px; color: var(--teal-deep); content: "+"; font-size: 1.45rem; font-weight: 800; line-height: 1; transform: translateY(-50%); }
-.creator-capability-card[open] summary::after { content: "-"; }
+.creator-capability-card summary::after { position: absolute; top: 50%; right: 20px; display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid var(--teal-deep); border-radius: 50%; color: var(--teal-deep); background: #effaf7; content: "+"; font-size: 1.35rem; font-weight: 800; line-height: 1; transform: translateY(-50%); }
+.creator-capability-card[open] summary::after { color: #fff; background: var(--teal); content: "-"; }
 .creator-capability-card summary span, .creator-capability-card summary small { display: block; }
 .creator-capability-card summary span { margin-bottom: 5px; font-size: 1.06rem; font-weight: 800; }
 .creator-capability-card summary small { color: var(--muted); font-size: 0.87rem; line-height: 1.45; }
@@ -478,10 +478,10 @@ code {
 .creator-capability-card > ul li + li { margin-top: 5px; }
 .creator-example-link {
   display: inline-flex;
-  min-height: 34px;
+  min-height: 40px;
   align-items: center;
   justify-content: center;
-  margin-top: 16px;
+  margin: 18px 20px 20px;
   padding: 6px 10px;
   border: 1px solid var(--teal-deep);
   border-radius: 4px;
@@ -598,6 +598,7 @@ code {
 
 .legal-layout { display: grid; grid-template-columns: minmax(0, 760px) 220px; gap: 64px; }
 .legal-copy h2 { margin-top: 42px; font-size: 1.5rem; }
+.legal-copy h2[id] { scroll-margin-top: 96px; }
 .legal-copy h3 { margin-top: 28px; }
 .legal-copy p, .legal-copy li { color: #294755; }
 .legal-aside { position: sticky; top: 100px; align-self: start; padding-left: 18px; border-left: 3px solid var(--teal); color: var(--muted); font-size: 0.9rem; }
@@ -629,7 +630,7 @@ details ul { padding-left: 38px; }
 .back-to-top {
   position: fixed;
   z-index: 12;
-  bottom: max(18px, env(safe-area-inset-bottom));
+  bottom: max(var(--back-to-top-offset, 72px), env(safe-area-inset-bottom));
   left: max(18px, env(safe-area-inset-left));
   display: flex;
   width: 62px;
@@ -723,11 +724,12 @@ details ul { padding-left: 38px; }
   .creator-guide-topic-map ol { grid-template-columns: 1fr; }
   .creator-topic-heading { margin-top: 56px; }
   .creator-capability-grid { grid-template-columns: 1fr; }
-  .creator-capability-card summary { min-height: 78px; padding-right: 132px; }
-  .creator-capability-visual { right: 54px; width: 54px; height: 54px; }
+  .creator-capability-card summary { min-height: 78px; padding-right: 148px; }
+  .creator-capability-visual { right: 70px; width: 54px; height: 54px; }
   .creator-topic-examples { margin: 28px 0 36px; }
   .creator-topic-example { padding: 18px; }
-  .back-to-top { bottom: max(14px, env(safe-area-inset-bottom)); left: max(14px, env(safe-area-inset-left)); }
+  .home-page main > .section:not(.hero) .button-row { justify-content: center; }
+  .back-to-top { left: max(14px, env(safe-area-inset-left)); }
   .creator-overview-cta { grid-template-columns: 1fr; gap: 18px; padding: 24px 20px; }
   .creator-overview-cta .button { width: 100%; }
   .footer-inner { flex-direction: column; gap: 18px; }
