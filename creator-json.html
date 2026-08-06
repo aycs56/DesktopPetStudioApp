@@ -15,9 +15,9 @@
   <link rel="canonical" href="https://www.desktoppetstudio.com/creator-json.html">
   <title>創作者 JSON 指南 | DesktopPetStudio</title>
   <link rel="icon" href="assets/images/app-icon.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260807-1">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260807-5">
   <script src="site.config.js"></script>
-  <script src="assets/js/site.js?v=20260807-1" defer></script>
+  <script src="assets/js/site.js?v=20260807-5" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">跳至主要內容</a>
@@ -106,7 +106,8 @@
           <p>工作坊目前有三種主要封裝方式：姿勢包使用 <code>"type": "pose"</code>，適合分享一個右鍵呼叫姿勢與它的素材；完整桌寵包使用 <code>"type": "pet"</code>，以 <code>pet_config.json</code> 帶入基礎姿勢、提醒、快捷鍵與其他設定；養成內容則使用 <code>"type": "care"</code>，提供商城物品、工作與日常事件。</p>
           <p>三種封裝方式不是內容上限。你可以在它們之中組合下方八個創作主題，從角色動畫、移動、對話、專注、實況反應、AI 素材提示，到養成規則與安全打包。</p>
           <div class="creator-guide-topic-map"><p>本指南涵蓋的 8 個創作主題</p><ol><li>角色與動畫</li><li>移動與動作演出</li><li>氣泡、音效與快捷鍵</li><li>專注模式與按鍵反應</li><li>Twitch Bits 直播姿勢</li><li>AI 素材提示與多語系</li><li>工作、商城與日常事件</li><li>安全打包與分享</li></ol></div>
-          <h2>1. 建立資料夾</h2>
+          <div class="creator-topic-examples" data-topic-examples></div>
+          <h2>進階欄位與打包參考</h2>
           <p>讓入口 JSON 和所有圖片、音效留在同一個可攜資料夾內。其他玩家匯入時，程式會從 JSON 所在位置解析相對路徑。</p>
           <pre class="code-panel"><code>MyWavePose/
   desktop_pet_studio_workshop.json
@@ -119,7 +120,7 @@
     frame_06.png
     wave.wav</code></pre>
           <p>請使用 <code>assets/frame_01.png</code> 這類相對路徑，不要填入 <code>C:\Users\...</code> 等本機絕對路徑。素材建議使用透明背景 PNG；走動影格請面向右方，桌寵在往左移動時會自動鏡像。</p>
-          <h2>2. 寫入單一姿勢 manifest</h2>
+          <h3>單一姿勢 manifest</h3>
           <p>以下範例能建立一個揮手姿勢：使用六張獨立影格、播放音效、隨機氣泡，並以小跳躍方式移動。</p>
           <pre class="code-panel"><code>{
   "schema_version": 1,
@@ -152,7 +153,7 @@
     }
   }
 }</code></pre>
-          <h2>3. 設計移動，而不是執行程式</h2>
+          <h3>移動參數補充</h3>
           <p><code>movement</code> 只接受白名單資料，JSON 不會執行任意程式碼。可用模式為 <code>none</code>、<code>wander</code>、<code>patrol</code>、<code>hop</code>、<code>shake</code>、<code>drift</code> 與 <code>sequence</code>。其中 <code>sequence</code> 可用多段 <code>dx</code>、<code>dy</code>、<code>duration_ms</code> 與 <code>easing</code> 組成演出。</p>
           <div class="creator-field-list">
             <div class="creator-field"><code>playback_speed</code><p>動畫倍率，支援 0.25 到 4.0；多數姿勢建議 0.75 到 1.5。</p></div>
@@ -160,7 +161,7 @@
             <div class="creator-field"><code>vertical_px</code><p>垂直距離或跳躍高度；負數可用於向上漂移。</p></div>
             <div class="creator-field"><code>gravity</code><p>設為 false 時，姿勢期間不會進入自然下墜流程。</p></div>
           </div>
-          <h2>4. 加入 Twitch Bits 直播姿勢規則</h2>
+          <h3>Twitch Bits 欄位補充</h3>
           <p>可在任一姿勢內加入 <code>twitch_trigger</code>，依觀眾 Bits 金額播放對應動畫、音效與氣泡。工作坊會分享這組玩法規則，但不會包含 Twitch 帳號、授權碼或權杖；每位玩家都必須連接自己的 Twitch。</p>
           <pre class="code-panel"><code>"twitch_trigger": {
   "enabled": true,
@@ -168,7 +169,7 @@
   "max_bits": 499,
   "bubble_texts": ["謝謝 {viewer_name} 的 {amount} {currency}！"]
 }</code></pre>
-          <h2>5. 提供 AI 素材提示</h2>
+          <h3>AI 素材提示欄位補充</h3>
           <p>可選用 <code>ai_asset_prompts</code>，引導玩家延伸同一角色的姿勢。至少提供一個語系文案；介面會優先顯示目前語言，沒有時回退為中文或英文。單一姿勢包會直接顯示提示；完整桌寵包則以整包標題建立可展開群組。</p>
           <pre class="code-panel"><code>"ai_asset_prompts": [{
   "id": "wave_ai_prompt",
@@ -178,7 +179,7 @@
   "zh_cn": "请用我上传的角色图，制作挥手动画。输出 6 张独立透明背景 PNG；不要六宫格、不要 sprite sheet、不要文字、不要水印。",
   "en": "Use my character reference to create a waving animation. Output six separate transparent-background PNG frames; no grid, sprite sheet, text, or watermark."
 }]</code></pre>
-          <h2>分享前檢查</h2>
+          <h3>分享前檢查</h3>
           <div class="creator-checklist"><ul><li>每張影格的角色中心點盡量一致，避免播放時晃動。</li><li>完整桌寵包以 <code>config_path</code> 指向 <code>pet_config.json</code>；不要包含 Google token、OAuth 設定、本機訂閱清單或其他私密資料。</li><li>只放入你擁有或已取得授權的圖片、音效與文字；為素材來源與使用條件做清楚標記。</li><li>先以工作坊頁的掃描與匯入流程在乾淨資料夾測試，再分享給其他玩家。</li></ul></div>
         </article>
         <aside class="creator-aside" aria-labelledby="creator-tip-zh-hant"><img src="assets/images/cat-ribbon.png" alt="像素貓與緞帶"><h2 id="creator-tip-zh-hant">創作小提醒</h2><p>PNG 多幀動畫可先用 6 張圖片、每秒約 6 幀。這樣容易調整，也方便玩家替角色建立更多動作。</p><div class="guide-downloads"><a class="button button-teal" href="docs/workshop-creator-json-guide.zh-Hant.md" download>下載繁中 Markdown</a><a class="button button-secondary" href="docs/workshop-creator-json-guide.en.md" download>下載英文 Markdown</a></div><p><a href="index.html#workshop">回到自訂與工作坊流程</a></p><p><a href="support.html">遇到匯入問題？前往支援資訊</a></p></aside>
@@ -189,7 +190,8 @@
           <p>创意工坊目前有三种主要封装方式：姿势包使用 <code>"type": "pose"</code>，适合分享一个右键调用姿势与它的素材；完整桌宠包使用 <code>"type": "pet"</code>，以 <code>pet_config.json</code> 带入基础姿势、提醒、快捷键与其他设置；养成内容使用 <code>"type": "care"</code>，提供商城物品、工作与日常事件。</p>
           <p>三种封装方式不是内容上限。你可以在它们之中组合下方八个创作主题，从角色动画、移动、对话、专注、直播反应、AI 素材提示，到养成规则与安全打包。</p>
           <div class="creator-guide-topic-map"><p>本指南涵盖的 8 个创作主题</p><ol><li>角色与动画</li><li>移动与动作演出</li><li>气泡、音效与快捷键</li><li>专注模式与按键反应</li><li>Twitch Bits 直播姿势</li><li>AI 素材提示与多语言</li><li>工作、商城与日常事件</li><li>安全打包与分享</li></ol></div>
-          <h2>1. 建立资料夹</h2>
+          <div class="creator-topic-examples" data-topic-examples></div>
+          <h2>进阶字段与打包参考</h2>
           <p>让入口 JSON 和所有图片、音效留在同一个可携资料夹内。其他玩家导入时，程序会从 JSON 所在位置解析相对路径。</p>
           <pre class="code-panel"><code>MyWavePose/
   desktop_pet_studio_workshop.json
@@ -197,7 +199,7 @@
     frame_01.png ... frame_06.png
     wave.wav</code></pre>
           <p>请使用 <code>assets/frame_01.png</code> 这类相对路径，不要填入本机绝对路径。素材建议使用透明背景 PNG；走动帧请面向右方，桌宠在往左移动时会自动镜像。</p>
-          <h2>2. 写入单一姿势 manifest</h2>
+          <h3>单一姿势 manifest</h3>
           <p>使用 <code>schema_version</code>、<code>id</code>、<code>title</code>、<code>type</code> 与 <code>pose</code> 描述内容。<code>pose.animation_paths</code> 放入六张独立帧，<code>sound_path</code> 可指定 WAV，<code>bubble_texts</code> 可设置随机气泡。</p>
           <pre class="code-panel"><code>{
   "schema_version": 1,
@@ -217,9 +219,9 @@
     "enabled": true
   }
 }</code></pre>
-          <h2>3. 设计移动，而不是执行程序</h2>
+          <h3>移动参数补充</h3>
           <p><code>movement</code> 只接受白名单数据，JSON 不会执行任意代码。可用模式为 <code>none</code>、<code>wander</code>、<code>patrol</code>、<code>hop</code>、<code>shake</code>、<code>drift</code> 与 <code>sequence</code>。可用 <code>speed</code>、<code>distance_px</code>、<code>vertical_px</code>、<code>duration_sec</code>、<code>loop</code> 与 <code>gravity</code> 调整演出。</p>
-          <h2>4. 加入 Twitch Bits 直播姿势规则</h2>
+          <h3>Twitch Bits 字段补充</h3>
           <p>可在任一姿势内加入 <code>twitch_trigger</code>，依观众 Bits 金额播放对应动画、音效与气泡。创意工坊会分享这组玩法规则，但不会包含 Twitch 账号、授权码或令牌；每位玩家都必须连接自己的 Twitch。</p>
           <pre class="code-panel"><code>"twitch_trigger": {
   "enabled": true,
@@ -227,9 +229,9 @@
   "max_bits": 499,
   "bubble_texts": ["谢谢 {viewer_name} 的 {amount} {currency}！"]
 }</code></pre>
-          <h2>5. 提供 AI 素材提示</h2>
+          <h3>AI 素材提示字段补充</h3>
           <p>可选用 <code>ai_asset_prompts</code>，引导玩家延伸同一角色的姿势。至少提供一个语言文案；单一姿势包会直接显示，完整桌宠包会以整包标题建立可展开群组。提示请明确要求 6 张独立透明背景 PNG，并说明不要六宫格或 sprite sheet。</p>
-          <h2>分享前检查</h2>
+          <h3>分享前检查</h3>
           <div class="creator-checklist"><ul><li>每张帧的角色中心点尽量一致，避免播放时晃动。</li><li>完整桌宠包以 <code>config_path</code> 指向 <code>pet_config.json</code>，不要包含 Google token、OAuth 设置或其他私密资料。</li><li>只放入你拥有或已取得授权的图片、音效与文字，并先在干净资料夹测试导入。</li></ul></div>
         </article>
         <aside class="creator-aside" aria-labelledby="creator-tip-zh-hans"><img src="assets/images/cat-ribbon.png" alt="像素猫与缎带"><h2 id="creator-tip-zh-hans">创作小提醒</h2><p>PNG 多帧动画可先用 6 张图片、每秒约 6 帧。这样容易调整，也方便玩家为角色建立更多动作。</p><div class="guide-downloads"><a class="button button-teal" href="docs/workshop-creator-json-guide.zh-Hant.md" download>下载繁中 Markdown</a><a class="button button-secondary" href="docs/workshop-creator-json-guide.en.md" download>下载英文 Markdown</a></div><p><a href="index.html#workshop">回到自定义与创意工坊流程</a></p><p><a href="support.html">遇到导入问题？前往支持信息</a></p></aside>
@@ -240,7 +242,8 @@
           <p>Workshop content currently has three main package formats. Use <code>"type": "pose"</code> for one right-click pose and its assets. Use <code>"type": "pet"</code> with <code>pet_config.json</code> for a complete pet configuration. Use <code>"type": "care"</code> for shop items, jobs, and everyday events.</p>
           <p>The three formats are not a limit on what you can create. You can combine the eight topics below: character animation, movement, dialogue, focus, stream reactions, AI asset prompts, care rules, and safe packaging.</p>
           <div class="creator-guide-topic-map"><p>This guide covers 8 creation topics</p><ol><li>Character and animation</li><li>Movement and action staging</li><li>Bubbles, sound, and hotkeys</li><li>Focus mode and key response</li><li>Twitch Bits streamer poses</li><li>AI asset prompts and languages</li><li>Jobs, shop items, and daily events</li><li>Safe packaging and sharing</li></ol></div>
-          <h2>1. Build a portable folder</h2>
+          <div class="creator-topic-examples" data-topic-examples></div>
+          <h2>Advanced fields and packaging reference</h2>
           <p>Keep the entry JSON, images, and sound together. The app resolves relative paths from the JSON file, so a player can import the same folder on a different computer.</p>
           <pre class="code-panel"><code>MyWavePose/
   desktop_pet_studio_workshop.json
@@ -248,7 +251,7 @@
     frame_01.png ... frame_06.png
     wave.wav</code></pre>
           <p>Use a relative path such as <code>assets/frame_01.png</code>, never an absolute local path. Transparent PNG is recommended. Make walking frames face right; the app mirrors them automatically when moving left.</p>
-          <h2>2. Write a single-pose manifest</h2>
+          <h3>Single-pose manifest</h3>
           <p>Describe the content with <code>schema_version</code>, <code>id</code>, <code>title</code>, <code>type</code>, and <code>pose</code>. Place independent frames in <code>pose.animation_paths</code>, optionally assign a WAV through <code>sound_path</code>, and use <code>bubble_texts</code> for random dialogue.</p>
           <pre class="code-panel"><code>{
   "schema_version": 1,
@@ -268,9 +271,9 @@
     "enabled": true
   }
 }</code></pre>
-          <h2>3. Design movement, not executable code</h2>
+          <h3>Movement field reference</h3>
           <p><code>movement</code> accepts only allow-listed data; JSON never executes arbitrary code. The available modes are <code>none</code>, <code>wander</code>, <code>patrol</code>, <code>hop</code>, <code>shake</code>, <code>drift</code>, and <code>sequence</code>. Tune an action with <code>speed</code>, <code>distance_px</code>, <code>vertical_px</code>, <code>duration_sec</code>, <code>loop</code>, and <code>gravity</code>.</p>
-          <h2>4. Add a Twitch Bits streamer pose rule</h2>
+          <h3>Twitch Bits field reference</h3>
           <p>Add <code>twitch_trigger</code> to any pose to play its animation, sound, and bubble for a viewer's Bits amount. Workshop packages share this gameplay rule, never a Twitch account, authorization code, or token; every player connects their own Twitch account.</p>
           <pre class="code-panel"><code>"twitch_trigger": {
   "enabled": true,
@@ -278,9 +281,9 @@
   "max_bits": 499,
   "bubble_texts": ["Thanks {viewer_name} for {amount} {currency}!"]
 }</code></pre>
-          <h2>5. Add AI asset prompts</h2>
+          <h3>AI asset-prompt field reference</h3>
           <p>Use optional <code>ai_asset_prompts</code> to show players how to extend a character. Provide at least one language. A pose pack is shown directly in the AI Asset Helper; a full-pet pack appears in an expandable group. Clearly ask for six separate transparent PNG frames, not a grid or sprite sheet.</p>
-          <h2>Pre-share checklist</h2>
+          <h3>Pre-share checklist</h3>
           <div class="creator-checklist"><ul><li>Keep the character center consistent across frames to prevent visual jitter.</li><li>For a full-pet pack, point <code>config_path</code> to <code>pet_config.json</code>; never include Google tokens, OAuth settings, or other private data.</li><li>Share only art, sound, and text you own or are licensed to distribute, then test importing from a clean folder.</li></ul></div>
         </article>
         <aside class="creator-aside" aria-labelledby="creator-tip-en"><img src="assets/images/cat-ribbon.png" alt="Pixel cat with a ribbon"><h2 id="creator-tip-en">Creator tip</h2><p>Start a PNG animation with six images at about six frames per second. This is easy to adjust and gives players a clear base for making more character actions.</p><div class="guide-downloads"><a class="button button-teal" href="docs/workshop-creator-json-guide.zh-Hant.md" download>Download Traditional Chinese Markdown</a><a class="button button-secondary" href="docs/workshop-creator-json-guide.en.md" download>Download English Markdown</a></div><p><a href="index.html#workshop">Back to the customize and workshop flow</a></p><p><a href="support.html">Need help importing? Open support</a></p></aside>
