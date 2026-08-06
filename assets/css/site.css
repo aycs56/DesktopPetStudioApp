@@ -461,20 +461,20 @@ code {
 .creator-pack-action { display: flex; justify-content: center; margin: 22px 0 0; }
 .creator-pack-action .button { min-width: 174px; }
 .creator-topic-heading { margin-top: 78px; }
-.creator-capability-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
-.creator-capability-card { position: relative; min-height: 184px; padding: 18px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); }
+.creator-capability-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: 940px; margin-top: 32px; }
+.creator-capability-card { position: relative; min-height: 0; padding: 0; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); }
 .creator-capability-card[open] { border-color: var(--teal); box-shadow: 0 10px 22px rgba(16, 43, 58, 0.08); }
-.creator-capability-visual { position: absolute; top: 16px; right: 16px; display: grid; width: 68px; height: 68px; place-items: center; }
+.creator-capability-visual { position: absolute; z-index: 1; top: 12px; right: 58px; display: grid; width: 58px; height: 58px; place-items: center; }
 .creator-capability-visual img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
-.creator-capability-card summary { display: block; min-height: 76px; padding: 0 82px 10px 0; list-style: none; color: var(--ink); cursor: pointer; }
+.creator-capability-card summary { display: block; min-height: 82px; padding: 17px 142px 17px 20px; list-style: none; color: var(--ink); cursor: pointer; }
 .creator-capability-card summary::-webkit-details-marker { display: none; }
-.creator-capability-card summary::after { position: absolute; top: 93px; left: 18px; color: var(--teal-deep); content: "+"; font-size: 1.25rem; font-weight: 800; line-height: 1; }
+.creator-capability-card summary::after { position: absolute; top: 50%; right: 20px; color: var(--teal-deep); content: "+"; font-size: 1.45rem; font-weight: 800; line-height: 1; transform: translateY(-50%); }
 .creator-capability-card[open] summary::after { content: "-"; }
 .creator-capability-card summary span, .creator-capability-card summary small { display: block; }
 .creator-capability-card summary span { margin-bottom: 5px; font-size: 1.06rem; font-weight: 800; }
 .creator-capability-card summary small { color: var(--muted); font-size: 0.87rem; line-height: 1.45; }
-.creator-capability-card > p { min-height: 66px; margin: 19px 0 12px; padding: 0; color: var(--muted); font-size: 0.92rem; }
-.creator-capability-card > ul { margin: 0; padding: 13px 0 0 20px; border-top: 1px solid var(--line); color: #294755; font-size: 0.9rem; }
+.creator-capability-card > p { min-height: 0; margin: 0 20px 12px; padding: 0; color: var(--muted); font-size: 0.92rem; }
+.creator-capability-card > ul { margin: 0 20px 20px; padding: 13px 0 0 20px; border-top: 1px solid var(--line); color: #294755; font-size: 0.9rem; }
 .creator-capability-card > ul li + li { margin-top: 5px; }
 .creator-example-link {
   display: inline-flex;
@@ -674,7 +674,7 @@ details ul { padding-left: 38px; }
   .creator-pack-grid { grid-template-columns: 1fr; }
   .creator-pack-card { min-height: 0; }
   .creator-pack-card p:not(.creator-card-kicker) { min-height: 0; }
-  .creator-capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .creator-capability-grid { grid-template-columns: 1fr; }
   .creator-topic-example-grid { grid-template-columns: 1fr; }
   .creator-care-highlight figure:not(.care-label-stage) { min-height: 0; padding-top: 24px; border-top: 1px solid #d8c47e; border-left: 0; }
   .creator-care-highlight .creator-care-pet { width: 164px; height: 164px; }
@@ -723,6 +723,8 @@ details ul { padding-left: 38px; }
   .creator-guide-topic-map ol { grid-template-columns: 1fr; }
   .creator-topic-heading { margin-top: 56px; }
   .creator-capability-grid { grid-template-columns: 1fr; }
+  .creator-capability-card summary { min-height: 78px; padding-right: 132px; }
+  .creator-capability-visual { right: 54px; width: 54px; height: 54px; }
   .creator-topic-examples { margin: 28px 0 36px; }
   .creator-topic-example { padding: 18px; }
   .back-to-top { bottom: max(14px, env(safe-area-inset-bottom)); left: max(14px, env(safe-area-inset-left)); }
