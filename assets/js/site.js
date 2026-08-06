@@ -98,7 +98,7 @@
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const targets = Array.from(document.querySelectorAll(
-      ".hero-content, .feature-card, .step, .image-stage, .creator-path, .creator-care-highlight, .creator-pet-rail, .creator-guide-intro, .code-panel, .support-banner, .faq-list, .legal-copy"
+      ".hero-content, .feature-card, .step, .image-stage, .creator-path, .creator-care-highlight, .creator-pet-rail, .creator-guide-intro, .creator-overview-heading, .creator-pack-grid, .creator-pack-card, .creator-capability-card, .creator-overview-cta, .support-banner, .faq-list"
     ));
     if (!targets.length) return;
 

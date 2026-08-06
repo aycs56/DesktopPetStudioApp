@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="DesktopPetStudio 創作者 JSON 指南：打包桌寵、姿勢、動畫影格、移動方式、音效、氣泡文字與 AI 素材提示。">
+  <meta name="description" content="探索 DesktopPetStudio 可自訂的角色、姿勢動畫、移動、氣泡、音效、直播反應與養成玩法，並用 JSON 打包成可分享的工作坊內容。">
   <meta name="theme-color" content="#0d8f84">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="article">
@@ -15,9 +15,9 @@
   <link rel="canonical" href="https://www.desktoppetstudio.com/creator-json.html">
   <title>創作者 JSON 指南 | DesktopPetStudio</title>
   <link rel="icon" href="assets/images/app-icon.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260806-2">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260807-1">
   <script src="site.config.js"></script>
-  <script src="assets/js/site.js?v=20260806-2" defer></script>
+  <script src="assets/js/site.js?v=20260807-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">跳至主要內容</a>
@@ -34,11 +34,78 @@
       <div class="section-inner creator-guide-intro" data-lang-content="en" hidden><p class="section-kicker">CREATOR DOCUMENTATION</p><h1>Use JSON to create shareable desktop-pet content</h1><p>This guide explains how to organize art, animation, movement, sound, bubbles, and AI asset prompts into workshop content that players can scan and import.</p></div>
     </section>
 
-    <section class="section">
+    <section class="section creator-overview-section" id="creator-capabilities">
+      <div class="section-inner creator-overview" data-lang-content="zh-Hant">
+        <div class="creator-overview-heading" data-reveal><p class="section-kicker">MAKE A PET YOUR OWN</p><h2>不只是換造型，連角色的日常玩法也能一起創作</h2><p class="lead">你可以從一個有趣的姿勢開始，也可以把角色、對話、移動、養成規則和實況互動整理成一份能讓其他玩家直接匯入的桌寵內容。</p></div>
+        <div class="creator-pack-grid" data-reveal>
+          <article class="creator-pack-card"><div class="creator-pack-art creator-pack-art-pose" aria-hidden="true"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""></div><p class="creator-card-kicker">ONE NEW ACTION</p><h3>單一姿勢包</h3><p>替角色新增揮手、跳躍、驚訝或右鍵呼叫動作，連同影格、移動、氣泡、音效與快捷鍵一起分享。</p><a href="#technical-guide">查看姿勢 JSON</a></article>
+          <article class="creator-pack-card creator-pack-card-teal"><div class="creator-pack-art creator-pack-art-pet" aria-hidden="true"><img src="assets/images/demo-characters/bunny/bunny_01.png" alt=""></div><p class="creator-card-kicker">A WHOLE COMPANION</p><h3>完整桌寵包</h3><p>把角色素材、基礎姿勢、提醒、專注模式和個人化設定組成一位完整的桌面陪伴者。</p><a href="#technical-guide">查看桌寵 JSON</a></article>
+          <article class="creator-pack-card creator-pack-card-coral"><div class="creator-pack-art creator-pack-art-care" aria-hidden="true"><img src="assets/images/cat-eat.png" alt=""></div><p class="creator-card-kicker">A DAILY GAMEPLAY LOOP</p><h3>照顧玩法包</h3><p>設計工作、商城、道具、日常事件與心情回應，讓每個角色都有不同的生活節奏。</p><a href="#technical-guide">查看養成 JSON</a></article>
+        </div>
+        <div class="creator-overview-heading creator-topic-heading" data-reveal><p class="section-kicker">WHAT CAN YOU CUSTOMIZE?</p><h2>從一張角色圖，到一整套桌面互動</h2><p class="lead">以下都是工作坊 JSON 已支援的內容。先挑一個最想做的主題開始，之後再慢慢把它變成你的角色世界。</p></div>
+        <div class="creator-capability-grid">
+          <details class="creator-capability-card" data-reveal><summary><span>角色與動畫</span><small>任何有授權的角色，都能成為桌寵。</small></summary><div class="creator-capability-visual visual-character" aria-hidden="true"><img src="assets/images/demo-characters/robot/robot_01.png" alt=""></div><p>可放入多張透明 PNG 或 GIF 動畫，設定播放速度，讓原創角色、兔子、機器人或其他形象都有自己的動作。</p><ul><li>多幀動畫影格與相對素材路徑</li><li>動畫速度 0.25x 到 4x</li><li>走動素材面向右方，向左移動會自動鏡像</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>移動與動作演出</span><small>讓角色走、跳、巡邏、漂浮，或演出一段專屬動作。</small></summary><div class="creator-capability-visual visual-motion" aria-hidden="true"><img src="assets/images/pose-animations/walk/walk_01.png" alt=""></div><p>用安全的 JSON 參數設定移動距離、速度、重力與循環，不需要在工作坊內容裡執行程式。</p><ul><li>隨機走動、巡邏、跳躍、抖動、漂浮</li><li>多段 sequence 與 easing 演出曲線</li><li>可決定姿勢期間是否受到自然下墜影響</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>氣泡、音效與快捷鍵</span><small>讓一個姿勢不只是播放圖片。</small></summary><div class="creator-capability-visual visual-dialogue" aria-hidden="true"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""></div><p>每個姿勢都能有隨機文字氣泡、WAV 音效、啟用狀態與建議快捷鍵，玩家仍能依自己的習慣調整。</p><ul><li>多句隨機氣泡與出現間隔</li><li>右鍵呼叫姿勢的 WAV 音效</li><li>建議快捷鍵與預設啟用狀態</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>專注模式與按鍵反應</span><small>把角色留在喜歡的位置，陪伴一段專注時光。</small></summary><div class="creator-capability-visual visual-focus" aria-hidden="true"><img src="assets/images/pose-animations/focus/focus_01.png" alt=""></div><p>完整桌寵可設計固定專注姿勢。玩家可拖曳重新擺位，並選擇以自己的文字顯示按鍵反應速度。</p><ul><li>固定位置，不觸發走動、攀附或下墜</li><li>按鍵時重新播放專注動畫</li><li>可自訂毫秒數前後文字，不記錄按鍵內容</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>Twitch Bits 實況反應</span><small>觀眾支持可以變成角色的即時動作。</small></summary><div class="creator-capability-visual visual-stream" aria-hidden="true"><img src="assets/images/pose-animations/fall/fall_01.png" alt=""></div><p>為姿勢設定 Bits 金額範圍與持續秒數，氣泡可帶入觀眾暱稱、留言和 Bits 數量；觸發後會回到原本動作。</p><ul><li>金額區間與播放持續時間</li><li>專屬動畫、音效與文字氣泡</li><li>不會打包任何 Twitch 帳號或授權資料</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>AI 素材提示與多語系</span><small>把延伸角色動作的方法，也一起交給玩家。</small></summary><div class="creator-capability-visual visual-prompt" aria-hidden="true"><img src="assets/images/pose-animations/drag/drag_01.png" alt=""></div><p>可為作品提供 AI 素材助手 Prompt，玩家能依自己的角色圖延伸新姿勢；提示可提供多種語言版本。</p><ul><li>姿勢包直接顯示，完整桌寵可分組展開</li><li>支援繁中、簡中、英文、日文與更多語系文案</li><li>可明確引導六張獨立透明 PNG，而非六宮格</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>工作、商城與日常事件</span><small>設計的不只是外觀，還可以是一整套相處方式。</small></summary><div class="creator-capability-visual visual-care" aria-hidden="true"><img src="assets/images/cat-eat.png" alt=""></div><p>創作者能做出角色專屬的工作、商品和事件，改變飽食度、親合度、心情與遊戲內金幣，並安排刷新規則。</p><ul><li>食物、禮物、收藏品與有限庫存</li><li>工作時長、獎勵、消耗與心情風險</li><li>依飽食度、親合度、心情觸發日常對話</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>安全打包與分享</span><small>把素材和設定整理好，其他玩家就能直接匯入。</small></summary><div class="creator-capability-visual visual-share" aria-hidden="true"><img src="assets/images/app-icon.png" alt=""></div><p>工作坊包使用相對路徑與白名單 JSON 資料。程式不會執行 JSON 程式碼，也不需要把私人帳號資訊分享出去。</p><ul><li>支援姿勢、完整桌寵與養成內容分開分享</li><li>素材與 WAV 音效可一併打包</li><li>不包含 Google、Twitch 權杖或玩家私密設定</li></ul></details>
+        </div>
+        <div class="creator-overview-cta" data-reveal><div><p class="section-kicker">READY TO BUILD?</p><h3>先做一個姿勢，或一次做出完整的角色世界</h3><p>下方保留完整 JSON 範例、欄位限制與打包檢查清單。每一種創作都能從一個小動作開始。</p></div><a class="button button-primary" href="#technical-guide">前往 JSON 創作指南</a></div>
+      </div>
+
+      <div class="section-inner creator-overview" data-lang-content="zh-Hans" hidden>
+        <div class="creator-overview-heading" data-reveal><p class="section-kicker">MAKE A PET YOUR OWN</p><h2>不只是换造型，连角色的日常玩法也能一起创作</h2><p class="lead">你可以从一个有趣的姿势开始，也可以把角色、对话、移动、养成规则和直播互动整理成一份能让其他玩家直接导入的桌宠内容。</p></div>
+        <div class="creator-pack-grid" data-reveal>
+          <article class="creator-pack-card"><div class="creator-pack-art creator-pack-art-pose" aria-hidden="true"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""></div><p class="creator-card-kicker">ONE NEW ACTION</p><h3>单一姿势包</h3><p>替角色新增挥手、跳跃、惊讶或右键调用动作，连同帧、移动、气泡、音效与快捷键一起分享。</p><a href="#technical-guide">查看姿势 JSON</a></article>
+          <article class="creator-pack-card creator-pack-card-teal"><div class="creator-pack-art creator-pack-art-pet" aria-hidden="true"><img src="assets/images/demo-characters/bunny/bunny_01.png" alt=""></div><p class="creator-card-kicker">A WHOLE COMPANION</p><h3>完整桌宠包</h3><p>把角色素材、基础姿势、提醒、专注模式和个性化设置组成一位完整的桌面陪伴者。</p><a href="#technical-guide">查看桌宠 JSON</a></article>
+          <article class="creator-pack-card creator-pack-card-coral"><div class="creator-pack-art creator-pack-art-care" aria-hidden="true"><img src="assets/images/cat-eat.png" alt=""></div><p class="creator-card-kicker">A DAILY GAMEPLAY LOOP</p><h3>照顾玩法包</h3><p>设计工作、商城、道具、日常事件与心情回应，让每个角色都有不同的生活节奏。</p><a href="#technical-guide">查看养成 JSON</a></article>
+        </div>
+        <div class="creator-overview-heading creator-topic-heading" data-reveal><p class="section-kicker">WHAT CAN YOU CUSTOMIZE?</p><h2>从一张角色图，到一整套桌面互动</h2><p class="lead">以下都是工作坊 JSON 已支持的内容。先挑一个最想做的主题开始，之后再慢慢把它变成你的角色世界。</p></div>
+        <div class="creator-capability-grid">
+          <details class="creator-capability-card" data-reveal><summary><span>角色与动画</span><small>任何有授权的角色，都能成为桌宠。</small></summary><div class="creator-capability-visual visual-character" aria-hidden="true"><img src="assets/images/demo-characters/robot/robot_01.png" alt=""></div><p>可放入多张透明 PNG 或 GIF 动画，设置播放速度，让原创角色、兔子、机器人或其他形象都有自己的动作。</p><ul><li>多帧动画与相对素材路径</li><li>动画速度 0.25x 到 4x</li><li>走动素材面向右方，向左移动会自动镜像</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>移动与动作演出</span><small>让角色走、跳、巡逻、漂浮，或演出一段专属动作。</small></summary><div class="creator-capability-visual visual-motion" aria-hidden="true"><img src="assets/images/pose-animations/walk/walk_01.png" alt=""></div><p>用安全的 JSON 参数设置移动距离、速度、重力与循环，不需要在创意工坊内容里执行程序。</p><ul><li>随机走动、巡逻、跳跃、抖动、漂浮</li><li>多段 sequence 与 easing 演出曲线</li><li>可决定姿势期间是否受到自然下坠影响</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>气泡、音效与快捷键</span><small>让一个姿势不只是播放图片。</small></summary><div class="creator-capability-visual visual-dialogue" aria-hidden="true"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""></div><p>每个姿势都能有随机文字气泡、WAV 音效、启用状态与建议快捷键，玩家仍能依自己的习惯调整。</p><ul><li>多句随机气泡与出现间隔</li><li>右键调用姿势的 WAV 音效</li><li>建议快捷键与默认启用状态</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>专注模式与按键反应</span><small>把角色留在喜欢的位置，陪伴一段专注时光。</small></summary><div class="creator-capability-visual visual-focus" aria-hidden="true"><img src="assets/images/pose-animations/focus/focus_01.png" alt=""></div><p>完整桌宠可设计固定专注姿势。玩家可拖动重新摆位，并选择以自己的文字显示按键反应速度。</p><ul><li>固定位置，不触发走动、攀附或下坠</li><li>按键时重新播放专注动画</li><li>可自定义毫秒数前后文字，不记录按键内容</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>Twitch Bits 直播反应</span><small>观众支持可以变成角色的即时动作。</small></summary><div class="creator-capability-visual visual-stream" aria-hidden="true"><img src="assets/images/pose-animations/fall/fall_01.png" alt=""></div><p>为姿势设置 Bits 金额范围与持续秒数，气泡可带入观众昵称、留言和 Bits 数量；触发后会回到原本动作。</p><ul><li>金额区间与播放持续时间</li><li>专属动画、音效与文字气泡</li><li>不会打包任何 Twitch 账号或授权资料</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>AI 素材提示与多语言</span><small>把延伸角色动作的方法，也一起交给玩家。</small></summary><div class="creator-capability-visual visual-prompt" aria-hidden="true"><img src="assets/images/pose-animations/drag/drag_01.png" alt=""></div><p>可为作品提供 AI 素材助手 Prompt，玩家能依自己的角色图延伸新姿势；提示可提供多种语言版本。</p><ul><li>姿势包直接显示，完整桌宠可分组展开</li><li>支持繁中、简中、英文、日文与更多语言文案</li><li>可明确引导六张独立透明 PNG，而非六宫格</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>工作、商城与日常事件</span><small>设计的不只是外观，还可以是一整套相处方式。</small></summary><div class="creator-capability-visual visual-care" aria-hidden="true"><img src="assets/images/cat-eat.png" alt=""></div><p>创作者能做出角色专属的工作、商品和事件，改变饱食度、亲合度、心情与游戏内金币，并安排刷新规则。</p><ul><li>食物、礼物、收藏品与有限库存</li><li>工作时长、奖励、消耗与心情风险</li><li>依饱食度、亲合度、心情触发日常对话</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>安全打包与分享</span><small>把素材和设置整理好，其他玩家就能直接导入。</small></summary><div class="creator-capability-visual visual-share" aria-hidden="true"><img src="assets/images/app-icon.png" alt=""></div><p>工作坊包使用相对路径与白名单 JSON 数据。程序不会执行 JSON 代码，也不需要把私人账号信息分享出去。</p><ul><li>支持姿势、完整桌宠与养成内容分开分享</li><li>素材与 WAV 音效可一并打包</li><li>不包含 Google、Twitch 令牌或玩家私密设置</li></ul></details>
+        </div>
+        <div class="creator-overview-cta" data-reveal><div><p class="section-kicker">READY TO BUILD?</p><h3>先做一个姿势，或一次做出完整的角色世界</h3><p>下方保留完整 JSON 示例、字段限制与打包检查清单。每一种创作都能从一个小动作开始。</p></div><a class="button button-primary" href="#technical-guide">前往 JSON 创作指南</a></div>
+      </div>
+
+      <div class="section-inner creator-overview" data-lang-content="en" hidden>
+        <div class="creator-overview-heading" data-reveal><p class="section-kicker">MAKE A PET YOUR OWN</p><h2>Customize more than a look. Build a whole way for a character to live.</h2><p class="lead">Start with one expressive pose, or package a character, dialogue, movement, care rules, and stream reactions into desktop-pet content other players can import.</p></div>
+        <div class="creator-pack-grid" data-reveal>
+          <article class="creator-pack-card"><div class="creator-pack-art creator-pack-art-pose" aria-hidden="true"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""></div><p class="creator-card-kicker">ONE NEW ACTION</p><h3>Single pose pack</h3><p>Add a wave, hop, surprise, or right-click action with its frames, movement, bubbles, sound, and hotkey.</p><a href="#technical-guide">View pose JSON</a></article>
+          <article class="creator-pack-card creator-pack-card-teal"><div class="creator-pack-art creator-pack-art-pet" aria-hidden="true"><img src="assets/images/demo-characters/bunny/bunny_01.png" alt=""></div><p class="creator-card-kicker">A WHOLE COMPANION</p><h3>Full pet pack</h3><p>Bundle character art, base poses, reminders, focus mode, and personal settings into a complete desktop companion.</p><a href="#technical-guide">View pet JSON</a></article>
+          <article class="creator-pack-card creator-pack-card-coral"><div class="creator-pack-art creator-pack-art-care" aria-hidden="true"><img src="assets/images/cat-eat.png" alt=""></div><p class="creator-card-kicker">A DAILY GAMEPLAY LOOP</p><h3>Care gameplay pack</h3><p>Design jobs, shop items, daily events, and mood responses so each character keeps a different rhythm.</p><a href="#technical-guide">View care JSON</a></article>
+        </div>
+        <div class="creator-overview-heading creator-topic-heading" data-reveal><p class="section-kicker">WHAT CAN YOU CUSTOMIZE?</p><h2>From one character image to a complete desktop interaction</h2><p class="lead">Everything below is supported by Workshop JSON today. Choose the part you want to make first, then gradually turn it into your character's world.</p></div>
+        <div class="creator-capability-grid">
+          <details class="creator-capability-card" data-reveal><summary><span>Character and animation</span><small>Any character you have rights to use can become a desktop pet.</small></summary><div class="creator-capability-visual visual-character" aria-hidden="true"><img src="assets/images/demo-characters/robot/robot_01.png" alt=""></div><p>Add multiple transparent PNG frames or a GIF, adjust playback speed, and give an original character, rabbit, robot, or another design its own movement.</p><ul><li>Multi-frame animation and relative asset paths</li><li>Playback from 0.25x to 4x</li><li>Right-facing walk art mirrors automatically when moving left</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>Movement and action staging</span><small>Make a character walk, hop, patrol, drift, or perform a signature sequence.</small></summary><div class="creator-capability-visual visual-motion" aria-hidden="true"><img src="assets/images/pose-animations/walk/walk_01.png" alt=""></div><p>Use safe JSON values for distance, speed, gravity, and looping. Workshop content never needs to run executable code.</p><ul><li>Wander, patrol, hop, shake, and drift</li><li>Multi-step sequences with easing curves</li><li>Choose whether gravity applies during a pose</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>Bubbles, sound, and hotkeys</span><small>Make a pose feel like more than a picture.</small></summary><div class="creator-capability-visual visual-dialogue" aria-hidden="true"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""></div><p>Every pose can have random bubble text, WAV sound, an enabled state, and a suggested hotkey that players may still change for themselves.</p><ul><li>Multiple random bubbles and intervals</li><li>WAV sound for right-click poses</li><li>Suggested hotkeys and default enabled state</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>Focus mode and key response</span><small>Keep a character where it feels right during focused work or play.</small></summary><div class="creator-capability-visual visual-focus" aria-hidden="true"><img src="assets/images/pose-animations/focus/focus_01.png" alt=""></div><p>A full pet can define a fixed focus pose. Players may drag it into place and optionally show their own key-response speed in custom wording.</p><ul><li>Stay put without walking, clinging, or falling</li><li>Replay the focus animation on key input</li><li>Customize the millisecond bubble without recording keys</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>Twitch Bits reactions</span><small>Viewer support can become an immediate character reaction.</small></summary><div class="creator-capability-visual visual-stream" aria-hidden="true"><img src="assets/images/pose-animations/fall/fall_01.png" alt=""></div><p>Set a Bits range and duration for a pose. Bubbles can include a viewer name, message, and Bits amount; the pet returns to its earlier action afterward.</p><ul><li>Amount ranges and playback duration</li><li>Dedicated animation, sound, and bubbles</li><li>No Twitch account or authorization data is packaged</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>AI asset prompts and languages</span><small>Give players a clear way to extend a character's actions.</small></summary><div class="creator-capability-visual visual-prompt" aria-hidden="true"><img src="assets/images/pose-animations/drag/drag_01.png" alt=""></div><p>Add AI Asset Helper prompts so a player can create more poses from their own reference art. Prompts may include multiple languages.</p><ul><li>Pose packs display directly; full pets group prompts</li><li>Traditional Chinese, Simplified Chinese, English, Japanese, and more</li><li>Ask for six separate transparent PNGs, not a grid</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>Jobs, shop items, and daily events</span><small>Create not only an appearance, but a whole way to care for a character.</small></summary><div class="creator-capability-visual visual-care" aria-hidden="true"><img src="assets/images/cat-eat.png" alt=""></div><p>Creators can make character-specific jobs, items, and events that affect hunger, affinity, mood, and in-game coins, with refresh rules to balance them.</p><ul><li>Food, gifts, collectibles, and limited stock</li><li>Job duration, rewards, costs, and mood risk</li><li>Daily dialogue triggered by hunger, affinity, and mood</li></ul></details>
+          <details class="creator-capability-card" data-reveal><summary><span>Safe packaging and sharing</span><small>Organize assets and settings so other players can import them directly.</small></summary><div class="creator-capability-visual visual-share" aria-hidden="true"><img src="assets/images/app-icon.png" alt=""></div><p>Workshop packs use relative paths and allow-listed JSON data. The app never runs JSON as code, and private account information stays out of a shared pack.</p><ul><li>Share poses, full pets, and care content separately</li><li>Bundle art and WAV sound together</li><li>No Google or Twitch tokens, or private player settings</li></ul></details>
+        </div>
+        <div class="creator-overview-cta" data-reveal><div><p class="section-kicker">READY TO BUILD?</p><h3>Start with one pose, or create a whole world for a character</h3><p>The full JSON examples, field limits, and packaging checklist are below. Every creation can begin with one small action.</p></div><a class="button button-primary" href="#technical-guide">Open the JSON creator guide</a></div>
+      </div>
+    </section>
+
+    <section class="section" id="technical-guide">
       <div class="section-inner creator-guide-layout" data-lang-content="zh-Hant">
         <article class="legal-copy">
-          <h2>開始前：選擇要分享的內容</h2>
-          <p>姿勢包使用 <code>"type": "pose"</code>，適合分享一個右鍵呼叫姿勢與它的素材。完整桌寵包使用 <code>"type": "pet"</code>，以 <code>pet_config.json</code> 帶入基礎姿勢、提醒、快捷鍵與其他設定。養成內容則可使用 <code>"type": "care"</code>，提供商城物品、工作與日常事件。</p>
+          <h2>開始前：選擇三種主要分享方式</h2>
+          <p>工作坊目前有三種主要封裝方式：姿勢包使用 <code>"type": "pose"</code>，適合分享一個右鍵呼叫姿勢與它的素材；完整桌寵包使用 <code>"type": "pet"</code>，以 <code>pet_config.json</code> 帶入基礎姿勢、提醒、快捷鍵與其他設定；養成內容則使用 <code>"type": "care"</code>，提供商城物品、工作與日常事件。</p>
+          <p>三種封裝方式不是內容上限。你可以在它們之中組合下方八個創作主題，從角色動畫、移動、對話、專注、實況反應、AI 素材提示，到養成規則與安全打包。</p>
+          <div class="creator-guide-topic-map"><p>本指南涵蓋的 8 個創作主題</p><ol><li>角色與動畫</li><li>移動與動作演出</li><li>氣泡、音效與快捷鍵</li><li>專注模式與按鍵反應</li><li>Twitch Bits 直播姿勢</li><li>AI 素材提示與多語系</li><li>工作、商城與日常事件</li><li>安全打包與分享</li></ol></div>
           <h2>1. 建立資料夾</h2>
           <p>讓入口 JSON 和所有圖片、音效留在同一個可攜資料夾內。其他玩家匯入時，程式會從 JSON 所在位置解析相對路徑。</p>
           <pre class="code-panel"><code>MyWavePose/
@@ -114,12 +181,14 @@
           <h2>分享前檢查</h2>
           <div class="creator-checklist"><ul><li>每張影格的角色中心點盡量一致，避免播放時晃動。</li><li>完整桌寵包以 <code>config_path</code> 指向 <code>pet_config.json</code>；不要包含 Google token、OAuth 設定、本機訂閱清單或其他私密資料。</li><li>只放入你擁有或已取得授權的圖片、音效與文字；為素材來源與使用條件做清楚標記。</li><li>先以工作坊頁的掃描與匯入流程在乾淨資料夾測試，再分享給其他玩家。</li></ul></div>
         </article>
-        <aside class="creator-aside"><img src="assets/images/cat-ribbon.png" alt="像素貓與緞帶"><h2>創作小提醒</h2><p>PNG 多幀動畫可先用 6 張圖片、每秒約 6 幀。這樣容易調整，也方便玩家替角色建立更多動作。</p><div class="guide-downloads"><a class="button button-teal" href="docs/workshop-creator-json-guide.zh-Hant.md" download>下載繁中 Markdown</a><a class="button button-secondary" href="docs/workshop-creator-json-guide.en.md" download>下載英文 Markdown</a></div><p><a href="index.html#workshop">回到自訂與工作坊流程</a></p><p><a href="support.html">遇到匯入問題？前往支援資訊</a></p></aside>
+        <aside class="creator-aside" aria-labelledby="creator-tip-zh-hant"><img src="assets/images/cat-ribbon.png" alt="像素貓與緞帶"><h2 id="creator-tip-zh-hant">創作小提醒</h2><p>PNG 多幀動畫可先用 6 張圖片、每秒約 6 幀。這樣容易調整，也方便玩家替角色建立更多動作。</p><div class="guide-downloads"><a class="button button-teal" href="docs/workshop-creator-json-guide.zh-Hant.md" download>下載繁中 Markdown</a><a class="button button-secondary" href="docs/workshop-creator-json-guide.en.md" download>下載英文 Markdown</a></div><p><a href="index.html#workshop">回到自訂與工作坊流程</a></p><p><a href="support.html">遇到匯入問題？前往支援資訊</a></p></aside>
       </div>
       <div class="section-inner creator-guide-layout" data-lang-content="zh-Hans" hidden>
         <article class="legal-copy">
-          <h2>开始前：选择要分享的内容</h2>
-          <p>姿势包使用 <code>"type": "pose"</code>，适合分享一个右键调用姿势与它的素材。完整桌宠包使用 <code>"type": "pet"</code>，以 <code>pet_config.json</code> 带入基础姿势、提醒、快捷键与其他设置。养成内容则可使用 <code>"type": "care"</code>，提供商城物品、工作与日常事件。</p>
+          <h2>开始前：选择三种主要分享方式</h2>
+          <p>创意工坊目前有三种主要封装方式：姿势包使用 <code>"type": "pose"</code>，适合分享一个右键调用姿势与它的素材；完整桌宠包使用 <code>"type": "pet"</code>，以 <code>pet_config.json</code> 带入基础姿势、提醒、快捷键与其他设置；养成内容使用 <code>"type": "care"</code>，提供商城物品、工作与日常事件。</p>
+          <p>三种封装方式不是内容上限。你可以在它们之中组合下方八个创作主题，从角色动画、移动、对话、专注、直播反应、AI 素材提示，到养成规则与安全打包。</p>
+          <div class="creator-guide-topic-map"><p>本指南涵盖的 8 个创作主题</p><ol><li>角色与动画</li><li>移动与动作演出</li><li>气泡、音效与快捷键</li><li>专注模式与按键反应</li><li>Twitch Bits 直播姿势</li><li>AI 素材提示与多语言</li><li>工作、商城与日常事件</li><li>安全打包与分享</li></ol></div>
           <h2>1. 建立资料夹</h2>
           <p>让入口 JSON 和所有图片、音效留在同一个可携资料夹内。其他玩家导入时，程序会从 JSON 所在位置解析相对路径。</p>
           <pre class="code-panel"><code>MyWavePose/
@@ -163,12 +232,14 @@
           <h2>分享前检查</h2>
           <div class="creator-checklist"><ul><li>每张帧的角色中心点尽量一致，避免播放时晃动。</li><li>完整桌宠包以 <code>config_path</code> 指向 <code>pet_config.json</code>，不要包含 Google token、OAuth 设置或其他私密资料。</li><li>只放入你拥有或已取得授权的图片、音效与文字，并先在干净资料夹测试导入。</li></ul></div>
         </article>
-        <aside class="creator-aside"><img src="assets/images/cat-ribbon.png" alt="像素猫与缎带"><h2>创作小提醒</h2><p>PNG 多帧动画可先用 6 张图片、每秒约 6 帧。这样容易调整，也方便玩家为角色建立更多动作。</p><div class="guide-downloads"><a class="button button-teal" href="docs/workshop-creator-json-guide.zh-Hant.md" download>下载繁中 Markdown</a><a class="button button-secondary" href="docs/workshop-creator-json-guide.en.md" download>下载英文 Markdown</a></div><p><a href="index.html#workshop">回到自定义与创意工坊流程</a></p><p><a href="support.html">遇到导入问题？前往支持信息</a></p></aside>
+        <aside class="creator-aside" aria-labelledby="creator-tip-zh-hans"><img src="assets/images/cat-ribbon.png" alt="像素猫与缎带"><h2 id="creator-tip-zh-hans">创作小提醒</h2><p>PNG 多帧动画可先用 6 张图片、每秒约 6 帧。这样容易调整，也方便玩家为角色建立更多动作。</p><div class="guide-downloads"><a class="button button-teal" href="docs/workshop-creator-json-guide.zh-Hant.md" download>下载繁中 Markdown</a><a class="button button-secondary" href="docs/workshop-creator-json-guide.en.md" download>下载英文 Markdown</a></div><p><a href="index.html#workshop">回到自定义与创意工坊流程</a></p><p><a href="support.html">遇到导入问题？前往支持信息</a></p></aside>
       </div>
       <div class="section-inner creator-guide-layout" data-lang-content="en" hidden>
         <article class="legal-copy">
-          <h2>Before you begin: choose what to share</h2>
-          <p>Use <code>"type": "pose"</code> for one right-click pose and its assets. Use <code>"type": "pet"</code> with <code>pet_config.json</code> for a complete pet configuration. Use <code>"type": "care"</code> for shop items, jobs, and everyday events.</p>
+          <h2>Before you begin: choose one of three main sharing formats</h2>
+          <p>Workshop content currently has three main package formats. Use <code>"type": "pose"</code> for one right-click pose and its assets. Use <code>"type": "pet"</code> with <code>pet_config.json</code> for a complete pet configuration. Use <code>"type": "care"</code> for shop items, jobs, and everyday events.</p>
+          <p>The three formats are not a limit on what you can create. You can combine the eight topics below: character animation, movement, dialogue, focus, stream reactions, AI asset prompts, care rules, and safe packaging.</p>
+          <div class="creator-guide-topic-map"><p>This guide covers 8 creation topics</p><ol><li>Character and animation</li><li>Movement and action staging</li><li>Bubbles, sound, and hotkeys</li><li>Focus mode and key response</li><li>Twitch Bits streamer poses</li><li>AI asset prompts and languages</li><li>Jobs, shop items, and daily events</li><li>Safe packaging and sharing</li></ol></div>
           <h2>1. Build a portable folder</h2>
           <p>Keep the entry JSON, images, and sound together. The app resolves relative paths from the JSON file, so a player can import the same folder on a different computer.</p>
           <pre class="code-panel"><code>MyWavePose/
@@ -212,7 +283,7 @@
           <h2>Pre-share checklist</h2>
           <div class="creator-checklist"><ul><li>Keep the character center consistent across frames to prevent visual jitter.</li><li>For a full-pet pack, point <code>config_path</code> to <code>pet_config.json</code>; never include Google tokens, OAuth settings, or other private data.</li><li>Share only art, sound, and text you own or are licensed to distribute, then test importing from a clean folder.</li></ul></div>
         </article>
-        <aside class="creator-aside"><img src="assets/images/cat-ribbon.png" alt="Pixel cat with a ribbon"><h2>Creator tip</h2><p>Start a PNG animation with six images at about six frames per second. This is easy to adjust and gives players a clear base for making more character actions.</p><div class="guide-downloads"><a class="button button-teal" href="docs/workshop-creator-json-guide.zh-Hant.md" download>Download Traditional Chinese Markdown</a><a class="button button-secondary" href="docs/workshop-creator-json-guide.en.md" download>Download English Markdown</a></div><p><a href="index.html#workshop">Back to the customize and workshop flow</a></p><p><a href="support.html">Need help importing? Open support</a></p></aside>
+        <aside class="creator-aside" aria-labelledby="creator-tip-en"><img src="assets/images/cat-ribbon.png" alt="Pixel cat with a ribbon"><h2 id="creator-tip-en">Creator tip</h2><p>Start a PNG animation with six images at about six frames per second. This is easy to adjust and gives players a clear base for making more character actions.</p><div class="guide-downloads"><a class="button button-teal" href="docs/workshop-creator-json-guide.zh-Hant.md" download>Download Traditional Chinese Markdown</a><a class="button button-secondary" href="docs/workshop-creator-json-guide.en.md" download>Download English Markdown</a></div><p><a href="index.html#workshop">Back to the customize and workshop flow</a></p><p><a href="support.html">Need help importing? Open support</a></p></aside>
       </div>
     </section>
   </main>
