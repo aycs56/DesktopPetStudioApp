@@ -158,7 +158,7 @@ code {
   min-height: min(680px, calc(100svh - 72px));
   overflow: hidden;
   color: #fff;
-  background: #123e49 url("../images/hero-pixel-studio.png") center / 100% 100% no-repeat;
+  background: #123e49 url("../images/hero-pixel-studio.png") center center / cover no-repeat;
   isolation: isolate;
 }
 
