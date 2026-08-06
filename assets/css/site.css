@@ -289,6 +289,26 @@ code {
 
 .hero-actions, .button-row { display: flex; flex-wrap: wrap; gap: 12px; }
 
+.hero-launch-strip {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 30px;
+  width: min(50%, 720px);
+  min-height: 58px;
+  padding: 16px clamp(150px, 16vw, 236px) 16px clamp(24px, 3vw, 44px);
+  border-top: 3px solid var(--butter);
+  border-left: 3px solid var(--coral);
+  color: #fff8dc;
+  background: rgba(8, 43, 54, 0.88);
+  box-shadow: -12px 12px 0 rgba(8, 43, 54, 0.2);
+  font-size: clamp(0.95rem, 1.25vw, 1.12rem);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.hero-launch-strip span { display: block; }
+
 .button {
   display: inline-flex;
   min-height: 44px;
@@ -458,24 +478,29 @@ code {
 .creator-pack-card h3 { font-size: 1.18rem; }
 .creator-pack-card p:not(.creator-card-kicker) { min-height: 74px; margin-bottom: 16px; color: var(--muted); font-size: 0.94rem; }
 .creator-pack-card a { color: var(--teal-deep); font-weight: 800; }
-.creator-pack-action { display: flex; margin: 22px 0 0; }
+.creator-pack-action { display: flex; width: calc((100% - 36px) / 3); margin: 22px 0 0; }
 .creator-pack-action .button { width: 100%; min-height: 48px; }
 .creator-topic-heading { margin-top: 78px; }
 .creator-capability-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 32px; }
 .creator-capability-card { position: relative; min-height: 0; padding: 0; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); }
-.creator-capability-card[open] { border-color: var(--teal); box-shadow: 0 10px 22px rgba(16, 43, 58, 0.08); }
-.creator-capability-visual { position: absolute; z-index: 1; top: 12px; right: 76px; display: grid; width: 58px; height: 58px; place-items: center; }
+.creator-capability-card[open] { padding: 0 20px 20px; border-color: var(--teal); box-shadow: 0 10px 22px rgba(16, 43, 58, 0.08); }
+.creator-capability-visual { display: none; }
 .creator-capability-visual img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
-.creator-capability-card summary { display: block; min-height: 82px; padding: 17px 166px 17px 20px; list-style: none; color: var(--ink); cursor: pointer; }
+.creator-capability-card summary { position: relative; display: block; min-height: 82px; padding: 17px 76px 17px 20px; list-style: none; color: var(--ink); cursor: pointer; }
 .creator-capability-card summary::-webkit-details-marker { display: none; }
 .creator-capability-card summary::after { position: absolute; top: 50%; right: 20px; display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid var(--teal-deep); border-radius: 50%; color: var(--teal-deep); background: #effaf7; content: "+"; font-size: 1.35rem; font-weight: 800; line-height: 1; transform: translateY(-50%); }
-.creator-capability-card[open] summary::after { color: #fff; background: var(--teal); content: "-"; }
+.creator-capability-card[open] summary { min-height: 86px; margin: 0 -20px; padding: 17px 140px 17px 20px; border-bottom: 1px solid var(--line); }
+.creator-capability-card[open] summary::after { right: 76px; width: 46px; height: 46px; color: #fff; background: var(--teal); content: "-"; }
 .creator-capability-card summary span, .creator-capability-card summary small { display: block; }
 .creator-capability-card summary span { margin-bottom: 5px; font-size: 1.06rem; font-weight: 800; }
 .creator-capability-card summary small { color: var(--muted); font-size: 0.87rem; line-height: 1.45; }
-.creator-capability-card > p { min-height: 0; margin: 0 20px 12px; padding: 0; color: var(--muted); font-size: 0.92rem; }
+.creator-capability-detail > p { min-height: 0; margin: 0; padding: 0; color: var(--muted); font-size: 0.92rem; }
 .creator-capability-card > ul { margin: 0 20px 20px; padding: 13px 0 0 20px; border-top: 1px solid var(--line); color: #294755; font-size: 0.9rem; }
 .creator-capability-card > ul li + li { margin-top: 5px; }
+.creator-capability-card[open] .creator-capability-detail { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 20px; align-items: start; padding-top: 16px; }
+.creator-capability-card[open] .creator-capability-visual { position: static; z-index: auto; display: grid; grid-column: 2; width: 100%; height: 104px; place-items: center; }
+.creator-capability-card[open] .creator-capability-detail > p { grid-column: 1; }
+.creator-capability-card[open] > ul { margin: 16px 0 0; padding-top: 13px; }
 .creator-example-link {
   display: inline-flex;
   min-height: 40px;
@@ -675,6 +700,7 @@ details ul { padding-left: 38px; }
   .creator-pack-grid { grid-template-columns: 1fr; }
   .creator-pack-card { min-height: 0; }
   .creator-pack-card p:not(.creator-card-kicker) { min-height: 0; }
+  .creator-pack-action { width: 100%; }
   .creator-capability-grid { grid-template-columns: 1fr; }
   .creator-topic-example-grid { grid-template-columns: 1fr; }
   .creator-care-highlight figure:not(.care-label-stage) { min-height: 0; padding-top: 24px; border-top: 1px solid #d8c47e; border-left: 0; }
@@ -703,6 +729,7 @@ details ul { padding-left: 38px; }
   .hero::before { background: rgba(8, 43, 54, 0.46); }
   .hero-content { width: min(calc(100% - 48px), 1080px); padding: 56px 0 70px; }
   .hero-pet { right: 16px; bottom: 18px; width: 76px; }
+  .hero-launch-strip { right: 0; bottom: 0; width: calc(100% - 24px); min-height: 50px; padding: 12px 98px 12px 24px; font-size: 0.9rem; }
   .hero-pixel-one { left: -16%; }
   .hero-pixel-two { right: -12%; }
   h1 { font-size: 2.6rem; }
@@ -724,8 +751,13 @@ details ul { padding-left: 38px; }
   .creator-guide-topic-map ol { grid-template-columns: 1fr; }
   .creator-topic-heading { margin-top: 56px; }
   .creator-capability-grid { grid-template-columns: 1fr; }
-  .creator-capability-card summary { min-height: 78px; padding-right: 148px; }
-  .creator-capability-visual { right: 70px; width: 54px; height: 54px; }
+  .creator-capability-card summary { min-height: 78px; padding-right: 76px; }
+  .creator-capability-card[open] { padding: 0 18px 18px; }
+  .creator-capability-card[open] summary { min-height: 78px; margin: 0 -18px; padding: 15px 126px 15px 18px; }
+  .creator-capability-card[open] summary::after { right: 70px; width: 44px; height: 44px; }
+  .creator-capability-card[open] .creator-capability-detail { gap: 14px; padding-top: 14px; }
+  .creator-capability-card[open] .creator-capability-visual { height: 88px; }
+  .creator-capability-card[open] > ul { margin-top: 14px; }
   .creator-topic-examples { margin: 28px 0 36px; }
   .creator-topic-example { padding: 18px; }
   .home-page main > .section:not(.hero) .button-row { justify-content: center; }
