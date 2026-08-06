@@ -381,10 +381,11 @@ code {
 .creator-care-highlight figure { display: grid; min-height: 228px; margin: 0; place-items: center; border-left: 1px solid #d8c47e; }
 .creator-care-highlight img { width: min(100%, 250px); max-height: 252px; object-fit: contain; image-rendering: pixelated; }
 .creator-care-highlight .creator-care-pet { width: 220px; height: 220px; }
-.creator-character-showcase { display: grid; grid-template-columns: repeat(3, minmax(110px, 150px)) minmax(220px, 1fr); align-items: center; gap: clamp(18px, 3vw, 38px); margin-top: 42px; padding-top: 24px; border-top: 1px solid #d8c47e; }
-.character-showcase-item { display: grid; justify-items: center; gap: 8px; color: var(--teal-deep); font-size: 0.9rem; text-align: center; }
-.pose-animation-showcase { width: 112px; height: 112px; }
-.creator-character-showcase > p { max-width: 340px; margin: 0 0 0 auto; color: var(--teal-deep); font-size: 1.05rem; font-weight: 800; }
+.creator-character-inline { margin: 18px 0 6px; padding: 16px 0 18px; border-top: 1px solid #d8c47e; border-bottom: 1px solid #d8c47e; }
+.creator-character-inline > p { margin-bottom: 16px; color: var(--teal-deep); font-size: 0.95rem; font-weight: 800; }
+.creator-character-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.creator-character-choices > div { display: grid; justify-items: center; gap: 7px; color: var(--teal-deep); font-size: 0.78rem; font-weight: 800; text-align: center; }
+.creator-character-choices .pose-animation { width: 74px; height: 74px; }
 
 .creator-guide-intro { max-width: 780px; }
 .creator-guide-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(290px, 0.85fr); gap: 52px; align-items: start; }
@@ -475,9 +476,7 @@ details ul { padding-left: 38px; }
   .streamer-bubble { left: 0; max-width: 210px; font-size: 0.84rem; }
   .page-hero { padding: 52px 0 38px; }
   .support-banner { grid-template-columns: 1fr; gap: 14px; padding: 20px; }
-  .creator-character-showcase { grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  .pose-animation-showcase { width: 78px; height: 78px; }
-  .creator-character-showcase > p { grid-column: 1 / -1; margin: 10px 0 0; }
+  .creator-character-choices .pose-animation { width: 58px; height: 58px; }
   .creator-field-list { grid-template-columns: 1fr; }
   .footer-inner { flex-direction: column; gap: 18px; }
 }
