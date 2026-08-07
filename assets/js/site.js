@@ -213,7 +213,7 @@
       link.className = "creator-example-link";
       link.href = "#" + topicAnchor(language, topic.id);
       link.textContent = catalog.cardLink;
-      card.append(link);
+      (card.querySelector(".creator-capability-copy") || card).append(link);
     });
 
     if (window.location.hash.startsWith("#topic-")) {
@@ -296,22 +296,32 @@
     document.body.append(button);
 
     const update = () => {
-      const shouldShow = window.scrollY > Math.max(260, window.innerHeight * 0.35);
-      button.classList.toggle("is-visible", shouldShow);
+      const visualViewport = window.visualViewport;
+      const viewportHeight = visualViewport && visualViewport.height
+        ? visualViewport.height
+        : window.innerHeight;
+      const shouldShow = window.scrollY > Math.max(260, viewportHeight * 0.35);
       if (header) header.classList.toggle("is-scrolled", window.scrollY > 8);
 
-      const baseOffset = window.innerWidth <= 600 ? 88 : 72;
+      const baseOffset = window.innerWidth <= 600 ? 104 : 80;
       let offset = baseOffset;
       if (footer) {
         const footerTop = footer.getBoundingClientRect().top;
-        if (footerTop < window.innerHeight) {
-          offset = Math.max(baseOffset, Math.ceil(window.innerHeight - footerTop + 20));
+        if (footerTop < viewportHeight) {
+          offset = Math.max(baseOffset, Math.ceil(viewportHeight - footerTop + 28));
         }
       }
-      button.style.setProperty("--back-to-top-offset", offset + "px");
+      const maximumOffset = Math.max(0, viewportHeight - button.offsetHeight - 18);
+      const fitsAboveFooter = offset <= maximumOffset;
+      button.style.setProperty("--back-to-top-offset", Math.min(offset, maximumOffset) + "px");
+      button.classList.toggle("is-visible", shouldShow && fitsAboveFooter);
     };
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", update);
+      window.visualViewport.addEventListener("scroll", update);
+    }
     update();
   }
 
@@ -358,7 +368,7 @@
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const targets = Array.from(document.querySelectorAll(
-      ".hero-content, .feature-card, .step, .image-stage, .creator-path, .creator-care-highlight, .creator-pet-rail, .creator-guide-intro, .creator-overview-heading, .creator-pack-grid, .creator-pack-card, .creator-pack-action, .creator-capability-card, .creator-overview-cta, .creator-topic-examples, .page-hero-grid, .legal-summary-grid, .legal-copy, .legal-aside, .support-banner, .faq-list"
+      ".hero-content, .feature-card, .step, .image-stage, .creator-path, .creator-care-highlight, .creator-pet-rail, .creator-guide-intro, .creator-overview-heading, .creator-pack-grid, .creator-pack-card, .creator-pack-action, .creator-overview-cta, .page-hero-grid, .legal-summary-grid, .legal-copy, .legal-aside, .support-banner"
     ));
     if (!targets.length) return;
 

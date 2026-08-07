@@ -74,6 +74,34 @@ def main() -> int:
             if not ((ROOT / page).parent / source_path).is_file():
                 fail(errors, f"{page} references a missing asset: {source}")
 
+    for page in PAGES[:-1]:
+        text = page_text[page]
+        required_seo_tokens = (
+            'name="description"',
+            'name="robots" content="index, follow"',
+            'rel="canonical"',
+            'property="og:title"',
+            'property="og:description"',
+            'property="og:url"',
+            'property="og:image"',
+            'name="twitter:card"',
+            'name="twitter:title"',
+            'name="twitter:description"',
+            'name="twitter:image"',
+        )
+        for token in required_seo_tokens:
+            if token not in text:
+                fail(errors, f"{page} is missing required SEO metadata: {token}")
+
+    robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
+    sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+    if "Sitemap: https://www.desktoppetstudio.com/sitemap.xml" not in robots:
+        fail(errors, "robots.txt must reference the canonical sitemap")
+    for page in PAGES[:-1]:
+        sitemap_path = "/" if page == "index.html" else f"/{page}"
+        if f"https://www.desktoppetstudio.com{sitemap_path}" not in sitemap:
+            fail(errors, f"sitemap.xml is missing {page}")
+
     stylesheet = (ROOT / "assets/css/site.css").read_text(encoding="utf-8")
     for source in re.findall(r"url\((?:['\"])?([^'\")]+)", stylesheet):
         if source.startswith("data:"):
