@@ -390,7 +390,9 @@
         reveal(entry.target);
         observer.unobserve(entry.target);
       });
-    }, { threshold: 0.12 });
+    // Long articles can never show 12% of their full height in a phone viewport.
+    // Reveal as soon as a small, visible portion enters the viewport instead.
+    }, { threshold: 0.01 });
 
     targets.forEach((target) => {
       if (!target.closest("[hidden]")) observer.observe(target);
