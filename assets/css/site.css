@@ -536,7 +536,9 @@ main > .page-hero:last-child { padding-bottom: calc(50px + var(--top-button-clea
 .creator-guide-layout p, .creator-guide-layout li { color: #294755; }
 .creator-aside { position: sticky; top: 100px; padding: 20px; border: 1px solid var(--line); border-radius: 7px; background: var(--teal-soft); }
 .creator-aside p { margin-bottom: 16px; color: var(--muted); }
-.creator-aside a { color: var(--teal-deep); font-weight: 800; }
+.creator-aside > p > a { color: var(--teal-deep); font-weight: 800; }
+.creator-aside .button-teal, .creator-aside .button-teal:hover { color: #fff; }
+.creator-aside .button-secondary, .creator-aside .button-secondary:hover { color: var(--ink); }
 .guide-downloads { display: grid; gap: 10px; margin-top: 22px; }
 .guide-downloads .button { width: 100%; min-height: 42px; font-size: 0.9rem; }
 .code-panel { overflow: auto; margin: 20px 0; padding: 20px; border: 1px solid #284d59; border-radius: 7px; color: #dff5ee; background: #0d2632; }
