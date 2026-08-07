@@ -13,6 +13,7 @@
   --line: #b9d3cf;
   --shadow: 0 16px 34px rgba(16, 43, 58, 0.14);
   --content: min(1160px, calc(100% - 40px));
+  --top-button-clearance: 80px;
 }
 
 * { box-sizing: border-box; }
@@ -293,16 +294,16 @@ code {
   position: absolute;
   z-index: 2;
   right: 0;
-  bottom: 30px;
-  width: min(50%, 720px);
-  min-height: 58px;
-  padding: 16px clamp(150px, 16vw, 236px) 16px clamp(24px, 3vw, 44px);
+  bottom: 34px;
+  width: min(56%, 800px);
+  min-height: 72px;
+  padding: 20px clamp(170px, 17vw, 270px) 20px clamp(28px, 3.5vw, 50px);
   border-top: 3px solid var(--butter);
   border-left: 3px solid var(--coral);
   color: #fff8dc;
   background: rgba(8, 43, 54, 0.88);
   box-shadow: -12px 12px 0 rgba(8, 43, 54, 0.2);
-  font-size: clamp(0.95rem, 1.25vw, 1.12rem);
+  font-size: clamp(1.05rem, 1.4vw, 1.26rem);
   font-weight: 800;
   line-height: 1.35;
 }
@@ -338,6 +339,8 @@ code {
 .section-soft { background: var(--teal-soft); }
 .section-butter { background: var(--butter-soft); }
 .section-dark { color: #f7fffd; background: var(--ink); }
+main > :last-child { padding-bottom: calc(80px + var(--top-button-clearance)); }
+main > .page-hero:last-child { padding-bottom: calc(50px + var(--top-button-clearance)); }
 
 .section-kicker { margin-bottom: 8px; color: var(--teal-deep); font-size: 0.85rem; font-weight: 800; }
 .section-dark .section-kicker { color: #8ce8d7; }
@@ -478,7 +481,7 @@ code {
 .creator-pack-card h3 { font-size: 1.18rem; }
 .creator-pack-card p:not(.creator-card-kicker) { min-height: 74px; margin-bottom: 16px; color: var(--muted); font-size: 0.94rem; }
 .creator-pack-card a { color: var(--teal-deep); font-weight: 800; }
-.creator-pack-action { display: flex; width: calc((100% - 36px) / 3); margin: 22px 0 0; }
+.creator-pack-action { display: flex; width: calc((100% - 36px) / 3); margin: 22px auto 0; }
 .creator-pack-action .button { width: 100%; min-height: 48px; }
 .creator-topic-heading { margin-top: 78px; }
 .creator-capability-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 32px; }
@@ -496,9 +499,9 @@ code {
 .creator-capability-card summary small { color: var(--muted); font-size: 0.87rem; line-height: 1.45; }
 .creator-capability-copy { min-width: 0; }
 .creator-capability-copy > p { min-height: 0; margin: 0; padding: 0; color: var(--muted); font-size: 0.92rem; }
-.creator-capability-copy > ul { margin: 16px 0 0; padding: 13px 0 0 20px; border-top: 1px solid var(--line); color: #294755; font-size: 0.9rem; }
-.creator-capability-copy > ul li + li { margin-top: 5px; }
-.creator-capability-card[open] .creator-capability-detail { display: grid; grid-template-columns: minmax(0, 2fr) minmax(96px, 1fr); gap: 20px; align-items: stretch; padding-top: 16px; }
+.creator-capability-list { margin: 18px 0 0; padding: 13px 0 0 20px; border-top: 1px solid var(--line); color: #294755; font-size: 0.9rem; }
+.creator-capability-list li + li { margin-top: 5px; }
+.creator-capability-card[open] .creator-capability-detail { display: grid; grid-template-columns: minmax(0, 2fr) minmax(96px, 1fr); gap: 20px; align-items: center; padding-top: 16px; }
 .creator-capability-card[open] .creator-capability-visual { display: grid; grid-column: 2; grid-row: 1; width: min(100%, 88px); height: 88px; place-self: center end; }
 .creator-example-link {
   display: inline-flex;
@@ -730,12 +733,14 @@ details ul { padding-left: 38px; }
   .hero::before { background: rgba(8, 43, 54, 0.46); }
   .hero-content { width: min(calc(100% - 48px), 1080px); padding: 56px 0 70px; }
   .hero-pet { right: 16px; bottom: 18px; width: 76px; }
-  .hero-launch-strip { right: 0; bottom: 0; width: calc(100% - 24px); min-height: 50px; padding: 12px 98px 12px 24px; font-size: 0.9rem; }
+  .hero-launch-strip { right: 12px; bottom: 16px; width: calc(100% - 24px); min-height: 64px; padding: 14px 96px 14px 22px; font-size: 0.98rem; }
   .hero-pixel-one { left: -16%; }
   .hero-pixel-two { right: -12%; }
   h1 { font-size: 2.6rem; }
   .hero-copy { font-size: 1rem; }
   .section { padding: 56px 0; }
+  main > :last-child { padding-bottom: calc(56px + var(--top-button-clearance)); }
+  main > .page-hero:last-child { padding-bottom: calc(38px + var(--top-button-clearance)); }
   .feature-grid { grid-template-columns: 1fr; }
   .feature-card { grid-template-columns: 62px 1fr; padding: 18px; }
   .feature-card > img, .feature-card .pose-animation { width: 58px; height: 58px; }
