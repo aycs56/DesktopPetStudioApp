@@ -11,27 +11,46 @@
     gtag('config', 'G-77XW5XVXXJ');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="依 DesktopPetStudio AI 素材助手的四個步驟，準備角色參考圖、產生 Prompt、檢查素材、再匯入指定姿勢，製作專屬 Windows 桌面寵物。">
+  <meta name="description" content="依 DesktopPetStudio AI 素材助手的四個步驟，複製姿勢 Prompt 模板、產生至少六格的宮格素材、裁切並匯入指定姿勢，製作專屬 Windows 桌面寵物。">
   <meta name="theme-color" content="#0d8f84">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="DesktopPetStudio">
   <meta property="og:locale" content="zh_TW">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:title" content="製作專屬桌寵 | DesktopPetStudio">
-  <meta property="og:description" content="用四個清楚步驟，把自己的角色素材整理成會動的桌面寵物。">
+  <meta property="og:description" content="用可複製的 Prompt 模板、宮格裁切與姿勢匯入，把角色素材整理成會動的桌面寵物。">
   <meta property="og:url" content="https://www.desktoppetstudio.com/make-your-pet.html">
   <meta property="og:image" content="https://www.desktoppetstudio.com/assets/images/make-pet/step-1-reference.png">
   <meta property="og:image:alt" content="DesktopPetStudio AI Asset Helper creation flow">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="製作專屬桌寵 | DesktopPetStudio">
-  <meta name="twitter:description" content="用角色參考圖、Prompt、素材檢查與姿勢匯入，開始製作自己的桌面寵物。">
+  <meta name="twitter:description" content="複製姿勢 Prompt 模板，產生宮格素材、裁切並匯入，開始製作自己的桌面寵物。">
   <meta name="twitter:image" content="https://www.desktoppetstudio.com/assets/images/make-pet/step-1-reference.png">
+  <meta name="twitter:image:alt" content="DesktopPetStudio AI Asset Helper creation flow">
   <link rel="canonical" href="https://www.desktoppetstudio.com/make-your-pet.html">
   <title>製作專屬桌寵 | DesktopPetStudio</title>
   <link rel="icon" href="assets/images/app-icon.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260816-02">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260817-02">
   <script src="site.config.js"></script>
-  <script src="assets/js/site.js?v=20260816-02" defer></script>
+  <script src="assets/js/site.js?v=20260817-02" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "製作專屬桌寵的四個步驟",
+    "description": "使用 DesktopPetStudio AI 素材助手，從角色參考圖、Prompt、宮格圖片裁切到姿勢匯入，製作專屬 Windows 桌面寵物。",
+    "url": "https://www.desktoppetstudio.com/make-your-pet.html",
+    "inLanguage": "zh-Hant",
+    "step": [
+      { "@type": "HowToStep", "name": "準備角色或風格參考圖", "text": "準備一張能清楚呈現外觀、配色與表情方向的角色或風格參考圖。" },
+      { "@type": "HowToStep", "name": "複製姿勢 Prompt 模板並產生宮格素材", "text": "在程式中選擇姿勢並複製模板，請 AI 產生至少六格、中心點一致的宮格動畫圖片。" },
+      { "@type": "HowToStep", "name": "檢查去背或裁切宮格圖片", "text": "檢查透明邊緣，必要時以宮格圖片裁切工具輸出獨立 PNG 影格。" },
+      { "@type": "HowToStep", "name": "把素材匯入指定姿勢", "text": "在姿勢工作台匯入影格或 GIF、確認播放順序並保存姿勢。" }
+    ]
+  }
+  </script>
 </head>
 <body class="make-pet-page">
   <a class="skip-link" href="#main" data-i18n="skip">跳至主要內容</a>
@@ -39,6 +58,7 @@
     <a class="brand" href="index.html" aria-label="DesktopPetStudio home"><span class="brand-mark"><img src="assets/images/app-icon.png" alt=""></span><span>DesktopPetStudio</span></a>
     <nav class="main-nav" id="primary-nav" aria-label="Primary navigation">
       <a href="index.html" data-i18n="product">產品介紹</a>
+      <a href="streamer-mode.html" data-i18n="streamer">實況模式</a>
       <a href="make-your-pet.html" aria-current="page" data-i18n="createPet">製作專屬桌寵</a>
       <a href="creator-json.html" data-i18n="workshop">自訂與工作坊</a>
       <a href="privacy.html" data-i18n="privacy">隱私權政策</a>
@@ -92,17 +112,17 @@
       <div class="section-inner" data-lang-content="zh-Hant" data-reveal>
         <p class="section-kicker">A CLEAR FOUR-STEP PATH</p><h2>從參考圖到指定姿勢</h2>
         <p class="lead">這是網站導覽，不會把素材上傳到網站，也不會替你呼叫 AI。實際製作、檢查與匯入都在你的 Windows 電腦上完成。</p>
-        <ol class="make-pet-progress"><li><span>1</span><strong>準備參考圖</strong><small>先讓角色外觀有一致的依據。</small></li><li><span>2</span><strong>產生 Prompt</strong><small>選好姿勢後，清楚告訴 AI 要產生什麼。</small></li><li><span>3</span><strong>檢查與裁切素材</strong><small>確認透明邊緣與每一張影格。</small></li><li><span>4</span><strong>匯入指定姿勢</strong><small>打開姿勢編輯，手動確認素材順序後儲存。</small></li></ol>
+        <ol class="make-pet-progress"><li><span>1</span><strong>準備參考圖</strong><small>先讓角色外觀有一致的依據。</small></li><li><span>2</span><strong>產生 Prompt</strong><small>主程式提供可複製的姿勢 Prompt 模板。</small></li><li><span>3</span><strong>檢查與裁切素材</strong><small>把宮格拆成影格，確認透明邊緣。</small></li><li><span>4</span><strong>匯入指定姿勢</strong><small>打開姿勢編輯，手動確認素材順序後儲存。</small></li></ol>
       </div>
       <div class="section-inner" data-lang-content="zh-Hans" hidden data-reveal>
         <p class="section-kicker">A CLEAR FOUR-STEP PATH</p><h2>从参考图到指定姿势</h2>
         <p class="lead">这是网站导览，不会把素材上传到网站，也不会替你调用 AI。实际制作、检查与导入都在你的 Windows 电脑上完成。</p>
-        <ol class="make-pet-progress"><li><span>1</span><strong>准备参考图</strong><small>先让角色外观有一致的依据。</small></li><li><span>2</span><strong>生成 Prompt</strong><small>选好姿势后，清楚告诉 AI 要生成什么。</small></li><li><span>3</span><strong>检查并裁切素材</strong><small>确认透明边缘与每一张帧。</small></li><li><span>4</span><strong>导入指定姿势</strong><small>打开姿势编辑，手动确认素材顺序后保存。</small></li></ol>
+        <ol class="make-pet-progress"><li><span>1</span><strong>准备参考图</strong><small>先让角色外观有一致的依据。</small></li><li><span>2</span><strong>生成 Prompt</strong><small>主程序提供可复制的姿势 Prompt 模板。</small></li><li><span>3</span><strong>检查并裁切素材</strong><small>把宫格拆成帧，确认透明边缘。</small></li><li><span>4</span><strong>导入指定姿势</strong><small>打开姿势编辑，手动确认素材顺序后保存。</small></li></ol>
       </div>
       <div class="section-inner" data-lang-content="en" hidden data-reveal>
         <p class="section-kicker">A CLEAR FOUR-STEP PATH</p><h2>From reference art to a target pose</h2>
         <p class="lead">This is a website guide. It does not upload your assets or call an AI service. Creation, checking, and import all happen on your Windows computer.</p>
-        <ol class="make-pet-progress"><li><span>1</span><strong>Prepare reference art</strong><small>Give the character a consistent visual source.</small></li><li><span>2</span><strong>Generate a Prompt</strong><small>Choose a pose, then tell the AI exactly what to make.</small></li><li><span>3</span><strong>Check and crop assets</strong><small>Inspect transparent edges and every animation frame.</small></li><li><span>4</span><strong>Import a target pose</strong><small>Open the pose editor, confirm order manually, then save.</small></li></ol>
+        <ol class="make-pet-progress"><li><span>1</span><strong>Prepare reference art</strong><small>Give the character a consistent visual source.</small></li><li><span>2</span><strong>Generate a Prompt</strong><small>The app provides copy-ready pose Prompt templates.</small></li><li><span>3</span><strong>Check and crop assets</strong><small>Split the grid into frames and inspect transparent edges.</small></li><li><span>4</span><strong>Import a target pose</strong><small>Open the pose editor, confirm order manually, then save.</small></li></ol>
       </div>
     </section>
 
@@ -113,15 +133,15 @@
           <figure class="make-pet-screenshot"><img src="assets/images/make-pet/step-1-reference.png" alt="DesktopPetStudio AI 素材助手，顯示準備角色參考素材與開始製作素材入口" width="1040" height="760"><figcaption>主程式內先準備參考圖，再按下「開始製作素材」。</figcaption></figure>
         </article>
         <article class="make-pet-step make-pet-step-reverse" data-reveal>
-          <div class="make-pet-step-copy"><p class="make-pet-step-number">步驟 2</p><h2>選擇姿勢 Prompt 與輸出方式</h2><p>先選取要製作的姿勢 Prompt，例如原地休息、走動或右鍵姿勢，再選擇輸出語言與推薦 AI 網站。Prompt 可在同一區塊直接複製，或複製後開啟網站。</p><p>建議要求 <strong>6 張分開的透明 PNG</strong>，依序命名為 <code>frame_01.png</code> 到 <code>frame_06.png</code>。不要要求六宮格或 sprite sheet；若只拿到宮格圖，下一步可以裁切。</p><p class="make-pet-step-note"><strong>完成後：</strong>你會得到符合指定姿勢的 Prompt 與清楚的素材輸出條件。</p></div>
-          <figure class="make-pet-screenshot make-pet-screenshot-portrait"><img src="assets/images/make-pet/step-2-prompt-output.png" alt="素材製作視窗，顯示輸出語言、推薦 AI 網站、Prompt 與複製按鈕" width="820" height="860"><figcaption>選好姿勢後，在同一個視窗取得 Prompt 與輸出方式。</figcaption></figure>
+          <div class="make-pet-step-copy"><p class="make-pet-step-number">步驟 2</p><h2>複製姿勢 Prompt 模板並產生宮格素材</h2><p>在「Prompt 模板」清單選擇要製作的姿勢，例如原地休息、走動或右鍵姿勢。主程式已提供對應模板；選好輸出語言後，直接按「複製 Prompt」，再貼到你選擇的 AI 網站。</p><p>模板會建議 AI 產出<strong>至少 6 格的宮格動畫圖片</strong>，每一格使用相同畫布尺寸與中心點。6 格是建議的最低數量；想讓動作更細緻，可以請 AI 產出更多格數，再到下一步用「宮格圖片裁切」拆成獨立影格。</p><p>姿勢工作台可依序匯入多張 PNG，也支援 GIF、PPM、PGM；透明 PNG 最適合逐格調整與替換。</p><p class="make-pet-step-note"><strong>完成後：</strong>你會得到可直接使用的 Prompt 模板，以及清楚的宮格輸出與裁切方式。</p></div>
+          <figure class="make-pet-screenshot make-pet-screenshot-portrait"><img src="assets/images/make-pet/step-2-prompt-output.png" alt="素材製作視窗，顯示 Prompt 模板、輸出語言、推薦 AI 網站與複製 Prompt 按鈕" width="820" height="860"><figcaption>選好模板後，直接複製 Prompt，請 AI 產出至少六格的宮格動畫圖片。</figcaption></figure>
         </article>
         <article class="make-pet-step" data-reveal>
-          <div class="make-pet-step-copy"><p class="make-pet-step-number">步驟 3</p><h2>檢查去背或裁切宮格圖片</h2><p>用「檢查素材去背」在不同背景色上檢視透明邊緣。若拿到的是宮格圖片，使用「宮格圖片裁切」輸入影格數、調整可拖曳的裁切範圍，再選擇輸出資料夾。</p><p>這兩項工具都只會建立新的 PNG 檔，不會改寫原圖。完成後即可進入指定姿勢的編輯畫面。</p><p class="make-pet-step-note"><strong>完成後：</strong>你有一組已檢查、可放心匯入的素材；走動圖請使用朝右影格，向左移動會由系統自動鏡像。</p></div>
+          <div class="make-pet-step-copy"><p class="make-pet-step-number">步驟 3</p><h2>檢查去背或裁切宮格圖片</h2><p>用「檢查素材去背」在不同背景色上檢視透明邊緣。若拿到的是模板建議的宮格圖片，使用「宮格圖片裁切」輸入實際影格數、調整可拖曳的裁切範圍，再選擇輸出資料夾。</p><p>這兩項工具都只會建立新的 PNG 檔，不會改寫原圖。完成後即可進入指定姿勢的編輯畫面。</p><p class="make-pet-step-note"><strong>完成後：</strong>你有一組已檢查、可放心匯入的素材；走動圖請使用朝右影格，向左移動會由系統自動鏡像。</p></div>
           <figure class="make-pet-screenshot make-pet-screenshot-portrait"><img src="assets/images/make-pet/step-3-asset-check.png" alt="素材製作視窗，顯示檢查素材去背和宮格圖片裁切按鈕" width="820" height="860"><figcaption>先確認透明邊緣，再決定是否要裁切宮格圖片。</figcaption></figure>
         </article>
         <article class="make-pet-step make-pet-step-reverse" data-reveal>
-          <div class="make-pet-step-copy"><p class="make-pet-step-number">步驟 4</p><h2>把素材匯入指定姿勢</h2><p>在「將素材匯入指定姿勢」按下「編輯姿勢」，主程式會開啟對應姿勢的編輯畫面。到「動畫素材」加入 PNG、GIF、資料夾或多張影格，確認順序後儲存姿勢。</p><p>這一步不會自動覆蓋你的既有姿勢或素材。你可以先預覽，再自行決定要保留、替換或新增動畫。</p><p class="make-pet-step-note"><strong>完成後：</strong>你的新素材已套用到指定姿勢，接著可設定播放速度、氣泡、音效與觸發方式。</p></div>
+          <div class="make-pet-step-copy"><p class="make-pet-step-number">步驟 4</p><h2>把素材匯入指定姿勢</h2><p>在「將素材匯入指定姿勢」按下「編輯姿勢」，主程式會開啟對應姿勢的編輯畫面。到「動畫素材」加入裁切完成的多張 PNG，或直接加入 GIF、PPM、PGM、資料夾，確認順序後儲存姿勢。</p><p>這一步不會自動覆蓋你的既有姿勢或素材。你可以先預覽，再自行決定要保留、替換或新增動畫。</p><p class="make-pet-step-note"><strong>完成後：</strong>你的新素材已套用到指定姿勢，接著可設定播放速度、氣泡、音效與觸發方式。</p></div>
           <figure class="make-pet-screenshot"><img src="assets/images/make-pet/step-4-import-pose.png" alt="走動姿勢編輯畫面，顯示動畫素材清單與加入檔案按鈕" width="900" height="840"><figcaption>在姿勢工作台手動匯入、確認播放順序，再保存姿勢。</figcaption></figure>
         </article>
       </div>
@@ -131,15 +151,15 @@
           <figure class="make-pet-screenshot"><img src="assets/images/make-pet/step-1-reference.png" alt="DesktopPetStudio AI 素材助手，显示准备角色参考素材与开始制作素材入口" width="1040" height="760"><figcaption>在主程序内先准备参考图，再点击“开始制作素材”。</figcaption></figure>
         </article>
         <article class="make-pet-step make-pet-step-reverse" data-reveal>
-          <div class="make-pet-step-copy"><p class="make-pet-step-number">步骤 2</p><h2>选择姿势 Prompt 与输出方式</h2><p>先选取要制作的姿势 Prompt，例如原地休息、走动或右键姿势，再选择输出语言与推荐 AI 网站。Prompt 可在同一区块直接复制，或复制后打开网站。</p><p>建议要求 <strong>6 张分开的透明 PNG</strong>，依次命名为 <code>frame_01.png</code> 到 <code>frame_06.png</code>。不要要求六宫格或 sprite sheet；如果只拿到宫格图，下一步可以裁切。</p><p class="make-pet-step-note"><strong>完成后：</strong>你会得到符合指定姿势的 Prompt 与清楚的素材输出条件。</p></div>
-          <figure class="make-pet-screenshot make-pet-screenshot-portrait"><img src="assets/images/make-pet/step-2-prompt-output.png" alt="素材制作窗口，显示输出语言、推荐 AI 网站、Prompt 与复制按钮" width="820" height="860"><figcaption>选好姿势后，在同一个窗口取得 Prompt 与输出方式。</figcaption></figure>
+          <div class="make-pet-step-copy"><p class="make-pet-step-number">步骤 2</p><h2>复制姿势 Prompt 模板并生成宫格素材</h2><p>在“Prompt 模板”列表选择要制作的姿势，例如原地休息、走动或右键姿势。主程序已提供对应模板；选择输出语言后，直接点击“复制 Prompt”，再粘贴到你选择的 AI 网站。</p><p>模板会建议 AI 生成<strong>至少 6 格的宫格动画图片</strong>，每一格使用相同画布尺寸与中心点。6 格是建议的最低数量；想让动作更细腻，可以请 AI 生成更多格数，再到下一步用“宫格图片裁切”拆成独立帧。</p><p>姿势工作台可依序导入多张 PNG，也支持 GIF、PPM、PGM；透明 PNG 最适合逐帧调整与替换。</p><p class="make-pet-step-note"><strong>完成后：</strong>你会得到可直接使用的 Prompt 模板，以及清楚的宫格输出与裁切方式。</p></div>
+          <figure class="make-pet-screenshot make-pet-screenshot-portrait"><img src="assets/images/make-pet/step-2-prompt-output.png" alt="素材制作窗口，显示 Prompt 模板、输出语言、推荐 AI 网站与复制 Prompt 按钮" width="820" height="860"><figcaption>选好模板后，直接复制 Prompt，请 AI 生成至少六格的宫格动画图片。</figcaption></figure>
         </article>
         <article class="make-pet-step" data-reveal>
-          <div class="make-pet-step-copy"><p class="make-pet-step-number">步骤 3</p><h2>检查去背或裁切宫格图片</h2><p>用“检查素材去背”在不同背景色上查看透明边缘。如果拿到的是宫格图片，使用“宫格图片裁切”输入帧数、调整可拖动的裁切范围，再选择输出文件夹。</p><p>这两项工具都只会建立新的 PNG 文件，不会改写原图。完成后即可进入指定姿势的编辑画面。</p><p class="make-pet-step-note"><strong>完成后：</strong>你有一组已检查、可放心导入的素材；走动图请使用朝右帧，向左移动会由系统自动镜像。</p></div>
+          <div class="make-pet-step-copy"><p class="make-pet-step-number">步骤 3</p><h2>检查去背或裁切宫格图片</h2><p>用“检查素材去背”在不同背景色上查看透明边缘。如果拿到的是模板建议的宫格图片，使用“宫格图片裁切”输入实际帧数、调整可拖动的裁切范围，再选择输出文件夹。</p><p>这两项工具都只会建立新的 PNG 文件，不会改写原图。完成后即可进入指定姿势的编辑画面。</p><p class="make-pet-step-note"><strong>完成后：</strong>你有一组已检查、可放心导入的素材；走动图请使用朝右帧，向左移动会由系统自动镜像。</p></div>
           <figure class="make-pet-screenshot make-pet-screenshot-portrait"><img src="assets/images/make-pet/step-3-asset-check.png" alt="素材制作窗口，显示检查素材去背和宫格图片裁切按钮" width="820" height="860"><figcaption>先确认透明边缘，再决定是否要裁切宫格图片。</figcaption></figure>
         </article>
         <article class="make-pet-step make-pet-step-reverse" data-reveal>
-          <div class="make-pet-step-copy"><p class="make-pet-step-number">步骤 4</p><h2>把素材导入指定姿势</h2><p>在“将素材导入指定姿势”点击“编辑姿势”，主程序会打开对应姿势的编辑页面。到“动画素材”加入 PNG、GIF、文件夹或多张帧，确认顺序后保存姿势。</p><p>这一步不会自动覆盖你已有的姿势或素材。你可以先预览，再自行决定要保留、替换或新增动画。</p><p class="make-pet-step-note"><strong>完成后：</strong>你的新素材已套用到指定姿势，接着可设置播放速度、气泡、音效与触发方式。</p></div>
+          <div class="make-pet-step-copy"><p class="make-pet-step-number">步骤 4</p><h2>把素材导入指定姿势</h2><p>在“将素材导入指定姿势”点击“编辑姿势”，主程序会打开对应姿势的编辑页面。到“动画素材”加入裁切完成的多张 PNG，或直接加入 GIF、PPM、PGM、文件夹，确认顺序后保存姿势。</p><p>这一步不会自动覆盖你已有的姿势或素材。你可以先预览，再自行决定要保留、替换或新增动画。</p><p class="make-pet-step-note"><strong>完成后：</strong>你的新素材已套用到指定姿势，接着可设置播放速度、气泡、音效与触发方式。</p></div>
           <figure class="make-pet-screenshot"><img src="assets/images/make-pet/step-4-import-pose.png" alt="走动姿势编辑画面，显示动画素材列表与加入文件按钮" width="900" height="840"><figcaption>在姿势工作台手动导入、确认播放顺序，再保存姿势。</figcaption></figure>
         </article>
       </div>
@@ -149,15 +169,15 @@
           <figure class="make-pet-screenshot"><img src="assets/images/make-pet/step-1-reference.png" alt="DesktopPetStudio AI Asset Helper showing reference preparation and the Start creating button" width="1040" height="760"><figcaption>Prepare reference art in the app, then choose “Start creating”.</figcaption></figure>
         </article>
         <article class="make-pet-step make-pet-step-reverse" data-reveal>
-          <div class="make-pet-step-copy"><p class="make-pet-step-number">Step 2</p><h2>Choose a pose Prompt and output settings</h2><p>Choose the pose Prompt you want to make, such as idle, walk, or a right-click pose. Then choose an output language and a recommended AI site. You can copy the Prompt in the same section, or copy it and open the site.</p><p>We recommend asking for <strong>six separate transparent PNGs</strong>, named <code>frame_01.png</code> through <code>frame_06.png</code>. Do not ask for a six-panel grid or sprite sheet; a grid image can be cropped in the next step.</p><p class="make-pet-step-note"><strong>Finished:</strong> You have a pose-specific Prompt and clear output requirements.</p></div>
-          <figure class="make-pet-screenshot make-pet-screenshot-portrait"><img src="assets/images/make-pet/step-2-prompt-output.png" alt="Create Asset window showing output language, recommended AI sites, a Prompt, and copy buttons" width="820" height="860"><figcaption>After choosing a pose, get the Prompt and output settings in one window.</figcaption></figure>
+          <div class="make-pet-step-copy"><p class="make-pet-step-number">Step 2</p><h2>Copy a pose Prompt template and create a grid asset</h2><p>Choose the pose you want from the Prompt Template list, such as idle, walk, or a right-click pose. The app provides a matching template. Choose an output language, click “Copy Prompt”, then paste it into the AI site you prefer.</p><p>The template asks the AI for a <strong>grid animation image with at least six cells</strong>, using the same canvas size and center point for every cell. Six is the recommended minimum. For smoother motion, ask for more cells, then split them into individual frames with “Crop grid image” in the next step.</p><p>The Pose Workspace can import multiple PNGs in sequence and also supports GIF, PPM, and PGM. Transparent PNG is best for frame-by-frame adjustment and replacement.</p><p class="make-pet-step-note"><strong>Finished:</strong> You have a copy-ready Prompt template and a clear grid-output and cropping workflow.</p></div>
+          <figure class="make-pet-screenshot make-pet-screenshot-portrait"><img src="assets/images/make-pet/step-2-prompt-output.png" alt="Create Asset window showing Prompt templates, output language, recommended AI sites, and a Copy Prompt button" width="820" height="860"><figcaption>Choose a template, copy the Prompt, and ask the AI for a grid animation image with at least six cells.</figcaption></figure>
         </article>
         <article class="make-pet-step" data-reveal>
-          <div class="make-pet-step-copy"><p class="make-pet-step-number">Step 3</p><h2>Check background removal or crop a grid image</h2><p>Use “Check background removal” to inspect transparent edges against different background colors. If you received a grid image, use “Crop grid image” to set the frame count, adjust the draggable crop areas, and choose an output folder.</p><p>Both tools create new PNGs and never overwrite the source. When finished, open the editor for the target pose.</p><p class="make-pet-step-note"><strong>Finished:</strong> You have a checked, import-ready asset set. For walking, use right-facing frames; the app mirrors them automatically when moving left.</p></div>
+          <div class="make-pet-step-copy"><p class="make-pet-step-number">Step 3</p><h2>Check background removal or crop a grid image</h2><p>Use “Check background removal” to inspect transparent edges against different background colors. For the grid image suggested by the template, use “Crop grid image” to enter the actual frame count, adjust the draggable crop areas, and choose an output folder.</p><p>Both tools create new PNGs and never overwrite the source. When finished, open the editor for the target pose.</p><p class="make-pet-step-note"><strong>Finished:</strong> You have a checked, import-ready asset set. For walking, use right-facing frames; the app mirrors them automatically when moving left.</p></div>
           <figure class="make-pet-screenshot make-pet-screenshot-portrait"><img src="assets/images/make-pet/step-3-asset-check.png" alt="Create Asset window showing the Check background removal and Crop grid image buttons" width="820" height="860"><figcaption>Check the transparent edge first, then decide whether a grid image needs cropping.</figcaption></figure>
         </article>
         <article class="make-pet-step make-pet-step-reverse" data-reveal>
-          <div class="make-pet-step-copy"><p class="make-pet-step-number">Step 4</p><h2>Import the assets into the target pose</h2><p>Choose “Edit pose” under “Import assets into the target pose”. The app opens that pose's editor. Under “Animation assets”, add PNG files, a GIF, a folder, or multiple frames, confirm their order, then save the pose.</p><p>This step never automatically overwrites an existing pose or its assets. Preview first, then decide whether to keep, replace, or add an animation.</p><p class="make-pet-step-note"><strong>Finished:</strong> Your new art is applied to the target pose. You can then set playback speed, bubbles, sound, and trigger behavior.</p></div>
+          <div class="make-pet-step-copy"><p class="make-pet-step-number">Step 4</p><h2>Import the assets into the target pose</h2><p>Choose “Edit pose” under “Import assets into the target pose”. The app opens that pose's editor. Under “Animation assets”, add the cropped PNG frames, or add a GIF, PPM, PGM, or a folder directly. Confirm their order, then save the pose.</p><p>This step never automatically overwrites an existing pose or its assets. Preview first, then decide whether to keep, replace, or add an animation.</p><p class="make-pet-step-note"><strong>Finished:</strong> Your new art is applied to the target pose. You can then set playback speed, bubbles, sound, and trigger behavior.</p></div>
           <figure class="make-pet-screenshot"><img src="assets/images/make-pet/step-4-import-pose.png" alt="Walk pose editor showing the animation asset list and Add file button" width="900" height="840"><figcaption>Import manually in the Pose Workspace, confirm the playback order, then save.</figcaption></figure>
         </article>
       </div>
@@ -170,6 +190,6 @@
     </section>
   </main>
 
-  <footer class="site-footer"><div class="footer-inner"><div><div class="footer-brand">DesktopPetStudio</div><p class="footer-note">(c) <span data-year></span> <span data-i18n="copyright">DesktopPetStudio. 保留所有權利。</span></p></div><div class="footer-links"><a href="index.html" data-i18n="product">產品介紹</a><a href="make-your-pet.html" data-i18n="createPet">製作專屬桌寵</a><a href="creator-json.html" data-i18n="workshop">自訂與工作坊</a><a href="privacy.html" data-i18n="privacy">隱私權政策</a><a href="terms.html" data-i18n="terms">使用條款</a></div></div></footer>
+  <footer class="site-footer"><div class="footer-inner"><div><div class="footer-brand">DesktopPetStudio</div><p class="footer-note">(c) <span data-year></span> <span data-i18n="copyright">DesktopPetStudio. 保留所有權利。</span></p></div><div class="footer-links"><a href="index.html" data-i18n="product">產品介紹</a><a href="streamer-mode.html" data-i18n="streamer">實況模式</a><a href="make-your-pet.html" data-i18n="createPet">製作專屬桌寵</a><a href="creator-json.html" data-i18n="workshop">自訂與工作坊</a><a href="privacy.html" data-i18n="privacy">隱私權政策</a><a href="terms.html" data-i18n="terms">使用條款</a></div></div></footer>
 </body>
 </html>

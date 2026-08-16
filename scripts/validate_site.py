@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from html.parser import HTMLParser
@@ -11,7 +12,16 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-PAGES = ("index.html", "make-your-pet.html", "creator-json.html", "privacy.html", "terms.html", "support.html", "404.html")
+PAGES = (
+    "index.html",
+    "make-your-pet.html",
+    "streamer-mode.html",
+    "creator-json.html",
+    "privacy.html",
+    "terms.html",
+    "support.html",
+    "404.html",
+)
 PUBLIC_DOCUMENTS = (
     "docs/workshop-creator-json-guide.zh-Hant.md",
     "docs/workshop-creator-json-guide.en.md",
@@ -88,10 +98,38 @@ def main() -> int:
             'name="twitter:title"',
             'name="twitter:description"',
             'name="twitter:image"',
+            'name="twitter:image:alt"',
+            'property="og:locale:alternate"',
+            'type="application/ld+json"',
         )
         for token in required_seo_tokens:
             if token not in text:
                 fail(errors, f"{page} is missing required SEO metadata: {token}")
+
+        title_matches = re.findall(r"<title>\s*([^<]+?)\s*</title>", text, flags=re.IGNORECASE)
+        if len(title_matches) != 1 or not title_matches[0].strip():
+            fail(errors, f"{page} must contain one non-empty title")
+        description_matches = re.findall(
+            r'<meta\s+name="description"\s+content="([^"]+)"', text, flags=re.IGNORECASE
+        )
+        if len(description_matches) != 1 or not description_matches[0].strip():
+            fail(errors, f"{page} must contain one non-empty meta description")
+        canonical_matches = re.findall(
+            r'<link\s+rel="canonical"\s+href="([^"]+)"', text, flags=re.IGNORECASE
+        )
+        expected_canonical = "https://www.desktoppetstudio.com/" if page == "index.html" else f"https://www.desktoppetstudio.com/{page}"
+        if canonical_matches != [expected_canonical]:
+            fail(errors, f"{page} canonical URL must be {expected_canonical}")
+
+        for payload in re.findall(
+            r'<script\s+type="application/ld\+json">\s*([\s\S]*?)\s*</script>',
+            text,
+            flags=re.IGNORECASE,
+        ):
+            try:
+                json.loads(payload)
+            except ValueError as exc:
+                fail(errors, f"{page} contains invalid JSON-LD: {exc}")
 
     robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
     sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")

@@ -20,32 +20,47 @@
   <meta property="og:locale:alternate" content="zh_CN">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:title" content="DesktopPetStudio | 自訂你的桌面寵物">
-  <meta property="og:description" content="用自己的角色素材建立姿勢動畫、提醒與日常互動；更能用工作、商城與事件設計可分享的照顧玩法。">
+  <meta property="og:description" content="用自己的角色素材建立姿勢動畫、提醒與日常互動；也能以 Twitch Bits 觸發桌寵反應，並在 OBS 單獨擷取桌寵與氣泡。">
   <meta property="og:url" content="https://www.desktoppetstudio.com/">
   <meta property="og:image" content="https://www.desktoppetstudio.com/assets/images/hero-pixel-studio.png">
   <meta property="og:image:alt" content="DesktopPetStudio customizable Windows desktop pet studio">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DesktopPetStudio | 自訂你的桌面寵物">
-  <meta name="twitter:description" content="用自己的角色素材建立姿勢動畫、提醒與日常互動；更能用工作、商城與事件設計可分享的照顧玩法。">
+  <meta name="twitter:description" content="用自己的角色素材建立姿勢動畫、提醒與日常互動；也能以 Twitch Bits 觸發桌寵反應，並在 OBS 單獨擷取桌寵與氣泡。">
   <meta name="twitter:image" content="https://www.desktoppetstudio.com/assets/images/hero-pixel-studio.png">
+  <meta name="twitter:image:alt" content="DesktopPetStudio customizable Windows desktop pet studio">
   <link rel="canonical" href="https://www.desktoppetstudio.com/">
+  <meta name="application-name" content="DesktopPetStudio">
   <link rel="preload" as="image" href="assets/images/hero-pixel-studio-wide.png" fetchpriority="high">
   <title>DesktopPetStudio | 自訂你的桌面寵物</title>
   <link rel="icon" href="assets/images/app-icon.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260816-02">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260817-02">
   <script src="site.config.js"></script>
-  <script src="assets/js/site.js?v=20260816-02" defer></script>
+  <script src="assets/js/site.js?v=20260817-02" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "DesktopPetStudio",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Windows",
-    "description": "A customizable Windows desktop-pet creation and reminder application with multi-frame poses, care features, and workshop creator content for jobs, shop items, and daily events.",
-    "url": "https://www.desktoppetstudio.com/",
-    "image": "https://www.desktoppetstudio.com/assets/images/hero-pixel-studio.png",
-    "inLanguage": ["zh-Hant", "zh-Hans", "en"]
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.desktoppetstudio.com/#website",
+        "name": "DesktopPetStudio",
+        "url": "https://www.desktoppetstudio.com/",
+        "inLanguage": ["zh-Hant", "zh-Hans", "en"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.desktoppetstudio.com/#software",
+        "name": "DesktopPetStudio",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows",
+        "description": "A customizable Windows desktop-pet creation and reminder application with multi-frame poses, care features, Twitch Bits reactions, OBS pet capture, and Workshop creator content.",
+        "url": "https://www.desktoppetstudio.com/",
+        "image": "https://www.desktoppetstudio.com/assets/images/hero-pixel-studio.png",
+        "isPartOf": { "@id": "https://www.desktoppetstudio.com/#website" },
+        "inLanguage": ["zh-Hant", "zh-Hans", "en"]
+      }
+    ]
   }
   </script>
 </head>
@@ -58,6 +73,7 @@
     </a>
     <nav class="main-nav" id="primary-nav" aria-label="Primary navigation">
       <a href="index.html" aria-current="page" data-i18n="product">產品介紹</a>
+      <a href="streamer-mode.html" data-i18n="streamer">實況模式</a>
       <a href="make-your-pet.html" data-i18n="createPet">製作專屬桌寵</a>
       <a href="creator-json.html" data-i18n="workshop">自訂與工作坊</a>
       <a href="privacy.html" data-i18n="privacy">隱私權政策</a>
@@ -158,29 +174,29 @@
     <section class="section section-soft">
       <div class="section-inner split" data-lang-content="zh-Hant">
         <div><p class="section-kicker">OPTIONAL CALENDAR SYNC</p><h2>讓桌寵提醒你的重要行程</h2><p class="lead">連接 Google Calendar 後，程式會把近期行程建立成桌寵提醒。登入會在預設瀏覽器完成，程式只讀取建立提醒需要的行事曆事件。</p><ul class="check-list"><li>可選擇同步近 30、60 或 180 天</li><li>啟動程式與每日 00:00 會再次同步</li><li>可隨時中斷連線或切換帳號，既有本機提醒不會被刪除</li></ul><div class="button-row"><a class="button button-teal" href="privacy.html">閱讀資料處理方式</a><a class="button button-secondary" href="support.html">查看同步支援</a></div></div>
-        <div class="image-stage"><div class="pose-animation pose-animation-stage pose-animation-screen-top" role="img" aria-label="像素貓攀附在螢幕上方"><img src="assets/images/pose-animations/screen_top/screen_top_01.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_02.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_03.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_04.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_05.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_06.png" alt=""></div></div>
+        <figure class="reminder-scene" role="img" aria-label="桌寵提醒活動、工作、會議與紀念日的情境"><div class="reminder-calendar-card" aria-hidden="true"><small>8 月</small><b>20</b><span>今日行程</span></div><span class="reminder-tag reminder-tag-event">活動</span><span class="reminder-tag reminder-tag-work">工作</span><span class="reminder-tag reminder-tag-meeting">會議</span><span class="reminder-tag reminder-tag-anniversary">紀念日</span><span class="reminder-bubble">提醒：下午 3:00 專案會議</span><div class="pose-animation pose-animation-idle reminder-pet" aria-hidden="true"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""><img src="assets/images/pose-animations/idle/idle_02.png" alt=""><img src="assets/images/pose-animations/idle/idle_03.png" alt=""><img src="assets/images/pose-animations/idle/idle_04.png" alt=""><img src="assets/images/pose-animations/idle/idle_05.png" alt=""><img src="assets/images/pose-animations/idle/idle_06.png" alt=""></div></figure>
       </div>
       <div class="section-inner split" data-lang-content="zh-Hans" hidden>
         <div><p class="section-kicker">OPTIONAL CALENDAR SYNC</p><h2>让桌宠提醒你的重要日程</h2><p class="lead">连接 Google Calendar 后，程序会把近期日程建立成桌宠提醒。登录会在默认浏览器完成，程序只读取建立提醒需要的日历事件。</p><ul class="check-list"><li>可选择同步近 30、60 或 180 天</li><li>启动程序与每日 00:00 会再次同步</li><li>可随时断开连接或切换账号，既有本地提醒不会被删除</li></ul><div class="button-row"><a class="button button-teal" href="privacy.html">阅读数据处理方式</a><a class="button button-secondary" href="support.html">查看同步支持</a></div></div>
-        <div class="image-stage"><div class="pose-animation pose-animation-stage pose-animation-screen-top" role="img" aria-label="像素猫攀附在屏幕上方"><img src="assets/images/pose-animations/screen_top/screen_top_01.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_02.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_03.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_04.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_05.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_06.png" alt=""></div></div>
+        <figure class="reminder-scene" role="img" aria-label="桌宠提醒活动、工作、会议与纪念日的情境"><div class="reminder-calendar-card" aria-hidden="true"><small>8 月</small><b>20</b><span>今日行程</span></div><span class="reminder-tag reminder-tag-event">活动</span><span class="reminder-tag reminder-tag-work">工作</span><span class="reminder-tag reminder-tag-meeting">会议</span><span class="reminder-tag reminder-tag-anniversary">纪念日</span><span class="reminder-bubble">提醒：下午 3:00 项目会议</span><div class="pose-animation pose-animation-idle reminder-pet" aria-hidden="true"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""><img src="assets/images/pose-animations/idle/idle_02.png" alt=""><img src="assets/images/pose-animations/idle/idle_03.png" alt=""><img src="assets/images/pose-animations/idle/idle_04.png" alt=""><img src="assets/images/pose-animations/idle/idle_05.png" alt=""><img src="assets/images/pose-animations/idle/idle_06.png" alt=""></div></figure>
       </div>
       <div class="section-inner split" data-lang-content="en" hidden>
         <div><p class="section-kicker">OPTIONAL CALENDAR SYNC</p><h2>Let your pet remind you about important events</h2><p class="lead">After you connect Google Calendar, the app turns upcoming events into desktop-pet reminders. Sign-in happens in your default browser, and the app reads only the events needed to create reminders.</p><ul class="check-list"><li>Choose a 30-, 60-, or 180-day sync window</li><li>Sync again when the app starts and every day at 00:00</li><li>Disconnect or change accounts anytime without deleting existing local reminders</li></ul><div class="button-row"><a class="button button-teal" href="privacy.html">See how data is handled</a><a class="button button-secondary" href="support.html">Calendar sync support</a></div></div>
-        <div class="image-stage"><div class="pose-animation pose-animation-stage pose-animation-screen-top" role="img" aria-label="Pixel cat clinging to the top of a screen"><img src="assets/images/pose-animations/screen_top/screen_top_01.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_02.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_03.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_04.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_05.png" alt=""><img src="assets/images/pose-animations/screen_top/screen_top_06.png" alt=""></div></div>
+        <figure class="reminder-scene" role="img" aria-label="Desktop pet reminding you about events, work, meetings, and anniversaries"><div class="reminder-calendar-card" aria-hidden="true"><small>AUG</small><b>20</b><span>Today's plan</span></div><span class="reminder-tag reminder-tag-event">Event</span><span class="reminder-tag reminder-tag-work">Work</span><span class="reminder-tag reminder-tag-meeting">Meeting</span><span class="reminder-tag reminder-tag-anniversary">Anniversary</span><span class="reminder-bubble">Reminder: project meeting, 3 PM</span><div class="pose-animation pose-animation-idle reminder-pet" aria-hidden="true"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""><img src="assets/images/pose-animations/idle/idle_02.png" alt=""><img src="assets/images/pose-animations/idle/idle_03.png" alt=""><img src="assets/images/pose-animations/idle/idle_04.png" alt=""><img src="assets/images/pose-animations/idle/idle_05.png" alt=""><img src="assets/images/pose-animations/idle/idle_06.png" alt=""></div></figure>
       </div>
     </section>
 
     <section class="section section-dark streamer-section" id="streamer-mode">
       <div class="section-inner split streamer-layout" data-lang-content="zh-Hant">
-        <div><p class="section-kicker">TWITCH 實況主模式</p><h2>給 Twitch 實況主的桌寵即時互動</h2><p class="lead">連接你自己的 Twitch 後，觀眾送出的 Bits 能立即播放指定姿勢、音效與專屬氣泡文字。連線和事件都只在直播主電腦上處理。</p><ul class="streamer-points"><li><strong>用金額安排反應</strong><span>每個姿勢可設定 Bits 區間；金額越高，可以安排越特別的演出。</span></li><li><strong>把觀眾帶進氣泡</strong><span>氣泡支援觀眾暱稱、訊息與 Bits 金額，讓每次互動都有個人感。</span></li><li><strong>把直播規則一起分享</strong><span>創作者可把姿勢的 Bits 規則放進工作坊 JSON；玩家只需連接自己的 Twitch。</span></li></ul><div class="button-row"><a class="button button-secondary" href="creator-json.html">查看創作者 JSON 指南</a></div></div>
+        <div><p class="section-kicker">TWITCH 實況主模式</p><h2>讓觀眾的 Bits，變成桌上的角色反應</h2><p class="lead">連接你自己的 Twitch 後，觀眾送出的 Bits 能觸發指定姿勢、音效與專屬氣泡。為每個反應設定金額區間與播放秒數，結束後桌寵會自動回到原本動作。</p><ul class="streamer-points"><li><strong>先用本機測試確認效果</strong><span>直接填入測試暱稱、訊息和 Bits；不會真的斗內、不需先連線，也不會保存測試事件。</span></li><li><strong>把觀眾帶進氣泡</strong><span>氣泡可帶入觀眾暱稱、訊息與 Bits 金額，讓每次互動都有個人感。</span></li><li><strong>搭配 OBS 只擷取桌寵</strong><span>啟用專用擷取舞台後，可在 OBS 視窗擷取桌寵、氣泡與提醒，不會擷取設定視窗。</span></li></ul><div class="button-row"><a class="button button-primary" href="streamer-mode.html">查看實況模式設定教學</a><a class="button button-secondary" href="creator-json.html">查看創作者 JSON 指南</a></div></div>
         <div class="streamer-scene" aria-hidden="true"><span class="streamer-chip">BITS +100</span><span class="streamer-bubble">PixelFriend：好喜歡這隻桌寵！</span><div class="pose-animation streamer-pet"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""><img src="assets/images/pose-animations/idle/idle_02.png" alt=""><img src="assets/images/pose-animations/idle/idle_03.png" alt=""><img src="assets/images/pose-animations/idle/idle_04.png" alt=""><img src="assets/images/pose-animations/idle/idle_05.png" alt=""><img src="assets/images/pose-animations/idle/idle_06.png" alt=""></div><span class="streamer-spark streamer-spark-one"></span><span class="streamer-spark streamer-spark-two"></span></div>
       </div>
       <div class="section-inner split streamer-layout" data-lang-content="zh-Hans" hidden>
-        <div><p class="section-kicker">TWITCH 主播模式</p><h2>为 Twitch 主播打造的桌宠即时互动</h2><p class="lead">连接你自己的 Twitch 后，观众送出的 Bits 能立即播放指定姿势、音效与专属气泡文字。连接和事件都只在主播电脑上处理。</p><ul class="streamer-points"><li><strong>用金额安排反应</strong><span>每个姿势可设置 Bits 区间；金额越高，可以安排越特别的演出。</span></li><li><strong>把观众带进气泡</strong><span>气泡支持观众昵称、讯息与 Bits 金额，让每次互动都有个人感。</span></li><li><strong>把直播规则一起分享</strong><span>创作者可把姿势的 Bits 规则放进创意工坊 JSON；玩家只需连接自己的 Twitch。</span></li></ul><div class="button-row"><a class="button button-secondary" href="creator-json.html">查看创作者 JSON 指南</a></div></div>
+        <div><p class="section-kicker">TWITCH 主播模式</p><h2>让观众的 Bits，变成桌面的角色反应</h2><p class="lead">连接你自己的 Twitch 后，观众送出的 Bits 能触发指定姿势、音效与专属气泡。为每个反应设置金额区间与播放秒数，结束后桌宠会自动回到原本动作。</p><ul class="streamer-points"><li><strong>先用本地测试确认效果</strong><span>直接填入测试昵称、消息和 Bits；不会真的打赏、不需先连接，也不会保存测试事件。</span></li><li><strong>把观众带进气泡</strong><span>气泡可带入观众昵称、留言与 Bits 数量，让每次互动都有个人感。</span></li><li><strong>搭配 OBS 只捕获桌宠</strong><span>启用专用捕获舞台后，可在 OBS 窗口捕获桌宠、气泡与提醒，不会捕获设置窗口。</span></li></ul><div class="button-row"><a class="button button-primary" href="streamer-mode.html">查看主播模式设置教学</a><a class="button button-secondary" href="creator-json.html">查看创作者 JSON 指南</a></div></div>
         <div class="streamer-scene" aria-hidden="true"><span class="streamer-chip">BITS +100</span><span class="streamer-bubble">PixelFriend：好喜欢这只桌宠！</span><div class="pose-animation streamer-pet"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""><img src="assets/images/pose-animations/idle/idle_02.png" alt=""><img src="assets/images/pose-animations/idle/idle_03.png" alt=""><img src="assets/images/pose-animations/idle/idle_04.png" alt=""><img src="assets/images/pose-animations/idle/idle_05.png" alt=""><img src="assets/images/pose-animations/idle/idle_06.png" alt=""></div><span class="streamer-spark streamer-spark-one"></span><span class="streamer-spark streamer-spark-two"></span></div>
       </div>
       <div class="section-inner split streamer-layout" data-lang-content="en" hidden>
-        <div><p class="section-kicker">TWITCH STREAMER MODE</p><h2>Desktop-pet interactions made for Twitch streamers</h2><p class="lead">Connect your own Twitch account and a viewer's Bits cheer can immediately play a chosen pose, sound, and bubble. The connection and events are handled only on the streamer's computer.</p><ul class="streamer-points"><li><strong>Plan reactions by amount</strong><span>Every pose can use a Bits range, so larger cheers can call a more special performance.</span></li><li><strong>Bring viewers into the bubble</strong><span>Bubble templates can include viewer names, messages, and the Bits amount for a personal response.</span></li><li><strong>Share streamer rules with creators</strong><span>Creators can include pose Bits rules in Workshop JSON; players connect only their own Twitch account.</span></li></ul><div class="button-row"><a class="button button-secondary" href="creator-json.html">Read the creator JSON guide</a></div></div>
+        <div><p class="section-kicker">TWITCH STREAMER MODE</p><h2>Turn Twitch Bits into a live desktop-pet reaction</h2><p class="lead">Connect your own Twitch account and a viewer's Bits cheer can trigger a chosen pose, sound, and dedicated bubble. Set each reaction's amount range and playback time; your pet returns to its previous action when the response ends.</p><ul class="streamer-points"><li><strong>Confirm it with a local test first</strong><span>Enter a test viewer name, message, and Bits amount. It is not a real cheer, needs no connection, and is never saved.</span></li><li><strong>Bring viewers into the bubble</strong><span>Bubbles can include viewer names, messages, and the Bits amount so each interaction feels personal.</span></li><li><strong>Capture only the pet in OBS</strong><span>Enable the dedicated capture stage to Window Capture the pet, bubbles, and reminders in OBS without capturing the settings window.</span></li></ul><div class="button-row"><a class="button button-primary" href="streamer-mode.html">View Streamer Mode setup</a><a class="button button-secondary" href="creator-json.html">Read the creator JSON guide</a></div></div>
         <div class="streamer-scene" aria-hidden="true"><span class="streamer-chip">BITS +100</span><span class="streamer-bubble">PixelFriend: I love this desktop pet!</span><div class="pose-animation streamer-pet"><img src="assets/images/pose-animations/idle/idle_01.png" alt=""><img src="assets/images/pose-animations/idle/idle_02.png" alt=""><img src="assets/images/pose-animations/idle/idle_03.png" alt=""><img src="assets/images/pose-animations/idle/idle_04.png" alt=""><img src="assets/images/pose-animations/idle/idle_05.png" alt=""><img src="assets/images/pose-animations/idle/idle_06.png" alt=""></div><span class="streamer-spark streamer-spark-one"></span><span class="streamer-spark streamer-spark-two"></span></div>
       </div>
     </section>
@@ -240,6 +256,6 @@
     </section>
   </main>
 
-  <footer class="site-footer"><div class="footer-inner"><div><div class="footer-brand">DesktopPetStudio</div><p class="footer-note">(c) <span data-year></span> <span data-i18n="copyright">DesktopPetStudio. 保留所有權利。</span></p></div><div class="footer-links"><a href="make-your-pet.html" data-i18n="createPet">製作專屬桌寵</a><a href="creator-json.html" data-i18n="workshop">自訂與工作坊</a><a href="privacy.html" data-i18n="privacy">隱私權政策</a><a href="terms.html" data-i18n="terms">使用條款</a><a href="support.html" data-i18n="support">支援資訊</a></div></div></footer>
+  <footer class="site-footer"><div class="footer-inner"><div><div class="footer-brand">DesktopPetStudio</div><p class="footer-note">(c) <span data-year></span> <span data-i18n="copyright">DesktopPetStudio. 保留所有權利。</span></p></div><div class="footer-links"><a href="make-your-pet.html" data-i18n="createPet">製作專屬桌寵</a><a href="streamer-mode.html" data-i18n="streamer">實況模式</a><a href="creator-json.html" data-i18n="workshop">自訂與工作坊</a><a href="privacy.html" data-i18n="privacy">隱私權政策</a><a href="terms.html" data-i18n="terms">使用條款</a><a href="support.html" data-i18n="support">支援資訊</a></div></div></footer>
 </body>
 </html>
