@@ -232,7 +232,7 @@
         ? languageBlock.dataset.langContent
         : "zh-Hant";
       const link = document.createElement("a");
-      link.className = "button button-primary creator-tutorial-link";
+      link.className = "button button-teal creator-tutorial-link";
       link.href = "make-your-pet.html";
       link.textContent = labels[language].makePetTutorial;
       path.appendChild(link);
