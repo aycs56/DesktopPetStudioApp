@@ -59,6 +59,7 @@ In this layout, `assets/frame_01.png` is resolved relative to the JSON file. If 
     "bubble_texts": ["Hi, I am here!", "Let's do our best today."],
     "bubble_interval_sec": 20,
     "enabled": true,
+    "live_mode_disabled": false,
     "movement": {
       "enabled": true,
       "mode": "hop",
@@ -170,6 +171,7 @@ Notes:
 | `bubble_texts` | array | `[]` | Bubble text lines for this pose. The app chooses one randomly. |
 | `bubble_interval_sec` | number | `45` | Auto bubble interval in seconds, minimum `1`. |
 | `enabled` | boolean | `true` | Whether the pose starts enabled after import. |
+| `live_mode_disabled` | boolean | `false` | Whether OBS dedicated capture excludes this pose. With OBS capture on, `false` plays and `true` skips it; when OBS capture is off, only `enabled` controls playback. |
 | `movement` | object | disabled | Custom desktop pet movement. See the next section. |
 | `twitch_trigger` | object | disabled | Optional Twitch Bits live trigger rule. See below. |
 | `focus_key_speed_enabled` | boolean | `false` | Used by the `focus` base pose only. When enabled, a bubble shows the milliseconds between key presses. |

@@ -59,6 +59,7 @@ WorkshopLibrary/
     "bubble_texts": ["嗨，我在這裡！", "今天也一起加油"],
     "bubble_interval_sec": 20,
     "enabled": true,
+    "live_mode_disabled": false,
     "movement": {
       "enabled": true,
       "mode": "hop",
@@ -170,6 +171,7 @@ WorkshopLibrary/
 | `bubble_texts` | array | `[]` | 此姿勢可能顯示的氣泡文字，系統會隨機挑選。 |
 | `bubble_interval_sec` | number | `45` | 氣泡自動出現間隔秒數，最小 `1`。 |
 | `enabled` | boolean | `true` | 匯入後是否預設啟用。 |
+| `live_mode_disabled` | boolean | `false` | 開啟 OBS 專用擷取時是否停用這個姿勢。`false` 會播放，`true` 不播放；關閉 OBS 專用擷取後，仍只依 `enabled` 決定是否播放。 |
 | `movement` | object | disabled | 自訂寵物移動方式。詳見下一節。 |
 | `twitch_trigger` | object | disabled | 選用的 Twitch Bits 直播觸發規則。詳見下方說明。 |
 | `focus_key_speed_enabled` | boolean | `false` | 僅供 `focus` 基礎姿勢使用；啟用時，玩家按鍵會顯示兩次按下之間的毫秒數氣泡。 |
