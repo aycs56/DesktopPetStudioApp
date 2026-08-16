@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-PAGES = ("index.html", "creator-json.html", "privacy.html", "terms.html", "support.html", "404.html")
+PAGES = ("index.html", "make-your-pet.html", "creator-json.html", "privacy.html", "terms.html", "support.html", "404.html")
 PUBLIC_DOCUMENTS = (
     "docs/workshop-creator-json-guide.zh-Hant.md",
     "docs/workshop-creator-json-guide.en.md",
