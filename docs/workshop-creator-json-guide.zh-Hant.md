@@ -3,6 +3,12 @@
 版本：v1.2.0
 適用內容：Steam 工作坊或手動放入的桌寵包、姿勢包
 
+## Steam 工作坊發布流程
+
+建立好包後，創作者可在程式的 **工作坊 > 創作者中心** 依序選擇「打包目前桌寵」或「打包目前選取姿勢」，再選擇「發布至 Steam 工作坊」。發布視窗會要求選取完整作品資料夾、Steam 封面圖、名稱、介紹、標籤與可見度，並上傳整個資料夾，因此 JSON、圖片和 WAV 音效都必須留在包內。
+
+發布成功後程式會開啟 Steam 作品頁。請依 Steam 顯示內容接受 Workshop 創作者協議，並確認作品可見度。程式也會把 Steam 作品 ID 寫入 manifest 的 `steam_published_file_id`；下次選擇同一個資料夾發布時，會更新原本作品，不會另外建立新作品。玩家在 Steam 訂閱後，桌寵會從 Steam 安裝資料夾讀取相同 JSON 格式的內容。
+
 ## 1. 工作坊包基本結構
 
 工作坊包是一個資料夾，至少包含：
@@ -76,8 +82,9 @@ WorkshopLibrary/
       "id": "wave_ai_prompt",
       "name": "揮手姿勢 AI 說明",
       "pose_id": "wave",
-      "zh": "請用我上傳的角色或風格參考圖，幫我製作桌寵揮手打招呼動畫。請輸出 6 張獨立透明背景 PNG，檔名 frame_01.png 到 frame_06.png；不要六宮格、不要 sprite sheet、不要文字、不要浮水印。",
-      "en": "Use my uploaded character or style reference to create a waving desktop pet animation. Output six separate transparent-background PNG images named frame_01.png through frame_06.png; no grid, no sprite sheet, no text, no watermark."
+      "zh": "請用我上傳的角色或風格參考圖，幫我製作桌寵揮手打招呼動畫。請直接輸出 1 張 3 x 2 的六宮格透明背景 PNG，內含 6 個完整動畫影格；不得拆成獨立檔案。每格 256 x 256 px，角色大小、鏡頭、中心點與底部中心定位完全一致，相鄰格子正好保留 5px 透明間距。每格外側邊框或留白處以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入細的裁切輔助虛線與 90 度直角角標；不可壓到角色、既有特徵、配件或動作內容。不要文字、格號或浮水印。",
+      "zh_cn": "请用我上传的角色或风格参考图，帮我制作桌宠挥手打招呼动画。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG，内含 6 个完整动画帧；不得拆成独立文件。每格 256 x 256 px，角色大小、镜头、中心点与底部中心定位必须完全一致，相邻格子正好保留 5px 透明间距。每格外侧边框或留白处以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入细的裁切辅助虚线与 90 度直角角标；不可压到角色、既有特征、配件或动作内容。不要文字、格号或水印。",
+      "en": "Use my uploaded character or style reference to create a waving desktop pet animation. Output one transparent-background 3 x 2 six-panel PNG image containing six complete animation frames; do not split the frames into separate files. Every panel must be 256 x 256 px with identical character size, camera, center point, and bottom-center anchor, separated by exactly 5px of transparent spacing. In each panel's outer border or blank margin, add a thin #0CB8EC (RGB 12, 184, 236; 100% opacity) dashed crop guide with sharp 90-degree corner marks; it must not overlap the character, existing features, accessories, or motion content. No text, panel numbers, or watermark."
     }
   ]
 }
@@ -111,6 +118,7 @@ WorkshopLibrary/
 | --- | --- | --- | --- |
 | `schema_version` | number | 否 | 建議填 `1`，方便未來相容。 |
 | `id` | string | 否 | 工作坊項目 id。Steam 上可填 published file id；未填時用資料夾名稱。 |
+| `steam_published_file_id` | string | 否 | 首次從程式發布成功後自動寫入的 Steam 作品 ID。保留此欄位可在下次發布時更新原作品。 |
 | `title` | string | 否 | 工作坊清單顯示名稱。 |
 | `type` | string | 是 | `pose` 或 `pet`。 |
 | `content_kind` | string | 否 | `single_pose` 或 `full_pet`，方便創作者辨識。 |
@@ -133,10 +141,10 @@ WorkshopLibrary/
     "name": "原地休息姿勢",
     "pose_id": "idle",
     "description": "延伸這個桌寵的休息姿勢素材",
-    "zh": "請用我上傳的角色圖，製作原地休息姿勢。請輸出 6 張獨立透明背景 PNG，檔名 frame_01.png 到 frame_06.png；不要六宮格、不要 sprite sheet。",
-    "zh_cn": "请用我上传的角色图，制作原地休息姿势。请输出 6 张独立透明背景 PNG，文件名 frame_01.png 到 frame_06.png；不要六宫格、不要 sprite sheet。",
-    "en": "Use my uploaded character reference to create an idle resting pose. Output six separate transparent-background PNG images named frame_01.png through frame_06.png; no grid and no sprite sheet.",
-    "ja": "アップロードしたキャラクター画像を使い、待機ポーズを作成してください。6枚の独立した透過PNGとして出力し、sprite sheetにはしないでください。"
+    "zh": "請用我上傳的角色圖，製作原地休息姿勢。請直接輸出 1 張 3 x 2 的六宮格透明背景 PNG，內含 6 個完整動畫影格；不得拆成獨立檔案。每格 256 x 256 px，角色大小、鏡頭、中心點與底部中心定位完全一致，相鄰格子正好保留 5px 透明間距。每格外側邊框或留白處以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入細的裁切輔助虛線與 90 度直角角標；不可壓到角色、既有特徵、配件或動作內容。不要文字、格號或浮水印。",
+    "zh_cn": "请用我上传的角色图，制作原地休息姿势。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG，内含 6 个完整动画帧；不得拆成独立文件。每格 256 x 256 px，角色大小、镜头、中心点与底部中心定位必须完全一致，相邻格子正好保留 5px 透明间距。每格外侧边框或留白处以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入细的裁切辅助虚线与 90 度直角角标；不可压到角色、既有特征、配件或动作内容。不要文字、格号或水印。",
+    "en": "Use my uploaded character reference to create an idle resting pose. Output one transparent-background 3 x 2 six-panel PNG image containing six complete animation frames; do not split the frames into separate files. Every panel must be 256 x 256 px with identical character size, camera, center point, and bottom-center anchor, separated by exactly 5px of transparent spacing. In each panel's outer border or blank margin, add a thin #0CB8EC (RGB 12, 184, 236; 100% opacity) dashed crop guide with sharp 90-degree corner marks; it must not overlap the character, existing features, accessories, or motion content. No text, panel numbers, or watermark.",
+    "ja": "アップロードしたキャラクター画像を使い、待機ポーズを作成してください。6コマを含む3列 x 2行の透過PNGを1枚だけ出力し、別々の6ファイルには分けないでください。各コマは256 x 256 px、キャラクターの大きさ・カメラ・中心点・下中央アンカーはすべて同じにし、コマ間は正確に5pxの透明な間隔を取ってください。各コマの外枠または余白には #0CB8EC（RGB 12, 184, 236、100%不透明）の細い裁切補助破線と90度の直角コーナーガイドを置き、キャラクター、既存の特徴、アクセサリー、動作内容には重ねないでください。文字、番号、透かしは不要です。"
   }
 ]
 ```
@@ -155,7 +163,7 @@ WorkshopLibrary/
 - 全桌寵包若有 `ai_asset_prompts`，AI 素材助手會顯示可展開群組：整包標題在上層，底下是各姿勢 Prompt。
 - 全桌寵包若沒有 `ai_asset_prompts`，系統會依 `pet_config.json` 裡的姿勢名稱產生預設 AI 素材說明。
 - 工作坊頁的「AI素材說明」欄會依是否有可用 Prompt 顯示「前往說明」或「無說明」。
-- Prompt 內建議明確要求：`6 張獨立透明背景 PNG`、每張 `256 x 256 px`、六張使用相同畫布與底部中心定位、`frame_01.png` 到 `frame_06.png`、不要六宮格、不要 sprite sheet、不要文字、不要浮水印。
+- Prompt 內建議明確要求：輸出 `1 張 3 x 2 六宮格透明背景 PNG`，內含六個完整影格；每格 `256 x 256 px`、六格使用相同畫布與底部中心定位、相鄰格子正好保留 `5px` 透明間距，並在外側邊框或留白處使用 `#0CB8EC`（RGB `12, 184, 236`）細虛線與 `90 度` 直角角標。輔助線不可壓到角色或配件；不要文字、格號或浮水印。玩家可在 AI 素材助手的「宮格圖片裁切」工具依這些輔助線輸出為個別動畫影格，再加入 `animation_paths`。
 
 ## 6. Pose 參數
 

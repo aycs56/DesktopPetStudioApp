@@ -3,6 +3,12 @@
 Version: v1.2.0
 Applies to: desktop pet packages and pose packages from Steam Workshop or manually added folders
 
+## Publishing to Steam Workshop
+
+After building a package, open **Workshop > Creator Center** in Desktop Pet Studio. Choose **Package Current Pet** or **Package Selected Pose**, then choose **Publish to Steam Workshop**. The publish dialog asks for the complete package folder, a Steam preview image, title, description, tags, and visibility. It uploads the entire folder, so keep the JSON, images, and WAV files inside the package.
+
+After a successful upload, Desktop Pet Studio opens the Steam item page. Follow Steam's prompts to accept the Workshop contributor agreement and confirm the item visibility. The app also writes the Steam item ID to `steam_published_file_id` in the manifest; selecting the same folder next time updates the existing item instead of creating another one. After players subscribe on Steam, Desktop Pet Studio reads the same JSON package format from Steam's installed item folder.
+
 ## 1. Workshop Package Structure
 
 A Workshop package is a folder that contains at least:
@@ -76,8 +82,9 @@ In this layout, `assets/frame_01.png` is resolved relative to the JSON file. If 
       "id": "wave_ai_prompt",
       "name": "Wave Pose AI Guide",
       "pose_id": "wave",
-      "zh": "請用我上傳的角色或風格參考圖，幫我製作桌寵揮手打招呼動畫。請輸出 6 張獨立透明背景 PNG，檔名 frame_01.png 到 frame_06.png；不要六宮格、不要 sprite sheet、不要文字、不要浮水印。",
-      "en": "Use my uploaded character or style reference to create a waving desktop pet animation. Output six separate transparent-background PNG images named frame_01.png through frame_06.png; no grid, no sprite sheet, no text, no watermark."
+      "zh": "請用我上傳的角色或風格參考圖，幫我製作桌寵揮手打招呼動畫。請直接輸出 1 張 3 x 2 的六宮格透明背景 PNG，內含 6 個完整動畫影格；不得拆成獨立檔案。每格 256 x 256 px，角色大小、鏡頭、中心點與底部中心定位完全一致，相鄰格子正好保留 5px 透明間距。每格外側邊框或留白處以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入細的裁切輔助虛線與 90 度直角角標；不可壓到角色、既有特徵、配件或動作內容。不要文字、格號或浮水印。",
+      "zh_cn": "请用我上传的角色或风格参考图，帮我制作桌宠挥手打招呼动画。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG，内含 6 个完整动画帧；不得拆成独立文件。每格 256 x 256 px，角色大小、镜头、中心点与底部中心定位必须完全一致，相邻格子正好保留 5px 透明间距。每格外侧边框或留白处以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入细的裁切辅助虚线与 90 度直角角标；不可压到角色、既有特征、配件或动作内容。不要文字、格号或水印。",
+      "en": "Use my uploaded character or style reference to create a waving desktop pet animation. Output one transparent-background 3 x 2 six-panel PNG image containing six complete animation frames; do not split the frames into separate files. Every panel must be 256 x 256 px with identical character size, camera, center point, and bottom-center anchor, separated by exactly 5px of transparent spacing. In each panel's outer border or blank margin, add a thin #0CB8EC (RGB 12, 184, 236; 100% opacity) dashed crop guide with sharp 90-degree corner marks; it must not overlap the character, existing features, accessories, or motion content. No text, panel numbers, or watermark."
     }
   ]
 }
@@ -111,6 +118,7 @@ A full pet package may provide `ai_asset_prompts`. If it does not, Desktop Pet S
 | --- | --- | --- | --- |
 | `schema_version` | number | No | Recommended value: `1`, reserved for future compatibility. |
 | `id` | string | No | Workshop item id. On Steam this may be the published file id. If omitted, the folder name is used. |
+| `steam_published_file_id` | string | No | Steam item ID written automatically after the first successful in-app publish. Keep it to update the existing item on a later publish. |
 | `title` | string | No | Display name in the Workshop list. |
 | `type` | string | Yes | `pose` or `pet`. |
 | `content_kind` | string | No | `single_pose` or `full_pet`, useful for creator-side organization. |
@@ -133,10 +141,10 @@ A full pet package may provide `ai_asset_prompts`. If it does not, Desktop Pet S
     "name": "Idle Rest Pose",
     "pose_id": "idle",
     "description": "Generate extra idle pose assets for this pet.",
-    "zh": "請用我上傳的角色圖，製作原地休息姿勢。請輸出 6 張獨立透明背景 PNG，檔名 frame_01.png 到 frame_06.png；不要六宮格、不要 sprite sheet。",
-    "zh_cn": "请用我上传的角色图，制作原地休息姿势。请输出 6 张独立透明背景 PNG，文件名 frame_01.png 到 frame_06.png；不要六宫格、不要 sprite sheet。",
-    "en": "Use my uploaded character reference to create an idle resting pose. Output six separate transparent-background PNG images named frame_01.png through frame_06.png; no grid and no sprite sheet.",
-    "ja": "アップロードしたキャラクター画像を使い、待機ポーズを作成してください。6枚の独立した透過PNGとして出力し、sprite sheetにはしないでください。"
+    "zh": "請用我上傳的角色圖，製作原地休息姿勢。請直接輸出 1 張 3 x 2 的六宮格透明背景 PNG，內含 6 個完整動畫影格；不得拆成獨立檔案。每格 256 x 256 px，角色大小、鏡頭、中心點與底部中心定位完全一致，相鄰格子正好保留 5px 透明間距。每格外側邊框或留白處以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入細的裁切輔助虛線與 90 度直角角標；不可壓到角色、既有特徵、配件或動作內容。不要文字、格號或浮水印。",
+    "zh_cn": "请用我上传的角色图，制作原地休息姿势。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG，内含 6 个完整动画帧；不得拆成独立文件。每格 256 x 256 px，角色大小、镜头、中心点与底部中心定位必须完全一致，相邻格子正好保留 5px 透明间距。每格外侧边框或留白处以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入细的裁切辅助虚线与 90 度直角角标；不可压到角色、既有特征、配件或动作内容。不要文字、格号或水印。",
+    "en": "Use my uploaded character reference to create an idle resting pose. Output one transparent-background 3 x 2 six-panel PNG image containing six complete animation frames; do not split the frames into separate files. Every panel must be 256 x 256 px with identical character size, camera, center point, and bottom-center anchor, separated by exactly 5px of transparent spacing. In each panel's outer border or blank margin, add a thin #0CB8EC (RGB 12, 184, 236; 100% opacity) dashed crop guide with sharp 90-degree corner marks; it must not overlap the character, existing features, accessories, or motion content. No text, panel numbers, or watermark.",
+    "ja": "アップロードしたキャラクター画像を使い、待機ポーズを作成してください。6コマを含む3列 x 2行の透過PNGを1枚だけ出力し、別々の6ファイルには分けないでください。各コマは256 x 256 px、キャラクターの大きさ・カメラ・中心点・下中央アンカーはすべて同じにし、コマ間は正確に5pxの透明な間隔を取ってください。各コマの外枠または余白には #0CB8EC（RGB 12, 184, 236、100%不透明）の細い裁切補助破線と90度の直角コーナーガイドを置き、キャラクター、既存の特徴、アクセサリー、動作内容には重ねないでください。文字、番号、透かしは不要です。"
   }
 ]
 ```
@@ -155,7 +163,7 @@ Notes:
 - If a full pet package has `ai_asset_prompts`, the AI Asset Guide shows an expandable group with the package title, then the pose prompts underneath it.
 - If a full pet package does not have `ai_asset_prompts`, the app generates default prompts from the pose names in `pet_config.json`.
 - The Workshop tab shows `Go to Guide` when prompts are available and `No Guide` when they are not.
-- Prompt text should clearly request `six separate transparent-background PNG images`, a `256 x 256 px` canvas for every frame, the same canvas and bottom-center anchor across all six frames, `frame_01.png` through `frame_06.png`, no grid, no sprite sheet, no text, and no watermark.
+- Prompt text should clearly request `one transparent-background 3 x 2 six-panel PNG image` containing six complete frames. Each panel should be `256 x 256 px` with the same canvas and bottom-center anchor, exactly `5px` of transparent spacing between panels, and a thin `#0CB8EC` (RGB `12, 184, 236`) dashed crop guide with sharp `90-degree` corner marks in the outer border or blank margin. Guides must not overlap the character or accessories; request no text, panel numbers, or watermark. Players can use the AI Asset Helper's Grid Image Crop tool to export separate animation frames before adding them to `animation_paths`.
 
 ## 6. Pose Fields
 
