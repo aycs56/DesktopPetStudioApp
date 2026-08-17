@@ -24,6 +24,7 @@ PAGES = (
 )
 PUBLIC_DOCUMENTS = (
     "docs/workshop-creator-json-guide.zh-Hant.md",
+    "docs/workshop-creator-json-guide.zh-Hans.md",
     "docs/workshop-creator-json-guide.en.md",
 )
 REQUIRED_ASSETS = (
