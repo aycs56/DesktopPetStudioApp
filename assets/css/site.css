@@ -1378,7 +1378,7 @@ details ul { padding-left: 38px; }
 .streamer-rule-board-result { display: grid; gap: 2px; margin-top: 16px; color: #accbc7; font-size: 0.78rem; }
 .streamer-rule-board-result strong { color: #ffffff; font-size: 1.02rem; }
 .streamer-rule-board-bubble { position: absolute; z-index: 2; right: 14px; bottom: 132px; max-width: 230px; padding: 10px 12px; border: 1px solid #76b7ae; border-radius: 5px; color: #133640; background: #fff9de; font-size: 0.82rem; font-weight: 800; }
-.streamer-rule-board-bubble::after { position: absolute; right: 22px; bottom: -8px; width: 14px; height: 14px; border-right: 1px solid #76b7ae; border-bottom: 1px solid #76b7ae; background: #fff9de; content: ""; transform: rotate(45deg); }
+.streamer-rule-board-bubble::after { position: absolute; bottom: -8px; left: 52px; width: 14px; height: 14px; border-right: 1px solid #76b7ae; border-bottom: 1px solid #76b7ae; background: #fff9de; content: ""; transform: rotate(45deg); }
 .streamer-rule-board-pet { position: absolute; right: 20%; bottom: 8px; width: 126px; height: 126px; }
 .streamer-obs-layout { align-items: center; }
 .streamer-obs-layout h2 { max-width: 20ch; }
