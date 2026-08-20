@@ -9,6 +9,15 @@
 
 發布成功後程式會開啟 Steam 作品頁。請依 Steam 顯示內容接受 Workshop 創作者協議，並確認作品可見度。程式也會把 Steam 作品 ID 寫入 manifest 的 `steam_published_file_id`；下次選擇同一個資料夾發布時，會更新原本作品，不會另外建立新作品。玩家在 Steam 訂閱後，桌寵會從 Steam 安裝資料夾讀取相同 JSON 格式的內容。
 
+## 自動產生倍率與鏡像素材
+
+使用「打包目前桌寵」、「打包目前選取姿勢」或匯出桌寵存檔時，Desktop Pet Studio 會在複製原始素材後，自動準備可攜的倍率影格。這個階段會依序產出 `0.5x` 到 `4x` 的所有支援倍率；走動、拖曳等需要左右方向的姿勢，也會一併產出鏡像影格。
+
+- 原始 PNG、GIF、PPM、PGM 仍是作品的來源素材；自動產生的影格只用於加快玩家端載入，不會取代原圖。
+- 包內會附上 `derived_frames/` 和驗證 manifest。玩家匯入或訂閱後，程式會先確認素材的影格順序、檔名、檔案大小、修改時間與內容都相符，才會直接使用對應倍率；不相符時會安全地重新產生。
+- 打包視窗會顯示「準備各倍率動畫素材」進度。這個步驟完成前，桌寵包不會標示為完成，因此請保留原始素材，並預留足夠磁碟空間給多影格 GIF 或大型圖片。
+- 不需要手動把 `derived_frames/` 寫入 JSON；使用程式內建打包功能時會自動處理。手動製作的工作坊包只需維持 JSON 與 `assets/` 的相對路徑正確，玩家端會依需要建立自己的本機快取。
+
 ## 1. 工作坊包基本結構
 
 工作坊包是一個資料夾，至少包含：
@@ -179,9 +188,9 @@ WorkshopLibrary/
 | `bubble_texts` | array | `[]` | 此姿勢可能顯示的氣泡文字，系統會隨機挑選。 |
 | `bubble_interval_sec` | number | `45` | 氣泡自動出現間隔秒數，最小 `1`。 |
 | `enabled` | boolean | `true` | 匯入後是否預設啟用。 |
-| `live_mode_disabled` | boolean | `false` | 開啟 OBS 專用擷取時是否停用這個姿勢。`false` 會播放，`true` 不播放；關閉 OBS 專用擷取後，仍只依 `enabled` 決定是否播放。 |
+| `live_mode_disabled` | boolean | `false` | 儲存用的反向欄位，對應 UI 的「直播模式顯示」。開啟 OBS 專用擷取時，`false` 代表顯示並可播放，`true` 代表不顯示；關閉 OBS 專用擷取後，仍只依 `enabled` 決定是否播放。 |
 | `movement` | object | disabled | 自訂寵物移動方式。詳見下一節。 |
-| `twitch_trigger` | object | disabled | 選用的 Twitch Bits 直播觸發規則。詳見下方說明。 |
+| `twitch_trigger` | object | disabled | 選用的 Twitch 直播觸發規則，支援 Bits、一般訂閱與贈送訂閱。詳見下方說明。 |
 | `focus_key_speed_enabled` | boolean | `false` | 僅供 `focus` 基礎姿勢使用；啟用時，玩家按鍵會顯示兩次按下之間的毫秒數氣泡。 |
 | `focus_key_speed_prefix` | string | `按鍵速度 ` | 僅供 `focus` 使用；顯示數值與內建 `ms` 前的文字。 |
 | `focus_key_speed_suffix` | string | `，主人手速快到出現殘影!!` | 僅供 `focus` 使用；顯示數值與內建 `ms` 後的文字。 |
@@ -209,13 +218,15 @@ WorkshopLibrary/
 
 系統只使用按下事件之間的時間差來計算毫秒數，不會儲存、分享或寫入玩家實際按下的按鍵內容。
 
-### Twitch Bits 直播姿勢規則
+### Twitch 直播姿勢規則
 
-創作者可在任何基礎或自訂姿勢加入 `twitch_trigger`，讓玩家連接自己的 Twitch 後，以 Bits 金額觸發這個姿勢。這是可安全分享的創作設定，不包含 Twitch 帳號、授權碼或權杖。
+創作者可在任何基礎或自訂姿勢加入 `twitch_trigger`，讓玩家連接自己的 Twitch 後，以 Bits 金額、一般訂閱或贈送訂閱觸發這個姿勢。這是可安全分享的創作設定，不包含 Twitch 帳號、授權碼或權杖。
 
 ```json
 "twitch_trigger": {
   "enabled": true,
+  "subscription_enabled": true,
+  "gift_subscription_enabled": true,
   "min_bits": 100,
   "max_bits": 499,
   "duration_sec": 8,
@@ -229,12 +240,14 @@ WorkshopLibrary/
 | 參數 | 類型 | 預設 | 效果 |
 | --- | --- | --- | --- |
 | `enabled` | boolean | `false` | 匯入後是否啟用這個 Bits 規則。 |
+| `subscription_enabled` | boolean | `false` | 匯入後是否讓一般訂閱觸發此姿勢。 |
+| `gift_subscription_enabled` | boolean | `false` | 匯入後是否讓贈送訂閱觸發此姿勢。 |
 | `min_bits` | number | `1` | 觸發所需的最低 Bits，最小為 `1`。 |
 | `max_bits` | number | `0` | 觸發上限；填 `0` 代表不設上限。不可小於 `min_bits`。 |
 | `duration_sec` | number | `8` | `1` 到 `60` 秒。直播姿勢播放多久後自動回到觸發前的動作。 |
 | `bubble_texts` | array | `[]` | 命中後隨機顯示一則專用氣泡。 |
 
-氣泡可使用 `{viewer_name}`、`{viewer_message}`、`{amount}`、`{currency}`、`{platform}`、`{event_type}`。多個姿勢的金額範圍重疊時，系統會選擇範圍較精準的規則。訂閱者必須在「直播主模式」連接自己的 Twitch；工作坊 JSON 不應也無法放入任何 Twitch 私人授權資料。
+氣泡可使用 `{viewer_name}`、`{viewer_message}`、`{amount}`、`{currency}`、`{platform}`、`{event_type}`、`{tier}`；Bits 使用 `{amount}`／`{currency}`，訂閱使用 `{tier}`。多個姿勢的 Bits 金額範圍重疊時，系統會選擇範圍較精準的規則。玩家必須在「直播主模式」連接自己的 Twitch，並授權讀取訂閱事件；工作坊 JSON 不應也無法放入任何 Twitch 私人授權資料。
 
 ## 7. Movement 參數
 

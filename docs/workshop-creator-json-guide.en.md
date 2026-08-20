@@ -9,6 +9,15 @@ After building a package, open **Workshop > Creator Center** in Desktop Pet Stud
 
 After a successful upload, Desktop Pet Studio opens the Steam item page. Follow Steam's prompts to accept the Workshop contributor agreement and confirm the item visibility. The app also writes the Steam item ID to `steam_published_file_id` in the manifest; selecting the same folder next time updates the existing item instead of creating another one. After players subscribe on Steam, Desktop Pet Studio reads the same JSON package format from Steam's installed item folder.
 
+## Automatic Scale and Mirror Frames
+
+When you use **Package Current Pet**, **Package Selected Pose**, or export a pet profile, Desktop Pet Studio copies the original assets and automatically prepares portable rendered frames. This stage creates every supported scale from `0.5x` through `4x`; poses that need both directions, such as walking and dragging, also receive mirrored frames.
+
+- The original PNG, GIF, PPM, or PGM files remain the source of your work. Generated frames only make loading faster and never replace the originals.
+- The package includes `derived_frames/` and a validation manifest. When a player imports or subscribes, the app verifies frame order, filenames, file sizes, modification times, and content before reusing a rendered scale. If anything differs, it safely regenerates that variant.
+- The packaging dialog shows **Preparing animation frames for every scale** progress. A package is not marked complete until this stage finishes, so keep the original files and leave sufficient disk space for large images or high-frame-count GIFs.
+- You do not need to write `derived_frames/` into JSON manually. The built-in packager handles it. For a manually created Workshop package, keep JSON and `assets/` paths relative; the player's app creates its own local cache when needed.
+
 ## 1. Workshop Package Structure
 
 A Workshop package is a folder that contains at least:
@@ -179,9 +188,9 @@ Notes:
 | `bubble_texts` | array | `[]` | Bubble text lines for this pose. The app chooses one randomly. |
 | `bubble_interval_sec` | number | `45` | Auto bubble interval in seconds, minimum `1`. |
 | `enabled` | boolean | `true` | Whether the pose starts enabled after import. |
-| `live_mode_disabled` | boolean | `false` | Whether OBS dedicated capture excludes this pose. With OBS capture on, `false` plays and `true` skips it; when OBS capture is off, only `enabled` controls playback. |
+| `live_mode_disabled` | boolean | `false` | Stored inverse of the UI's Live mode display switch. With OBS dedicated capture on, `false` displays and plays this pose while `true` hides it; when OBS capture is off, only `enabled` controls playback. |
 | `movement` | object | disabled | Custom desktop pet movement. See the next section. |
-| `twitch_trigger` | object | disabled | Optional Twitch Bits live trigger rule. See below. |
+| `twitch_trigger` | object | disabled | Optional Twitch live trigger rule for Bits, subscriptions, and gift subscriptions. See below. |
 | `focus_key_speed_enabled` | boolean | `false` | Used by the `focus` base pose only. When enabled, a bubble shows the milliseconds between key presses. |
 | `focus_key_speed_prefix` | string | `按鍵速度 ` | Used by `focus` only. Text before the calculated value and built-in `ms`. |
 | `focus_key_speed_suffix` | string | `，主人手速快到出現殘影!!` | Used by `focus` only. Text after the calculated value and built-in `ms`. |
@@ -209,13 +218,15 @@ Full pet packages may define Fixed Focus Game Mode in `poses.focus`. When a play
 
 The app calculates only the time gap between key-down events. It never stores, shares, or writes the actual keys a player presses.
 
-### Twitch Bits Live Pose Rules
+### Twitch Live Pose Rules
 
-Creators can add `twitch_trigger` to any base or custom pose. Once a player connects their own Twitch account, Bits in the configured range can trigger that pose. This is safe creator content: it never contains a Twitch account, authorization code, or token.
+Creators can add `twitch_trigger` to any base or custom pose. Once a player connects their own Twitch account, Bits in the configured range, subscriptions, or gift subscriptions can trigger that pose. This is safe creator content: it never contains a Twitch account, authorization code, or token.
 
 ```json
 "twitch_trigger": {
   "enabled": true,
+  "subscription_enabled": true,
+  "gift_subscription_enabled": true,
   "min_bits": 100,
   "max_bits": 499,
   "duration_sec": 8,
@@ -229,12 +240,14 @@ Creators can add `twitch_trigger` to any base or custom pose. Once a player conn
 | Field | Type | Default | Effect |
 | --- | --- | --- | --- |
 | `enabled` | boolean | `false` | Enables this Bits rule after import. |
+| `subscription_enabled` | boolean | `false` | Lets a regular subscription trigger this pose after import. |
+| `gift_subscription_enabled` | boolean | `false` | Lets a gift subscription trigger this pose after import. |
 | `min_bits` | number | `1` | Minimum Bits needed to trigger, at least `1`. |
 | `max_bits` | number | `0` | Maximum Bits; use `0` for no upper limit. It cannot be lower than `min_bits`. |
 | `duration_sec` | number | `8` | `1` to `60` seconds. How long the live pose plays before the pet returns to its previous action. |
 | `bubble_texts` | array | `[]` | Dedicated lines; the app randomly picks one after a match. |
 
-Bubble templates support `{viewer_name}`, `{viewer_message}`, `{amount}`, `{currency}`, `{platform}`, and `{event_type}`. If several rules overlap, the narrowest matching range wins. Subscribers must connect their own Twitch account in Streamer Mode; Workshop JSON must not and cannot include private Twitch authorization data.
+Bubble templates support `{viewer_name}`, `{viewer_message}`, `{amount}`, `{currency}`, `{platform}`, `{event_type}`, and `{tier}`. Bits use `{amount}` / `{currency}`; subscriptions use `{tier}`. If several Bits rules overlap, the narrowest matching range wins. Players must connect their own Twitch account in Streamer Mode and authorize subscription events; Workshop JSON must not and cannot include private Twitch authorization data.
 
 ## 7. Movement Fields
 
