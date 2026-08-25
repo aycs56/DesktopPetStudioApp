@@ -16,7 +16,9 @@ class MakeYourPetCurrentQtMediaTests(unittest.TestCase):
             "step-1-qt-ai-helper-entry.png",
             "step-2-qt-prompt-output.png",
             "step-3-qt-inspect-crop.png",
-            "step-4-qt-pose-assets.png",
+            "step-4-qt-pose-assets-zh-Hant.png",
+            "step-4-qt-pose-assets-zh-Hans.png",
+            "step-4-qt-pose-assets-en.png",
         }
         for filename in expected:
             self.assertTrue((ASSETS / filename).is_file(), filename)
@@ -30,7 +32,25 @@ class MakeYourPetCurrentQtMediaTests(unittest.TestCase):
         ):
             self.assertIn(control, html)
 
+    def test_step_four_uses_a_matching_app_screenshot_per_language(self) -> None:
+        """Step 4 must show the DesktopPetStudio UI in the reader's language."""
+
+        html = PAGE.read_text(encoding="utf-8")
+        flow = html[html.index('<section class="section make-pet-flow"'):]
+        language_sections = {
+            "zh-Hant": "step-4-qt-pose-assets-zh-Hant.png",
+            "zh-Hans": "step-4-qt-pose-assets-zh-Hans.png",
+            "en": "step-4-qt-pose-assets-en.png",
+        }
+
+        for language, filename in language_sections.items():
+            start = flow.index(f'data-lang-content="{language}"')
+            end = flow.find("data-lang-content=", start + 1)
+            section = flow[start:] if end == -1 else flow[start:end]
+            self.assertIn(filename, section, language)
+
         self.assertNotIn("step-1-reference.png", html)
         self.assertNotIn("step-2-prompt-output.png", html)
         self.assertNotIn("step-3-asset-check.png", html)
         self.assertNotIn("step-4-import-pose.png", html)
+        self.assertNotIn("step-4-qt-pose-assets.png", html)
