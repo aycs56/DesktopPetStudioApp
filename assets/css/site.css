@@ -959,7 +959,8 @@ details ul { padding-left: 38px; }
 
 @media (max-width: 600px) {
   :root { --content: min(calc(100% - 32px), 1160px); }
-  .site-header { min-height: 64px; padding: 10px 16px; }
+  body { padding-top: 64px; }
+  .site-header { position: fixed; top: 0; right: 0; left: 0; width: 100%; min-height: 64px; padding: 10px 16px; }
   .header-actions { gap: 7px; }
   .header-download { min-height: 42px; padding: 8px 9px; font-size: 0.76rem; }
   .language-picker { min-width: 42px; }
@@ -971,6 +972,7 @@ details ul { padding-left: 38px; }
   .hero { min-height: calc(100svh - 64px); background-position: center; background-size: auto 100%; }
   .hero::before { background: rgba(8, 43, 54, 0.46); }
   .hero-content { width: min(calc(100% - 48px), 1080px); padding: 56px 0 70px; }
+  .hero-actions .button-steam { display: none; }
   .hero-pet { right: 16px; bottom: 18px; width: 76px; }
   .hero-launch-strip {
     grid-template-columns: minmax(0, 1fr);
