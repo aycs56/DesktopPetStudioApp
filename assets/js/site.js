@@ -5,9 +5,9 @@
   const supported = ["zh-Hant", "zh-Hans", "en"];
   const languagePickerCodes = { "zh-Hant": "繁", "zh-Hans": "简", en: "EN" };
   const labels = {
-    "zh-Hant": { product: "產品介紹", streamer: "實況模式", createPet: "製作專屬桌寵", makePetTutorial: "製作專屬桌寵教學", workshop: "自訂與工作坊", privacy: "隱私權政策", terms: "使用條款", support: "支援資訊", language: "語言", menu: "開啟導覽選單", closeMenu: "關閉導覽選單", skip: "跳至主要內容", copyright: "DesktopPetStudio. 保留所有權利。", launch: "發布前設定" },
-    "zh-Hans": { product: "产品介绍", streamer: "主播模式", createPet: "制作专属桌宠", makePetTutorial: "制作专属桌宠教学", workshop: "自定义与创意工坊", privacy: "隐私政策", terms: "使用条款", support: "支持信息", language: "语言", menu: "打开导航菜单", closeMenu: "关闭导航菜单", skip: "跳至主要内容", copyright: "DesktopPetStudio. 保留所有权利。", launch: "发布前设置" },
-    en: { product: "Product", streamer: "Streamer Mode", createPet: "Make Your Pet", makePetTutorial: "Make your own pet guide", workshop: "Customize & Workshop", privacy: "Privacy", terms: "Terms", support: "Support", language: "Language", menu: "Open navigation menu", closeMenu: "Close navigation menu", skip: "Skip to main content", copyright: "DesktopPetStudio. All rights reserved.", launch: "Pre-launch settings" }
+    "zh-Hant": { product: "產品介紹", download: "點我下載", streamer: "實況模式", createPet: "製作專屬桌寵", makePetTutorial: "製作專屬桌寵教學", workshop: "自訂與工作坊", privacy: "隱私權政策", terms: "使用條款", support: "支援資訊", language: "語言", menu: "開啟導覽選單", closeMenu: "關閉導覽選單", skip: "跳至主要內容", copyright: "DesktopPetStudio. 保留所有權利。", launch: "發布前設定" },
+    "zh-Hans": { product: "产品介绍", download: "点击下载", streamer: "主播模式", createPet: "制作专属桌宠", makePetTutorial: "制作专属桌宠教学", workshop: "自定义与创意工坊", privacy: "隐私政策", terms: "使用条款", support: "支持信息", language: "语言", menu: "打开导航菜单", closeMenu: "关闭导航菜单", skip: "跳至主要内容", copyright: "DesktopPetStudio. 保留所有权利。", launch: "发布前设置" },
+    en: { product: "Product", download: "Download", streamer: "Streamer Mode", createPet: "Make Your Pet", makePetTutorial: "Make your own pet guide", workshop: "Customize & Workshop", privacy: "Privacy", terms: "Terms", support: "Support", language: "Language", menu: "Open navigation menu", closeMenu: "Close navigation menu", skip: "Skip to main content", copyright: "DesktopPetStudio. All rights reserved.", launch: "Pre-launch settings" }
   };
 
   const creatorTopicCatalogs = {
@@ -245,6 +245,71 @@
     return navigator.language.toLowerCase().startsWith("zh") ? "zh-Hant" : "en";
   }
 
+  const launchSchedule = {
+    startsAt: Date.parse("2026-09-04T01:00:00+08:00"),
+    durationMs: 14 * 24 * 60 * 60 * 1000
+  };
+
+  function formatLocalLaunchDate() {
+    const releaseTime = new Date(launchSchedule.startsAt);
+    const dateParts = new Intl.DateTimeFormat("en-US", {
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(releaseTime);
+    const month = (dateParts.find((part) => part.type === "month") || {}).value || "";
+    const day = (dateParts.find((part) => part.type === "day") || {}).value || "";
+    return month + " / " + day;
+  }
+
+  const launchCopy = {
+    "zh-Hant": {
+      planned: (localTime) => "Steam 預計發行日期：" + localTime,
+      countdown: (days, hours) => "距離優惠結束：" + days + "天" + hours + "小時",
+      ended: "點我前往 Steam 下載"
+    },
+    "zh-Hans": {
+      planned: (localTime) => "Steam 预计发行日期：" + localTime,
+      countdown: (days, hours) => "距离优惠结束：" + days + "天" + hours + "小时",
+      ended: "前往 Steam 下载"
+    },
+    en: {
+      planned: (localTime) => "Planned Steam release: " + localTime,
+      countdown: (days, hours) => "Launch offer ends in: " + days + "d " + hours + "h",
+      ended: "Download on Steam"
+    }
+  };
+
+  function updateLaunchCountdown() {
+    const elements = document.querySelectorAll("[data-launch-state]");
+    if (!elements.length) return;
+
+    const now = Date.now();
+    const endsAt = launchSchedule.startsAt + launchSchedule.durationMs;
+    const state = now < launchSchedule.startsAt ? "planned" : now < endsAt ? "countdown" : "ended";
+    const totalHours = Math.max(0, Math.ceil((endsAt - now) / (60 * 60 * 1000)));
+    const days = Math.floor(totalHours / 24);
+    const hours = totalHours % 24;
+
+    elements.forEach((element) => {
+      const language = supported.includes(element.dataset.langContent) ? element.dataset.langContent : "zh-Hant";
+      const copy = launchCopy[language];
+      element.textContent = state === "planned"
+        ? copy.planned(formatLocalLaunchDate())
+        : state === "countdown"
+          ? copy.countdown(days, hours)
+          : copy.ended;
+    });
+    document.querySelectorAll(".hero-launch-strip").forEach((strip) => {
+      strip.classList.toggle("is-launch-ended", state === "ended");
+    });
+  }
+
+  function setupLaunchCountdown() {
+    if (!document.querySelector("[data-launch-state]")) return;
+    updateLaunchCountdown();
+    window.setInterval(updateLaunchCountdown, 60 * 1000);
+  }
+
   function setLanguage(language) {
     const lang = supported.includes(language) ? language : "zh-Hant";
     document.documentElement.lang = lang === "zh-Hans" ? "zh-CN" : lang === "zh-Hant" ? "zh-Hant" : "en";
@@ -427,6 +492,7 @@
     renderPublicConfig();
     document.querySelectorAll("[data-year]").forEach((element) => { element.textContent = String(new Date().getFullYear()); });
     setLanguage(language);
+    setupLaunchCountdown();
     setupMotion();
   });
 }());

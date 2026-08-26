@@ -34,9 +34,9 @@
   <link rel="preload" as="image" href="assets/images/hero-pixel-studio-wide.png" fetchpriority="high">
   <title>DesktopPetStudio | 自訂你的桌面寵物</title>
   <link rel="icon" href="assets/images/app-icon.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260825-03">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260826-03">
   <script src="site.config.js"></script>
-  <script src="assets/js/site.js?v=20260817-02" defer></script>
+  <script src="assets/js/site.js?v=20260826-03" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -81,6 +81,7 @@
       <a href="support.html" data-i18n="support">支援資訊</a>
     </nav>
     <div class="header-actions">
+      <a class="header-download" href="https://store.steampowered.com/app/5069160/__DesktopPetStudio/" target="_blank" rel="noopener noreferrer" data-i18n="download">點我下載</a>
       <label class="sr-only" for="language" data-i18n="language">語言</label>
       <select class="language-select" id="language" aria-label="Language">
         <option value="zh-Hant">繁體中文</option>
@@ -97,21 +98,28 @@
         <span class="eyebrow">Windows Desktop Companion</span>
         <h1>做出專屬於你的桌面寵物。</h1>
         <p class="hero-copy">DesktopPetStudio 是 Windows 桌面寵物應用程式。上傳角色動畫、設定動作與提醒，讓桌寵陪你工作和生活。</p>
-        <div class="hero-actions"><a class="button button-primary" href="#features">探索功能</a><a class="button button-secondary" href="#workshop">打造你的桌寵</a></div>
+        <div class="hero-actions"><a class="button button-primary" href="#features">探索功能</a><a class="button button-secondary" href="#workshop">打造你的桌寵</a><a class="button button-steam" href="https://store.steampowered.com/app/5069160/__DesktopPetStudio/" target="_blank" rel="noopener noreferrer">點我下載</a></div>
       </div>
       <div class="hero-content" data-lang-content="zh-Hans" hidden>
         <span class="eyebrow">Windows Desktop Companion</span>
         <h1>做出专属于你的桌面宠物。</h1>
         <p class="hero-copy">DesktopPetStudio 是 Windows 桌面宠物应用程序。上传角色动画、设置动作与提醒，让桌宠陪你工作和生活。</p>
-        <div class="hero-actions"><a class="button button-primary" href="#features">探索功能</a><a class="button button-secondary" href="#workshop">打造你的桌宠</a></div>
+        <div class="hero-actions"><a class="button button-primary" href="#features">探索功能</a><a class="button button-secondary" href="#workshop">打造你的桌宠</a><a class="button button-steam" href="https://store.steampowered.com/app/5069160/__DesktopPetStudio/" target="_blank" rel="noopener noreferrer">点击下载</a></div>
       </div>
       <div class="hero-content" data-lang-content="en" hidden>
         <span class="eyebrow">Windows Desktop Companion</span>
         <h1>Create a desktop pet that is yours.</h1>
         <p class="hero-copy">DesktopPetStudio is a Windows desktop-pet app. Upload character animation, set poses and reminders, and let your pet accompany you while you work and live.</p>
-        <div class="hero-actions"><a class="button button-primary" href="#features">Explore features</a><a class="button button-secondary" href="#workshop">Make it yours</a></div>
+        <div class="hero-actions"><a class="button button-primary" href="#features">Explore features</a><a class="button button-secondary" href="#workshop">Make it yours</a><a class="button button-steam" href="https://store.steampowered.com/app/5069160/__DesktopPetStudio/" target="_blank" rel="noopener noreferrer">Download</a></div>
       </div>
-      <div class="hero-launch-strip" aria-label="Steam launch"><span data-lang-content="zh-Hant">即將於 Steam 推出</span><span data-lang-content="zh-Hans" hidden>即将于 Steam 推出</span><span data-lang-content="en" hidden>Coming soon on Steam</span></div>
+      <a class="hero-launch-strip" href="https://store.steampowered.com/app/5069160/__DesktopPetStudio/" target="_blank" rel="noopener noreferrer" aria-label="View DesktopPetStudio on Steam">
+        <span class="hero-launch-date" data-launch-state data-lang-content="zh-Hant">Steam 預計發行日期：09 / 04</span>
+        <span class="hero-launch-date" data-launch-state data-lang-content="zh-Hans" hidden>Steam 预计发行日期：09 / 04</span>
+        <span class="hero-launch-date" data-launch-state data-lang-content="en" hidden>Planned Steam release: 09 / 04</span>
+        <span class="hero-launch-discount" data-lang-content="zh-Hant">首發 -30% 優惠</span>
+        <span class="hero-launch-discount" data-lang-content="zh-Hans" hidden>首发 -30% 优惠</span>
+        <span class="hero-launch-discount" data-lang-content="en" hidden>Launch -30% Off</span>
+      </a>
     </section>
 
     <div class="hero-pet" aria-hidden="true">
@@ -251,6 +259,21 @@
         <section class="creator-care-highlight" aria-labelledby="creator-care-title-en">
           <div><p class="creator-path-kicker">CREATE CARE GAMEPLAY</p><h3 id="creator-care-title-en">Create more than a look: build a care gameplay loop</h3><p>Give your pet more than animation. Creators can package gameplay rules and art together, so players can import a complete everyday experience.</p><ul class="creator-care-points"><li><strong>Jobs:</strong> Define duration, rewards, and changes to hunger, affinity, or mood.</li><li><strong>Shop items:</strong> Create food, gifts, and consumables that give each character a different response.</li><li><strong>Daily events:</strong> Plan recurring interactions that give every pet pack its own personality.</li></ul><a class="button button-secondary" href="creator-json.html">Explore care-content JSON</a></div>
           <figure class="care-label-stage" aria-label="Care gameplay animation preview"><span class="care-creator-chip">JOBS</span><span class="care-creator-chip care-creator-chip-shop">SHOP</span><span class="care-creator-chip care-creator-chip-event">EVENTS</span><div class="pose-animation pose-animation-focus creator-care-pet" role="img" aria-label="Pixel cat focusing at work"><img src="assets/images/pose-animations/focus/focus_01.png" alt=""><img src="assets/images/pose-animations/focus/focus_02.png" alt=""><img src="assets/images/pose-animations/focus/focus_03.png" alt=""><img src="assets/images/pose-animations/focus/focus_04.png" alt=""><img src="assets/images/pose-animations/focus/focus_05.png" alt=""><img src="assets/images/pose-animations/focus/focus_06.png" alt=""></div></figure>
+        </section>
+      </div>
+    </section>
+    <section class="steam-download-section" aria-labelledby="steam-download-title">
+      <div class="section-inner steam-download-layout">
+        <div class="steam-download-copy">
+          <p class="section-kicker">GET IT ON STEAM</p>
+          <h2 id="steam-download-title"><span data-lang-content="zh-Hant">在 Steam 取得你的桌面陪伴</span><span data-lang-content="zh-Hans" hidden>在 Steam 获取你的桌面陪伴</span><span data-lang-content="en" hidden>Get your desktop companion on Steam</span></h2>
+          <p class="lead"><span data-lang-content="zh-Hant">從 Steam 安裝 DesktopPetStudio，開始建立、提醒、照顧並分享真正屬於自己的 Windows 桌面寵物。</span><span data-lang-content="zh-Hans" hidden>从 Steam 安装 DesktopPetStudio，开始创建、提醒、照顾并分享真正属于自己的 Windows 桌面宠物。</span><span data-lang-content="en" hidden>Install DesktopPetStudio from Steam to create, remind, care for, and share a Windows desktop companion that is truly yours.</span></p>
+        </div>
+        <section class="steam-download-card" aria-labelledby="steam-widget-heading">
+          <h3 id="steam-widget-heading"><span data-lang-content="zh-Hant">點我下載</span><span data-lang-content="zh-Hans" hidden>点击下载</span><span data-lang-content="en" hidden>Download now</span></h3>
+          <p><span data-lang-content="zh-Hant">直接在 Steam 商店查看 DesktopPetStudio。</span><span data-lang-content="zh-Hans" hidden>直接在 Steam 商店查看 DesktopPetStudio。</span><span data-lang-content="en" hidden>View DesktopPetStudio directly in the Steam Store.</span></p>
+          <iframe class="steam-store-widget" src="https://store.steampowered.com/widget/5069160/?utm_source=desktoppetstudio.com&amp;utm_campaign=official_download" title="DesktopPetStudio on Steam" width="646" height="190" frameborder="0" loading="lazy"></iframe>
+          <p class="steam-store-fallback"><a class="button button-secondary" href="https://store.steampowered.com/app/5069160/__DesktopPetStudio/" target="_blank" rel="noopener noreferrer"><span data-lang-content="zh-Hant">在 Steam 商店開啟</span><span data-lang-content="zh-Hans" hidden>在 Steam 商店打开</span><span data-lang-content="en" hidden>Open in Steam</span></a></p>
         </section>
       </div>
     </section>
