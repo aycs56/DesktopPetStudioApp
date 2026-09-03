@@ -246,7 +246,7 @@
   }
 
   const launchSchedule = {
-    startsAt: Date.parse("2026-09-04T01:00:00+08:00"),
+    startsAt: Date.parse("2026-09-08T01:00:00+08:00"),
     durationMs: 14 * 24 * 60 * 60 * 1000
   };
 
