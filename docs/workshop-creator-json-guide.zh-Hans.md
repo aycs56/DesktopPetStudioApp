@@ -1,11 +1,11 @@
 # Desktop Pet Studio 工作坊 JSON 创作者指南
 
-版本：v1.2.0
+版本：v1.2.1
 适用内容：Steam 工作坊或手动放入的桌宠包、姿势包
 
 ## Steam 工作坊发布流程
 
-建立好包後，创作者可在程式的 **工作坊 > 创作者中心** 依序选择「打包目前桌宠」或「打包目前选取姿势」，再选择「发布至 Steam 工作坊」。发布视窗会要求选取完整作品资料夹、Steam 封面图、名称、介绍、标签与可见度，并上传整个资料夹，因此 JSON、图片和 WAV 音效都必须留在包内。
+建立好包後，创作者可在程式的 **工作坊 > 创作者中心** 依序选择「打包目前桌宠」或「打包目前选取姿势」，再选择「发布至 Steam 工作坊」。发布视窗会要求选取完整作品资料夹、Steam 封面图、名称、介绍、标签与可见度，并上传整个资料夹，因此 JSON、图片和 WAV 音效都必须留在包内。Steam 封面预览图必须小于 1 MB；否则 Steam 会拒绝这次提交。
 
 发布成功後程式会开启 Steam 作品页。请依 Steam 显示内容接受 Workshop 创作者协议，并确认作品可见度。程式也会把 Steam 作品 ID 写入 manifest 的 `steam_published_file_id`；下次选择同一个资料夹发布时，会更新原本作品，不会另外建立新作品。玩家在 Steam 订阅後，桌宠会从 Steam 安装资料夹读取相同 JSON 格式的内容。
 
@@ -129,8 +129,8 @@ WorkshopLibrary/
 | `id` | string | 否 | 工作坊项目 id。Steam 上可填 published file id；未填时用资料夹名称。 |
 | `steam_published_file_id` | string | 否 | 首次从程式发布成功後自动写入的 Steam 作品 ID。保留此栏位可在下次发布时更新原作品。 |
 | `title` | string | 否 | 工作坊清单显示名称。 |
-| `type` | string | 是 | `pose` 或 `pet`。 |
-| `content_kind` | string | 否 | `single_pose` 或 `full_pet`，方便创作者辨识。 |
+| `type` | string | 是 | `pose`、`pet` 或 `care`。 |
+| `content_kind` | string | 否 | `single_pose`、`full_pet` 或 `care`，方便创作者辨识。 |
 | `assets_mode` | string | 否 | 建议填 `bundled`，表示素材已放在包内。 |
 | `config_path` | string | pet 必填 | 全桌宠包的设定档路径，例如 `pet_config.json`。 |
 | `pose` | object | pose 建议 | 单一姿势完整设定。 |

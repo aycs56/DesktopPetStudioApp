@@ -1,11 +1,11 @@
 # Desktop Pet Studio Workshop JSON Creator Guide
 
-Version: v1.2.0
+Version: v1.2.1
 Applies to: desktop pet packages and pose packages from Steam Workshop or manually added folders
 
 ## Publishing to Steam Workshop
 
-After building a package, open **Workshop > Creator Center** in Desktop Pet Studio. Choose **Package Current Pet** or **Package Selected Pose**, then choose **Publish to Steam Workshop**. The publish dialog asks for the complete package folder, a Steam preview image, title, description, tags, and visibility. It uploads the entire folder, so keep the JSON, images, and WAV files inside the package.
+After building a package, open **Workshop > Creator Center** in Desktop Pet Studio. Choose **Package Current Pet** or **Package Selected Pose**, then choose **Publish to Steam Workshop**. The publish dialog asks for the complete package folder, a Steam preview image, title, description, tags, and visibility. It uploads the entire folder, so keep the JSON, images, and WAV files inside the package. The Steam preview image must be smaller than 1 MB; otherwise Steam rejects the submission.
 
 After a successful upload, Desktop Pet Studio opens the Steam item page. Follow Steam's prompts to accept the Workshop contributor agreement and confirm the item visibility. The app also writes the Steam item ID to `steam_published_file_id` in the manifest; selecting the same folder next time updates the existing item instead of creating another one. After players subscribe on Steam, Desktop Pet Studio reads the same JSON package format from Steam's installed item folder.
 
@@ -129,8 +129,8 @@ A full pet package may provide `ai_asset_prompts`. If it does not, Desktop Pet S
 | `id` | string | No | Workshop item id. On Steam this may be the published file id. If omitted, the folder name is used. |
 | `steam_published_file_id` | string | No | Steam item ID written automatically after the first successful in-app publish. Keep it to update the existing item on a later publish. |
 | `title` | string | No | Display name in the Workshop list. |
-| `type` | string | Yes | `pose` or `pet`. |
-| `content_kind` | string | No | `single_pose` or `full_pet`, useful for creator-side organization. |
+| `type` | string | Yes | `pose`, `pet`, or `care`. |
+| `content_kind` | string | No | `single_pose`, `full_pet`, or `care`, useful for creator-side organization. |
 | `assets_mode` | string | No | Recommended value: `bundled`, meaning the package includes its own assets. |
 | `config_path` | string | Required for pet | Path to the full pet config, such as `pet_config.json`. |
 | `pose` | object | Recommended for pose | Complete pose settings for a single pose package. |
