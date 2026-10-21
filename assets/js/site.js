@@ -5,54 +5,54 @@
   const supported = ["zh-Hant", "zh-Hans", "en"];
   const languagePickerCodes = { "zh-Hant": "繁", "zh-Hans": "简", en: "EN" };
   const labels = {
-    "zh-Hant": { product: "產品介紹", download: "點我下載", streamer: "實況模式", createPet: "製作專屬桌寵", makePetTutorial: "製作專屬桌寵教學", workshop: "自訂與工作坊", privacy: "隱私權政策", terms: "使用條款", support: "支援資訊", language: "語言", menu: "開啟導覽選單", closeMenu: "關閉導覽選單", skip: "跳至主要內容", copyright: "DesktopPetStudio. 保留所有權利。", launch: "發布前設定" },
-    "zh-Hans": { product: "产品介绍", download: "点击下载", streamer: "主播模式", createPet: "制作专属桌宠", makePetTutorial: "制作专属桌宠教学", workshop: "自定义与创意工坊", privacy: "隐私政策", terms: "使用条款", support: "支持信息", language: "语言", menu: "打开导航菜单", closeMenu: "关闭导航菜单", skip: "跳至主要内容", copyright: "DesktopPetStudio. 保留所有权利。", launch: "发布前设置" },
-    en: { product: "Product", download: "Download", streamer: "Streamer Mode", createPet: "Make Your Pet", makePetTutorial: "Make your own pet guide", workshop: "Customize & Workshop", privacy: "Privacy", terms: "Terms", support: "Support", language: "Language", menu: "Open navigation menu", closeMenu: "Close navigation menu", skip: "Skip to main content", copyright: "DesktopPetStudio. All rights reserved.", launch: "Pre-launch settings" }
+    "zh-Hant": { product: "產品介紹", download: "Steam", streamer: "實況模式", createPet: "製作專屬桌寵", makePetTutorial: "製作專屬桌寵教學", workshop: "自訂與工作坊", privacy: "隱私權政策", terms: "使用條款", support: "支援資訊", language: "語言", menu: "開啟導覽選單", closeMenu: "關閉導覽選單", skip: "跳至主要內容", copyright: "DesktopPetStudio. 保留所有權利。", launch: "發布前設定" },
+    "zh-Hans": { product: "产品介绍", download: "Steam", streamer: "主播模式", createPet: "制作专属桌宠", makePetTutorial: "制作专属桌宠教学", workshop: "自定义与创意工坊", privacy: "隐私政策", terms: "使用条款", support: "支持信息", language: "语言", menu: "打开导航菜单", closeMenu: "关闭导航菜单", skip: "跳至主要内容", copyright: "DesktopPetStudio. 保留所有权利。", launch: "发布前设置" },
+    en: { product: "Product", download: "Steam", streamer: "Streamer Mode", createPet: "Make Your Pet", makePetTutorial: "Pet creation guide", workshop: "Customization & Workshop", privacy: "Privacy", terms: "Terms", support: "Support", language: "Language", menu: "Open navigation menu", closeMenu: "Close navigation menu", skip: "Skip to main content", copyright: "DesktopPetStudio. All rights reserved.", launch: "Pre-launch settings" }
   };
 
   const creatorTopicCatalogs = {
     "zh-Hant": {
-      heading: "8 個主題，各有可直接參考的 JSON 範例",
-      lead: "先從最想做的一項開始。以下片段可配合完整創作者指南使用，欄位會以目前版本支援的安全 JSON 設定為準。",
-      cardLink: "查看對應 JSON 範例",
+      heading: "8 個主題的 JSON 範例",
+      lead: "先選一個想做的主題。這些範例可搭配完整創作者指南使用，只使用目前版本支援的安全 JSON 欄位。",
+      cardLink: "查看 JSON 範例",
       topics: [
-        { id: "character", title: "角色與動畫", description: "以姿勢包帶入多張動畫影格，並設定播放速度。", code: "{\n  \"type\": \"pose\",\n  \"pose\": {\n    \"animation_paths\": [\"assets/idle_01.png\", \"...\"],\n    \"playback_speed\": 1.0\n  }\n}" },
-        { id: "movement", title: "移動與動作演出", description: "使用白名單的移動參數，安全設定走動、巡邏、跳躍或漂浮。", code: "\"movement\": {\n  \"enabled\": true,\n  \"mode\": \"patrol\",\n  \"speed\": 1.1,\n  \"distance_px\": 380,\n  \"gravity\": false\n}" },
-        { id: "dialogue", title: "氣泡、音效與快捷鍵", description: "替同一個姿勢安排隨機對話、WAV 音效與建議快捷鍵。", code: "\"sound_path\": \"assets/chime.wav\",\n\"hotkey\": \"F6\",\n\"hotkey_enabled\": true,\n\"bubble_texts\": [\"嗨，今天也一起加油！\", \"需要我提醒你嗎？\"],\n\"bubble_interval_sec\": 30" },
-        { id: "focus", title: "專注模式與按鍵反應", description: "完整桌寵可提供固定專注姿勢與可選的按鍵速度氣泡。", code: "\"focus\": {\n  \"animation_paths\": [\"assets/focus_01.png\", \"...\"],\n  \"playback_speed\": 1.0,\n  \"focus_key_speed_enabled\": true,\n  \"focus_key_speed_prefix\": \"按鍵速度 \",\n  \"focus_key_speed_suffix\": \"，主人手速快到出現殘影!!\"\n}" },
+        { id: "character", title: "角色與動畫", description: "在姿勢包加入多張動畫影格，並設定播放速度。", code: "{\n  \"type\": \"pose\",\n  \"pose\": {\n    \"animation_paths\": [\"assets/idle_01.png\", \"...\"],\n    \"playback_speed\": 1.0\n  }\n}" },
+        { id: "movement", title: "移動與動作演出", description: "使用白名單允許的參數，設定走動、巡邏、跳躍或漂浮。", code: "\"movement\": {\n  \"enabled\": true,\n  \"mode\": \"patrol\",\n  \"speed\": 1.1,\n  \"distance_px\": 380,\n  \"gravity\": false\n}" },
+        { id: "dialogue", title: "氣泡、音效與快捷鍵", description: "替同一個姿勢設定隨機對話、WAV 音效與建議快捷鍵。", code: "\"sound_path\": \"assets/chime.wav\",\n\"hotkey\": \"F6\",\n\"hotkey_enabled\": true,\n\"bubble_texts\": [\"嗨，今天也一起加油！\", \"需要我提醒你嗎？\"],\n\"bubble_interval_sec\": 30" },
+        { id: "focus", title: "專注模式與按鍵反應", description: "完整桌寵可設定固定專注姿勢，也可啟用按鍵速度氣泡。", code: "\"focus\": {\n  \"animation_paths\": [\"assets/focus_01.png\", \"...\"],\n  \"playback_speed\": 1.0,\n  \"focus_key_speed_enabled\": true,\n  \"focus_key_speed_prefix\": \"按鍵速度 \",\n  \"focus_key_speed_suffix\": \"，主人手速快到出現殘影!!\"\n}" },
         { id: "twitch", title: "Twitch Bits 實況反應", description: "用金額範圍與持續秒數觸發專屬姿勢，不包含任何帳號或權杖。", code: "\"twitch_trigger\": {\n  \"enabled\": true,\n  \"min_bits\": 100,\n  \"max_bits\": 499,\n  \"duration_sec\": 8,\n  \"bubble_texts\": [\"感謝 {viewer_name} 的 {amount} {currency}！\"]\n}" },
-        { id: "ai", title: "AI 素材提示與多語系", description: "提供多語系 Prompt，清楚要求至少六格、中心點對齊的宮格動畫素材。", code: "\"ai_asset_prompts\": [{\n  \"id\": \"wave_prompt\",\n  \"pose_id\": \"wave\",\n  \"zh\": \"輸出至少六格的透明背景動畫宮格；每格中心點對齊、間距 5px，並以 #00D9FF 虛線只標記裁切邊框。\",\n  \"en\": \"Output a transparent animation grid with at least six cells; align every center, use 5px gaps, and mark crop borders only with #00D9FF dashed guides.\"\n}]" },
-        { id: "care", title: "工作、商城與日常事件", description: "用養成包建立物品、工作、心情和可重複發生的角色事件。", code: "{\n  \"type\": \"care\",\n  \"shop_items\": [{ \"id\": \"snack\", \"price\": 12, \"hunger_delta\": 18 }],\n  \"work_jobs\": [{ \"id\": \"desk_tidy\", \"duration_minutes\": 5, \"coin_reward\": 36 }],\n  \"care_events\": [{ \"id\": \"hungry\", \"trigger\": \"hunger_low\" }]\n}" },
+        { id: "ai", title: "AI 素材提示與多語系", description: "提供多語系 Prompt，要求產生至少六格、中心點對齊的動畫宮格。", code: "\"ai_asset_prompts\": [{\n  \"id\": \"wave_prompt\",\n  \"pose_id\": \"wave\",\n  \"zh\": \"輸出至少六格的透明背景動畫宮格；每格中心點對齊、間距 5px，並以 #00D9FF 虛線只標記裁切邊框。\",\n  \"en\": \"Output a transparent animation grid with at least six cells; align every center, use 5px gaps, and mark crop borders only with #00D9FF dashed guides.\"\n}]" },
+        { id: "care", title: "工作、商城與日常事件", description: "在養成包設定物品、工作、心情和可重複發生的角色事件。", code: "{\n  \"type\": \"care\",\n  \"shop_items\": [{ \"id\": \"snack\", \"price\": 12, \"hunger_delta\": 18 }],\n  \"work_jobs\": [{ \"id\": \"desk_tidy\", \"duration_minutes\": 5, \"coin_reward\": 36 }],\n  \"care_events\": [{ \"id\": \"hungry\", \"trigger\": \"hunger_low\" }]\n}" },
         { id: "sharing", title: "安全打包與分享", description: "素材使用相對路徑；帳號、權杖與玩家私密設定不會放進作品。", code: "{\n  \"type\": \"pet\",\n  \"content_kind\": \"full_pet\",\n  \"config_path\": \"pet_config.json\",\n  \"assets_mode\": \"bundled\"\n}" }
       ]
     },
     "zh-Hans": {
-      heading: "8 个主题，各有可直接参考的 JSON 示例",
-      lead: "先从最想做的一项开始。以下片段可配合完整创作者指南使用，字段以当前版本支持的安全 JSON 设置为准。",
-      cardLink: "查看对应 JSON 示例",
+      heading: "8 个主题的 JSON 示例",
+      lead: "先选一个想做的主题。这些示例可搭配完整创作者指南使用，只使用当前版本支持的安全 JSON 字段。",
+      cardLink: "查看 JSON 示例",
       topics: [
-        { id: "character", title: "角色与动画", description: "以姿势包带入多张动画帧，并设置播放速度。", code: "{\n  \"type\": \"pose\",\n  \"pose\": {\n    \"animation_paths\": [\"assets/idle_01.png\", \"...\"],\n    \"playback_speed\": 1.0\n  }\n}" },
-        { id: "movement", title: "移动与动作演出", description: "使用白名单移动参数，安全设置走动、巡逻、跳跃或漂浮。", code: "\"movement\": {\n  \"enabled\": true,\n  \"mode\": \"patrol\",\n  \"speed\": 1.1,\n  \"distance_px\": 380,\n  \"gravity\": false\n}" },
-        { id: "dialogue", title: "气泡、音效与快捷键", description: "为同一个姿势安排随机对话、WAV 音效与建议快捷键。", code: "\"sound_path\": \"assets/chime.wav\",\n\"hotkey\": \"F6\",\n\"hotkey_enabled\": true,\n\"bubble_texts\": [\"嗨，今天也一起加油！\", \"需要我提醒你吗？\"],\n\"bubble_interval_sec\": 30" },
-        { id: "focus", title: "专注模式与按键反应", description: "完整桌宠可提供固定专注姿势与可选的按键速度气泡。", code: "\"focus\": {\n  \"animation_paths\": [\"assets/focus_01.png\", \"...\"],\n  \"playback_speed\": 1.0,\n  \"focus_key_speed_enabled\": true,\n  \"focus_key_speed_prefix\": \"按键速度 \",\n  \"focus_key_speed_suffix\": \"，主人手速快到出现残影!!\"\n}" },
+        { id: "character", title: "角色与动画", description: "在姿势包中加入多张动画帧，并设置播放速度。", code: "{\n  \"type\": \"pose\",\n  \"pose\": {\n    \"animation_paths\": [\"assets/idle_01.png\", \"...\"],\n    \"playback_speed\": 1.0\n  }\n}" },
+        { id: "movement", title: "移动与动作演出", description: "使用白名单允许的参数，设置走动、巡逻、跳跃或漂浮。", code: "\"movement\": {\n  \"enabled\": true,\n  \"mode\": \"patrol\",\n  \"speed\": 1.1,\n  \"distance_px\": 380,\n  \"gravity\": false\n}" },
+        { id: "dialogue", title: "气泡、音效与快捷键", description: "为同一个姿势设置随机对话、WAV 音效与建议快捷键。", code: "\"sound_path\": \"assets/chime.wav\",\n\"hotkey\": \"F6\",\n\"hotkey_enabled\": true,\n\"bubble_texts\": [\"嗨，今天也一起加油！\", \"需要我提醒你吗？\"],\n\"bubble_interval_sec\": 30" },
+        { id: "focus", title: "专注模式与按键反应", description: "完整桌宠可设置固定专注姿势，也可启用按键速度气泡。", code: "\"focus\": {\n  \"animation_paths\": [\"assets/focus_01.png\", \"...\"],\n  \"playback_speed\": 1.0,\n  \"focus_key_speed_enabled\": true,\n  \"focus_key_speed_prefix\": \"按键速度 \",\n  \"focus_key_speed_suffix\": \"，主人手速快到出现残影!!\"\n}" },
         { id: "twitch", title: "Twitch Bits 直播反应", description: "用金额范围与持续秒数触发专属姿势，不包含任何账号或令牌。", code: "\"twitch_trigger\": {\n  \"enabled\": true,\n  \"min_bits\": 100,\n  \"max_bits\": 499,\n  \"duration_sec\": 8,\n  \"bubble_texts\": [\"感谢 {viewer_name} 的 {amount} {currency}！\"]\n}" },
-        { id: "ai", title: "AI 素材提示与多语言", description: "提供多语言 Prompt，明确要求至少六格、中心点对齐的宫格动画素材。", code: "\"ai_asset_prompts\": [{\n  \"id\": \"wave_prompt\",\n  \"pose_id\": \"wave\",\n  \"zh\": \"输出至少六格的透明背景动画宫格；每格中心点对齐、间距 5px，并以 #00D9FF 虚线只标记裁切边框。\",\n  \"en\": \"Output a transparent animation grid with at least six cells; align every center, use 5px gaps, and mark crop borders only with #00D9FF dashed guides.\"\n}]" },
-        { id: "care", title: "工作、商城与日常事件", description: "用养成包建立物品、工作、心情和可重复发生的角色事件。", code: "{\n  \"type\": \"care\",\n  \"shop_items\": [{ \"id\": \"snack\", \"price\": 12, \"hunger_delta\": 18 }],\n  \"work_jobs\": [{ \"id\": \"desk_tidy\", \"duration_minutes\": 5, \"coin_reward\": 36 }],\n  \"care_events\": [{ \"id\": \"hungry\", \"trigger\": \"hunger_low\" }]\n}" },
+        { id: "ai", title: "AI 素材提示与多语言", description: "提供多语言 Prompt，要求生成至少六格、中心点对齐的动画宫格。", code: "\"ai_asset_prompts\": [{\n  \"id\": \"wave_prompt\",\n  \"pose_id\": \"wave\",\n  \"zh\": \"输出至少六格的透明背景动画宫格；每格中心点对齐、间距 5px，并以 #00D9FF 虚线只标记裁切边框。\",\n  \"en\": \"Output a transparent animation grid with at least six cells; align every center, use 5px gaps, and mark crop borders only with #00D9FF dashed guides.\"\n}]" },
+        { id: "care", title: "工作、商城与日常事件", description: "在养成包中设置物品、工作、心情和可重复发生的角色事件。", code: "{\n  \"type\": \"care\",\n  \"shop_items\": [{ \"id\": \"snack\", \"price\": 12, \"hunger_delta\": 18 }],\n  \"work_jobs\": [{ \"id\": \"desk_tidy\", \"duration_minutes\": 5, \"coin_reward\": 36 }],\n  \"care_events\": [{ \"id\": \"hungry\", \"trigger\": \"hunger_low\" }]\n}" },
         { id: "sharing", title: "安全打包与分享", description: "素材使用相对路径；账号、令牌与玩家私密设置不会放进作品。", code: "{\n  \"type\": \"pet\",\n  \"content_kind\": \"full_pet\",\n  \"config_path\": \"pet_config.json\",\n  \"assets_mode\": \"bundled\"\n}" }
       ]
     },
     en: {
-      heading: "Eight topics, each with a practical JSON example",
-      lead: "Start with the part you want to build most. These short examples complement the full creator guide and use only safe JSON fields supported in the current version.",
-      cardLink: "View matching JSON example",
+      heading: "JSON examples for eight topics",
+      lead: "Choose a topic to start with. These examples go with the full creator guide and use only safe JSON fields supported by the current version.",
+      cardLink: "View JSON example",
       topics: [
-        { id: "character", title: "Character and animation", description: "Bring multiple animation frames and a playback rate into a pose pack.", code: "{\n  \"type\": \"pose\",\n  \"pose\": {\n    \"animation_paths\": [\"assets/idle_01.png\", \"...\"],\n    \"playback_speed\": 1.0\n  }\n}" },
-        { id: "movement", title: "Movement and action staging", description: "Use allow-listed movement values for walking, patrols, hops, or drifting.", code: "\"movement\": {\n  \"enabled\": true,\n  \"mode\": \"patrol\",\n  \"speed\": 1.1,\n  \"distance_px\": 380,\n  \"gravity\": false\n}" },
-        { id: "dialogue", title: "Bubbles, sound, and hotkeys", description: "Give one pose random dialogue, WAV audio, and an optional suggested hotkey.", code: "\"sound_path\": \"assets/chime.wav\",\n\"hotkey\": \"F6\",\n\"hotkey_enabled\": true,\n\"bubble_texts\": [\"Hi, let's do this today!\", \"Need a reminder?\"],\n\"bubble_interval_sec\": 30" },
-        { id: "focus", title: "Focus mode and key response", description: "A full pet can offer a fixed focus pose and an optional key-speed bubble.", code: "\"focus\": {\n  \"animation_paths\": [\"assets/focus_01.png\", \"...\"],\n  \"playback_speed\": 1.0,\n  \"focus_key_speed_enabled\": true,\n  \"focus_key_speed_prefix\": \"Key speed \",\n  \"focus_key_speed_suffix\": \" ms - lightning fast!\"\n}" },
+        { id: "character", title: "Character and animation", description: "Add animation frames to a pose pack and set their playback speed.", code: "{\n  \"type\": \"pose\",\n  \"pose\": {\n    \"animation_paths\": [\"assets/idle_01.png\", \"...\"],\n    \"playback_speed\": 1.0\n  }\n}" },
+        { id: "movement", title: "Movement and action staging", description: "Set walking, patrols, hops, or drifting with allowlisted movement values.", code: "\"movement\": {\n  \"enabled\": true,\n  \"mode\": \"patrol\",\n  \"speed\": 1.1,\n  \"distance_px\": 380,\n  \"gravity\": false\n}" },
+        { id: "dialogue", title: "Bubbles, sound, and hotkeys", description: "Set random dialogue and WAV audio for a pose, with an optional suggested hotkey.", code: "\"sound_path\": \"assets/chime.wav\",\n\"hotkey\": \"F6\",\n\"hotkey_enabled\": true,\n\"bubble_texts\": [\"Hi, let's do this today!\", \"Need a reminder?\"],\n\"bubble_interval_sec\": 30" },
+        { id: "focus", title: "Focus mode and key response", description: "Set a fixed focus pose for a full pet, with an optional key-speed bubble.", code: "\"focus\": {\n  \"animation_paths\": [\"assets/focus_01.png\", \"...\"],\n  \"playback_speed\": 1.0,\n  \"focus_key_speed_enabled\": true,\n  \"focus_key_speed_prefix\": \"Key speed \",\n  \"focus_key_speed_suffix\": \" ms - lightning fast!\"\n}" },
         { id: "twitch", title: "Twitch Bits reactions", description: "Use an amount range and duration for a pose without sharing account details or tokens.", code: "\"twitch_trigger\": {\n  \"enabled\": true,\n  \"min_bits\": 100,\n  \"max_bits\": 499,\n  \"duration_sec\": 8,\n  \"bubble_texts\": [\"Thanks {viewer_name} for {amount} {currency}!\"]\n}" },
-        { id: "ai", title: "AI asset prompts and languages", description: "Give players multilingual prompts that ask for a centered animation grid with at least six cells.", code: "\"ai_asset_prompts\": [{\n  \"id\": \"wave_prompt\",\n  \"pose_id\": \"wave\",\n  \"zh\": \"輸出至少六格的透明背景動畫宮格；每格中心點對齊、間距 5px，並以 #00D9FF 虛線只標記裁切邊框。\",\n  \"en\": \"Output a transparent animation grid with at least six cells; align every center, use 5px gaps, and mark crop borders only with #00D9FF dashed guides.\"\n}]" },
-        { id: "care", title: "Jobs, shop items, and daily events", description: "Build items, jobs, moods, and repeatable events as a care gameplay pack.", code: "{\n  \"type\": \"care\",\n  \"shop_items\": [{ \"id\": \"snack\", \"price\": 12, \"hunger_delta\": 18 }],\n  \"work_jobs\": [{ \"id\": \"desk_tidy\", \"duration_minutes\": 5, \"coin_reward\": 36 }],\n  \"care_events\": [{ \"id\": \"hungry\", \"trigger\": \"hunger_low\" }]\n}" },
+        { id: "ai", title: "AI asset prompts and languages", description: "Give players multilingual prompts for an animation grid with aligned centers and at least six cells.", code: "\"ai_asset_prompts\": [{\n  \"id\": \"wave_prompt\",\n  \"pose_id\": \"wave\",\n  \"zh\": \"輸出至少六格的透明背景動畫宮格；每格中心點對齊、間距 5px，並以 #00D9FF 虛線只標記裁切邊框。\",\n  \"en\": \"Output a transparent animation grid with at least six cells; align every center, use 5px gaps, and mark crop borders only with #00D9FF dashed guides.\"\n}]" },
+        { id: "care", title: "Jobs, shop items, and daily events", description: "Set up items, jobs, moods, and repeatable events in a care gameplay pack.", code: "{\n  \"type\": \"care\",\n  \"shop_items\": [{ \"id\": \"snack\", \"price\": 12, \"hunger_delta\": 18 }],\n  \"work_jobs\": [{ \"id\": \"desk_tidy\", \"duration_minutes\": 5, \"coin_reward\": 36 }],\n  \"care_events\": [{ \"id\": \"hungry\", \"trigger\": \"hunger_low\" }]\n}" },
         { id: "sharing", title: "Safe packaging and sharing", description: "Use relative assets while keeping account details, tokens, and private player data out of a pack.", code: "{\n  \"type\": \"pet\",\n  \"content_kind\": \"full_pet\",\n  \"config_path\": \"pet_config.json\",\n  \"assets_mode\": \"bundled\"\n}" }
       ]
     }
@@ -265,17 +265,17 @@
     "zh-Hant": {
       planned: (localTime) => "Steam 預計發行日期：" + localTime,
       countdown: (days, hours) => "距離優惠結束：" + days + "天" + hours + "小時",
-      ended: "點我前往 Steam 下載"
+      ended: "前往 Steam"
     },
     "zh-Hans": {
       planned: (localTime) => "Steam 预计发行日期：" + localTime,
       countdown: (days, hours) => "距离优惠结束：" + days + "天" + hours + "小时",
-      ended: "前往 Steam 下载"
+      ended: "前往 Steam"
     },
     en: {
       planned: (localTime) => "Planned Steam release: " + localTime,
       countdown: (days, hours) => "Launch offer ends in: " + days + "d " + hours + "h",
-      ended: "Download on Steam"
+      ended: "View on Steam"
     }
   };
 
