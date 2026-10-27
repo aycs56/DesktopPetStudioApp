@@ -1,0 +1,24 @@
+{
+  "version": "v1.0",
+  "status": "approved-and-applied",
+  "public_html_before_sha256": "f196132692d1bc9663c762795410aa58d5a775f4e3d76c064bd3d099acdc1abf",
+  "candidate_sha256": "f7f27b2b98044b347a00a82c6cc390731b0c91971e92d48124524770dc9598f1",
+  "preview_sha256": "dde7c7ba9aae8bedc4f5e965cb0f06ce7d18903d5464beb5996c502d7df9e7d3",
+  "allowed_changes": [
+    "12 image URLs",
+    "intrinsic image dimensions",
+    "2 matching social-preview image URLs"
+  ],
+  "unchanged": [
+    "visible text",
+    "alt text",
+    "layout",
+    "CSS",
+    "JS",
+    "other pages"
+  ],
+  "original_byte_sha256": "4184a91f0385cc0082e0231852ab8f2d2ef761b70a6e9750e0eb829d40d7d88a",
+  "approval": "2026-10-27: user explicitly selected the option to adopt and update these screenshots.",
+  "public_byte_sha256": "8a271aa62195f2eeb83fdd2ce6a08e3500baffeaff91025f417072e663b542f1",
+  "hash_note": "Review text hashes normalize CRLF to LF; publication preserves original CRLF."
+}

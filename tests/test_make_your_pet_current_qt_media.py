@@ -4,7 +4,14 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "make-your-pet.html"
-ASSETS = ROOT / "assets" / "images" / "make-pet"
+ASSETS = ROOT / "assets" / "images" / "make-pet" / "v1.3.0"
+LANGUAGES = ("zh-Hant", "zh-Hans", "en")
+SCREENSHOTS = (
+    "step-1-qt-ai-helper-entry",
+    "step-2-qt-prompt-output",
+    "step-3-qt-inspect-crop",
+    "step-4-qt-pose-assets",
+)
 
 
 class MakeYourPetCurrentQtMediaTests(unittest.TestCase):
@@ -13,12 +20,9 @@ class MakeYourPetCurrentQtMediaTests(unittest.TestCase):
 
         html = PAGE.read_text(encoding="utf-8")
         expected = {
-            "step-1-qt-ai-helper-entry.png",
-            "step-2-qt-prompt-output.png",
-            "step-3-qt-inspect-crop.png",
-            "step-4-qt-pose-assets-zh-Hant.png",
-            "step-4-qt-pose-assets-zh-Hans.png",
-            "step-4-qt-pose-assets-en.png",
+            f"{screenshot}-{language}.png"
+            for screenshot in SCREENSHOTS
+            for language in LANGUAGES
         }
         for filename in expected:
             self.assertTrue((ASSETS / filename).is_file(), filename)
@@ -32,22 +36,17 @@ class MakeYourPetCurrentQtMediaTests(unittest.TestCase):
         ):
             self.assertIn(control, html)
 
-    def test_step_four_uses_a_matching_app_screenshot_per_language(self) -> None:
-        """Step 4 must show the DesktopPetStudio UI in the reader's language."""
+    def test_all_steps_use_matching_app_screenshots_per_language(self) -> None:
+        """Every step must show the current UI in the reader's language."""
 
         html = PAGE.read_text(encoding="utf-8")
         flow = html[html.index('<section class="section make-pet-flow"'):]
-        language_sections = {
-            "zh-Hant": "step-4-qt-pose-assets-zh-Hant.png",
-            "zh-Hans": "step-4-qt-pose-assets-zh-Hans.png",
-            "en": "step-4-qt-pose-assets-en.png",
-        }
-
-        for language, filename in language_sections.items():
+        for language in LANGUAGES:
             start = flow.index(f'data-lang-content="{language}"')
             end = flow.find("data-lang-content=", start + 1)
             section = flow[start:] if end == -1 else flow[start:end]
-            self.assertIn(filename, section, language)
+            for screenshot in SCREENSHOTS:
+                self.assertIn(f"assets/images/make-pet/v1.3.0/{screenshot}-{language}.png", section, language)
 
         self.assertNotIn("step-1-reference.png", html)
         self.assertNotIn("step-2-prompt-output.png", html)
