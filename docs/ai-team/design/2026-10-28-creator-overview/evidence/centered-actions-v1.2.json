@@ -1,0 +1,281 @@
+[
+  {
+    "width": 1440,
+    "lang": "zh-Hant",
+    "count": 3,
+    "centerError": 0,
+    "rowWidth": 1160,
+    "buttons": [
+      {
+        "left": 516.765625,
+        "right": 614.765625,
+        "top": 1046.921875,
+        "width": 98,
+        "href": "../../../../make-your-pet.html"
+      },
+      {
+        "left": 626.765625,
+        "right": 761.78125,
+        "top": 1046.921875,
+        "width": 135.015625,
+        "href": "#creator-effects-zh-Hant"
+      },
+      {
+        "left": 773.78125,
+        "right": 923.234375,
+        "top": 1046.921875,
+        "width": 149.453125,
+        "href": "#technical-guide"
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "lang": "zh-Hans",
+    "count": 3,
+    "centerError": 0,
+    "rowWidth": 1160,
+    "buttons": [
+      {
+        "left": 516.765625,
+        "right": 614.765625,
+        "top": 1046.921875,
+        "width": 98,
+        "href": "../../../../make-your-pet.html"
+      },
+      {
+        "left": 626.765625,
+        "right": 761.78125,
+        "top": 1046.921875,
+        "width": 135.015625,
+        "href": "#creator-effects-zh-Hans"
+      },
+      {
+        "left": 773.78125,
+        "right": 923.234375,
+        "top": 1046.921875,
+        "width": 149.453125,
+        "href": "#technical-guide"
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "lang": "en",
+    "count": 3,
+    "centerError": 0,
+    "rowWidth": 1160,
+    "buttons": [
+      {
+        "left": 455.46875,
+        "right": 576.453125,
+        "top": 1163.359375,
+        "width": 120.984375,
+        "href": "../../../../make-your-pet.html"
+      },
+      {
+        "left": 588.453125,
+        "right": 773.546875,
+        "top": 1163.359375,
+        "width": 185.09375,
+        "href": "#creator-effects-en"
+      },
+      {
+        "left": 785.546875,
+        "right": 984.53125,
+        "top": 1163.359375,
+        "width": 198.984375,
+        "href": "#technical-guide"
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "lang": "zh-Hant",
+    "count": 3,
+    "centerError": 0,
+    "rowWidth": 728,
+    "buttons": [
+      {
+        "left": 180.765625,
+        "right": 278.765625,
+        "top": 1270.609375,
+        "width": 98,
+        "href": "../../../../make-your-pet.html"
+      },
+      {
+        "left": 290.765625,
+        "right": 425.78125,
+        "top": 1270.609375,
+        "width": 135.015625,
+        "href": "#creator-effects-zh-Hant"
+      },
+      {
+        "left": 437.78125,
+        "right": 587.234375,
+        "top": 1270.609375,
+        "width": 149.453125,
+        "href": "#technical-guide"
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "lang": "zh-Hans",
+    "count": 3,
+    "centerError": 0,
+    "rowWidth": 728,
+    "buttons": [
+      {
+        "left": 180.765625,
+        "right": 278.765625,
+        "top": 1270.609375,
+        "width": 98,
+        "href": "../../../../make-your-pet.html"
+      },
+      {
+        "left": 290.765625,
+        "right": 425.78125,
+        "top": 1270.609375,
+        "width": 135.015625,
+        "href": "#creator-effects-zh-Hans"
+      },
+      {
+        "left": 437.78125,
+        "right": 587.234375,
+        "top": 1270.609375,
+        "width": 149.453125,
+        "href": "#technical-guide"
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "lang": "en",
+    "count": 3,
+    "centerError": 0,
+    "rowWidth": 728,
+    "buttons": [
+      {
+        "left": 119.46875,
+        "right": 240.453125,
+        "top": 1378.5625,
+        "width": 120.984375,
+        "href": "../../../../make-your-pet.html"
+      },
+      {
+        "left": 252.453125,
+        "right": 437.546875,
+        "top": 1378.5625,
+        "width": 185.09375,
+        "href": "#creator-effects-en"
+      },
+      {
+        "left": 449.546875,
+        "right": 648.53125,
+        "top": 1378.5625,
+        "width": 198.984375,
+        "href": "#technical-guide"
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "lang": "zh-Hant",
+    "count": 3,
+    "centerError": 0,
+    "rowWidth": 358,
+    "buttons": [
+      {
+        "left": 16,
+        "right": 374,
+        "top": 1861.390625,
+        "width": 358,
+        "href": "../../../../make-your-pet.html"
+      },
+      {
+        "left": 16,
+        "right": 374,
+        "top": 1921.390625,
+        "width": 358,
+        "href": "#creator-effects-zh-Hant"
+      },
+      {
+        "left": 16,
+        "right": 374,
+        "top": 1981.390625,
+        "width": 358,
+        "href": "#technical-guide"
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "lang": "zh-Hans",
+    "count": 3,
+    "centerError": 0,
+    "rowWidth": 358,
+    "buttons": [
+      {
+        "left": 16,
+        "right": 374,
+        "top": 1861.390625,
+        "width": 358,
+        "href": "../../../../make-your-pet.html"
+      },
+      {
+        "left": 16,
+        "right": 374,
+        "top": 1921.390625,
+        "width": 358,
+        "href": "#creator-effects-zh-Hans"
+      },
+      {
+        "left": 16,
+        "right": 374,
+        "top": 1981.390625,
+        "width": 358,
+        "href": "#technical-guide"
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "count": 3,
+    "centerError": 0,
+    "rowWidth": 358,
+    "buttons": [
+      {
+        "left": 16,
+        "right": 374,
+        "top": 2026.15625,
+        "width": 358,
+        "href": "../../../../make-your-pet.html"
+      },
+      {
+        "left": 16,
+        "right": 374,
+        "top": 2086.15625,
+        "width": 358,
+        "href": "#creator-effects-en"
+      },
+      {
+        "left": 16,
+        "right": 374,
+        "top": 2146.15625,
+        "width": 358,
+        "href": "#technical-guide"
+      }
+    ],
+    "overflow": false
+  }
+]

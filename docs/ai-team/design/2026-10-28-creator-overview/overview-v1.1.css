@@ -1,0 +1,27 @@
+/* Review version 1.1. Reuses the site's existing type, colors and components. */
+.creator-guide-intro h1 { text-wrap: balance; }
+.creator-overview .button-primary, #workshop .button-primary { background: var(--coral-deep); }
+.creator-overview .button-teal, .creator-overview .creator-example-link, #workshop .button-teal { background: var(--teal-deep); }
+.creator-overview a:focus-visible, .creator-overview summary:focus-visible, #workshop a:focus-visible { outline-color: var(--ink); }
+.creator-overview .creator-pack-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.creator-pack-card-effects { border-top-color: var(--teal-deep); background: #f0f6fb; }
+.creator-overview .creator-pack-action { width: auto; justify-content: flex-start; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.creator-overview .creator-pack-action .button { width: auto; }
+.creator-update-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; margin-top: 76px; }
+.creator-update-block { border-top: 2px solid var(--line); padding-top: 28px; scroll-margin-top: 110px; }
+.creator-update-block h2 { font-size: clamp(1.6rem, 2.3vw, 2.1rem); }
+.creator-update-block .lead { font-size: 1rem; }
+.creator-update-points { padding-left: 22px; color: var(--muted); }
+.creator-update-points li + li { margin-top: 12px; }
+.creator-overview-link { display: inline-flex; min-height: 44px; align-items: center; color: var(--teal-deep); font-weight: 800; text-underline-offset: 4px; }
+.creator-workflow { margin-top: 76px; }
+.creator-workflow .creator-paths { margin-top: 24px; }
+@media (max-width: 1100px) and (min-width: 701px) {
+  .creator-overview .creator-pack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .creator-overview .creator-pack-grid { grid-template-columns: 1fr; }
+  .creator-update-grid { grid-template-columns: 1fr; gap: 38px; margin-top: 52px; }
+  .creator-overview .creator-pack-action .button { width: 100%; }
+  .creator-workflow { margin-top: 52px; }
+}

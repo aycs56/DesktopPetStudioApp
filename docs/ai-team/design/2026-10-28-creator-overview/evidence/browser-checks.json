@@ -1,0 +1,351 @@
+{
+  "scenarios": [
+    {
+      "width": 1440,
+      "lang": "zh-Hant",
+      "name": "creator-json.html",
+      "visible": true,
+      "overflow": false,
+      "cards": 4,
+      "topics": 8,
+      "workflows": 2,
+      "missingAnchors": [],
+      "brokenImages": [],
+      "otherLanguages": 0,
+      "petfx": true,
+      "gridColumns": "276.5px 276.5px 276.5px 276.5px"
+    },
+    {
+      "width": 1440,
+      "lang": "zh-Hant",
+      "name": "index.html",
+      "visible": true,
+      "overflow": false,
+      "cards": 0,
+      "topics": 0,
+      "workflows": 2,
+      "missingAnchors": [],
+      "brokenImages": [],
+      "otherLanguages": 0,
+      "petfx": true,
+      "gridColumns": "none"
+    },
+    {
+      "width": 1440,
+      "lang": "zh-Hans",
+      "name": "creator-json.html",
+      "visible": true,
+      "overflow": false,
+      "cards": 4,
+      "topics": 8,
+      "workflows": 2,
+      "missingAnchors": [],
+      "brokenImages": [],
+      "otherLanguages": 0,
+      "petfx": true,
+      "gridColumns": "276.5px 276.5px 276.5px 276.5px"
+    },
+    {
+      "width": 1440,
+      "lang": "zh-Hans",
+      "name": "index.html",
+      "visible": true,
+      "overflow": false,
+      "cards": 0,
+      "topics": 0,
+      "workflows": 2,
+      "missingAnchors": [],
+      "brokenImages": [],
+      "otherLanguages": 0,
+      "petfx": true,
+      "gridColumns": "none"
+    },
+    {
+      "width": 1440,
+      "lang": "en",
+      "name": "creator-json.html",
+      "visible": true,
+      "overflow": false,
+      "cards": 4,
+      "topics": 8,
+      "workflows": 2,
+      "missingAnchors": [],
+      "brokenImages": [],
+      "otherLanguages": 0,
+      "petfx": true,
+      "gridColumns": "276.5px 276.5px 276.5px 276.5px"
+    },
+    {
+      "width": 1440,
+      "lang": "en",
+      "name": "index.html",
+      "visible": true,
+      "overflow": false,
+      "cards": 0,
+      "topics": 0,
+      "workflows": 2,
+      "missingAnchors": [],
+      "brokenImages": [],
+      "otherLanguages": 0,
+      "petfx": true,
+      "gridColumns": "none"
+    },
+    {
+      "width": 390,
+      "lang": "zh-Hant",
+      "name": "creator-json.html",
+      "visible": true,
+      "overflow": false,
+      "cards": 4,
+      "topics": 8,
+      "workflows": 2,
+      "missingAnchors": [],
+      "brokenImages": [],
+      "otherLanguages": 0,
+      "petfx": true,
+      "gridColumns": "358px"
+    },
+    {
+      "width": 390,
+      "lang": "zh-Hant",
+      "name": "index.html",
+      "visible": true,
+      "overflow": false,
+      "cards": 0,
+      "topics": 0,
+      "workflows": 2,
+      "missingAnchors": [],
+      "brokenImages": [],
+      "otherLanguages": 0,
+      "petfx": true,
+      "gridColumns": "none"
+    },
+    {
+      "width": 390,
+      "lang": "zh-Hans",
+      "name": "creator-json.html",
+      "visible": true,
+      "overflow": false,
+      "cards": 4,
+      "topics": 8,
+      "workflows": 2,
+      "missingAnchors": [],
+      "brokenImages": [],
+      "otherLanguages": 0,
+      "petfx": true,
+      "gridColumns": "358px"
+    },
+    {
+      "width": 390,
+      "lang": "zh-Hans",
+      "name": "index.html",
+      "visible": true,
+      "overflow": false,
+      "cards": 0,
+      "topics": 0,
+      "workflows": 2,
+      "missingAnchors": [],
+      "brokenImages": [],
+      "otherLanguages": 0,
+      "petfx": true,
+      "gridColumns": "none"
+    },
+    {
+      "width": 390,
+      "lang": "en",
+      "name": "creator-json.html",
+      "visible": true,
+      "overflow": false,
+      "cards": 4,
+      "topics": 8,
+      "workflows": 2,
+      "missingAnchors": [],
+      "brokenImages": [],
+      "otherLanguages": 0,
+      "petfx": true,
+      "gridColumns": "358px"
+    },
+    {
+      "width": 390,
+      "lang": "en",
+      "name": "index.html",
+      "visible": true,
+      "overflow": false,
+      "cards": 0,
+      "topics": 0,
+      "workflows": 2,
+      "missingAnchors": [],
+      "brokenImages": [],
+      "otherLanguages": 0,
+      "petfx": true,
+      "gridColumns": "none"
+    }
+  ],
+  "downloads": [
+    {
+      "lang": "zh-Hant",
+      "name": "workshop-creator-json-guide.zh-Hant.md"
+    },
+    {
+      "lang": "zh-Hans",
+      "name": "workshop-creator-json-guide.zh-Hans.md"
+    },
+    {
+      "lang": "en",
+      "name": "workshop-creator-json-guide.en.md"
+    }
+  ],
+  "contrast": [
+    {
+      "state": "default",
+      "text": "Add a wave, hop, surprise, or right",
+      "color": "rgb(73, 102, 115)",
+      "bg": "rgb(255, 255, 255)",
+      "size": "15.04px",
+      "weight": "400",
+      "ratio": 6.1199458466644625,
+      "outline": "rgb(73, 102, 115)"
+    },
+    {
+      "state": "hover",
+      "text": "Add a wave, hop, surprise, or right",
+      "color": "rgb(73, 102, 115)",
+      "bg": "rgb(255, 255, 255)",
+      "size": "15.04px",
+      "weight": "400",
+      "ratio": 6.1199458466644625,
+      "outline": "rgb(73, 102, 115)"
+    },
+    {
+      "state": "focus",
+      "text": "Add a wave, hop, surprise, or right",
+      "color": "rgb(73, 102, 115)",
+      "bg": "rgb(255, 255, 255)",
+      "size": "15.04px",
+      "weight": "400",
+      "ratio": 6.1199458466644625,
+      "outline": "rgb(73, 102, 115)"
+    },
+    {
+      "state": "default",
+      "text": "Make a pet",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(169, 59, 72)",
+      "size": "16px",
+      "weight": "800",
+      "ratio": 6.1652914340318965,
+      "outline": "rgb(255, 255, 255)"
+    },
+    {
+      "state": "hover",
+      "text": "Make a pet",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(169, 59, 72)",
+      "size": "16px",
+      "weight": "800",
+      "ratio": 6.1652914340318965,
+      "outline": "rgb(255, 255, 255)"
+    },
+    {
+      "state": "focus",
+      "text": "Make a pet",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(169, 59, 72)",
+      "size": "16px",
+      "weight": "800",
+      "ratio": 6.1652914340318965,
+      "outline": "rgb(16, 43, 58)"
+    },
+    {
+      "state": "default",
+      "text": "Explore DIY effects",
+      "color": "rgb(16, 43, 58)",
+      "bg": "rgb(242, 199, 92)",
+      "size": "16px",
+      "weight": "800",
+      "ratio": 9.168853508224663,
+      "outline": "rgb(16, 43, 58)"
+    },
+    {
+      "state": "hover",
+      "text": "Explore DIY effects",
+      "color": "rgb(16, 43, 58)",
+      "bg": "rgb(255, 216, 113)",
+      "size": "16px",
+      "weight": "800",
+      "ratio": 10.71814178533923,
+      "outline": "rgb(16, 43, 58)"
+    },
+    {
+      "state": "focus",
+      "text": "Explore DIY effects",
+      "color": "rgb(16, 43, 58)",
+      "bg": "rgb(242, 199, 92)",
+      "size": "16px",
+      "weight": "800",
+      "ratio": 9.168853508224663,
+      "outline": "rgb(16, 43, 58)"
+    },
+    {
+      "state": "default",
+      "text": "Set a menu name separately from the",
+      "color": "rgb(73, 102, 115)",
+      "bg": "rgb(248, 252, 250)",
+      "size": "16px",
+      "weight": "400",
+      "ratio": 5.914746590066545,
+      "outline": "rgb(73, 102, 115)"
+    },
+    {
+      "state": "hover",
+      "text": "Set a menu name separately from the",
+      "color": "rgb(73, 102, 115)",
+      "bg": "rgb(248, 252, 250)",
+      "size": "16px",
+      "weight": "400",
+      "ratio": 5.914746590066545,
+      "outline": "rgb(73, 102, 115)"
+    },
+    {
+      "state": "focus",
+      "text": "Set a menu name separately from the",
+      "color": "rgb(73, 102, 115)",
+      "bg": "rgb(248, 252, 250)",
+      "size": "16px",
+      "weight": "400",
+      "ratio": 5.914746590066545,
+      "outline": "rgb(73, 102, 115)"
+    },
+    {
+      "state": "default",
+      "text": "Make a pet",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(8, 100, 94)",
+      "size": "16px",
+      "weight": "800",
+      "ratio": 7.012098720429476,
+      "outline": "rgb(255, 255, 255)"
+    },
+    {
+      "state": "hover",
+      "text": "Make a pet",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(8, 100, 94)",
+      "size": "16px",
+      "weight": "800",
+      "ratio": 7.012098720429476,
+      "outline": "rgb(255, 255, 255)"
+    },
+    {
+      "state": "focus",
+      "text": "Make a pet",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(8, 100, 94)",
+      "size": "16px",
+      "weight": "800",
+      "ratio": 7.012098720429476,
+      "outline": "rgb(16, 43, 58)"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,10 @@
+{
+  "version": "1.1",
+  "status": "awaiting-user-confirmation",
+  "files": {
+    "creator-json.html": "634fccb471d6586aed6ea64ccc43138831998f3e7f671dd5675f1f66b5bcd2aa",
+    "index.html": "abe9d22038e085002b6e1f0d215605562ad5251b233c38cf90089fdb256a455c",
+    "overview.css": "ad8e9fdecebe25447645e309530da0ea99e4efe39f91305a555672358a6f121e",
+    "review.html": "10f29e8cd3defc0a213f262dd1834f018124204473c9ac050fb82d54d2c7f3b4"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "version": "1.4",
+  "status": "approved",
+  "files": {
+    "creator-json.html": "666976237630173777ea42d42b8fedc6a7470f2e82e453335ad5e319573c9f7f",
+    "index.html": "41d43eddaaa7adb8854f1042c86a85346ba505163ddf492204b9ec40757eedae",
+    "overview.css": "1c6b8986563733078a237ef1c715dfaee655d3bf35ed32b3a75ea9b63bcb825f",
+    "review.html": "bde61d9c355da0f41963b3f48a0cb669cfac59d7eba1c1592c70f3fd4033f604",
+    "copy-review-v1.4.json": "b68ad0817832876e9d28afa3025cf529d8bb306d1982f746477268a38e59590b"
+  },
+  "approval": {
+    "date": "2026-10-29",
+    "message": "採用此方案"
+  }
+}

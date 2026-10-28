@@ -19,7 +19,11 @@ class CreatorPackAlignmentTests(unittest.TestCase):
             section_start = html.index(f'data-lang-content="{language}"', html.index('id="creator-capabilities"'))
             next_section = html.find('data-lang-content=', section_start + 1)
             section = html[section_start:] if next_section == -1 else html[section_start:next_section]
-            self.assertEqual(section.count('creator-pack-card'), 5, language)
+            cards = re.findall(
+                r'<article\b[^>]*\bclass="[^"]*\bcreator-pack-card\b[^"]*"',
+                section,
+            )
+            self.assertEqual(len(cards), 4, language)
 
         self.assertRegex(
             css,

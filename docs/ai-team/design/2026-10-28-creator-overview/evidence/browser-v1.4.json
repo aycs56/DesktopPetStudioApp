@@ -1,0 +1,347 @@
+{
+  "results": [
+    {
+      "page": "creator-json.html",
+      "width": 1440,
+      "lang": "zh-Hant",
+      "heading": "製作桌寵、特效與照顧玩法",
+      "headingWidth": 710,
+      "paragraphWidth": 710,
+      "headingLines": 0.9998462818287036,
+      "phrases": [
+        {
+          "text": "製作桌寵、",
+          "width": 288,
+          "height": 76,
+          "left": 330,
+          "right": 618
+        },
+        {
+          "text": "特效與照顧玩法",
+          "width": 403.203125,
+          "height": 76,
+          "left": 618,
+          "right": 1021.203125
+        }
+      ],
+      "centerError": 0,
+      "gapAbove": 52,
+      "gapBelow": 52,
+      "overflow": false,
+      "missingAnchors": []
+    },
+    {
+      "page": "index.html",
+      "width": 1440,
+      "lang": "zh-Hant",
+      "heading": "用自己的角色素材製作桌寵",
+      "overflow": false
+    },
+    {
+      "page": "creator-json.html",
+      "width": 1440,
+      "lang": "zh-Hans",
+      "heading": "制作桌宠、特效与照顾玩法",
+      "headingWidth": 710,
+      "paragraphWidth": 710,
+      "headingLines": 0.9998462818287036,
+      "phrases": [
+        {
+          "text": "制作桌宠、",
+          "width": 288,
+          "height": 76,
+          "left": 330,
+          "right": 618
+        },
+        {
+          "text": "特效与照顾玩法",
+          "width": 403.203125,
+          "height": 76,
+          "left": 618,
+          "right": 1021.203125
+        }
+      ],
+      "centerError": 0,
+      "gapAbove": 52,
+      "gapBelow": 52,
+      "overflow": false,
+      "missingAnchors": []
+    },
+    {
+      "page": "index.html",
+      "width": 1440,
+      "lang": "zh-Hans",
+      "heading": "用自己的角色素材制作桌宠",
+      "overflow": false
+    },
+    {
+      "page": "creator-json.html",
+      "width": 1440,
+      "lang": "en",
+      "heading": "Create pets, effects and care gameplay",
+      "headingWidth": 710,
+      "paragraphWidth": 710,
+      "headingLines": 1.9996925636574072,
+      "phrases": [],
+      "centerError": 0,
+      "gapAbove": 52,
+      "gapBelow": 52,
+      "overflow": false,
+      "missingAnchors": []
+    },
+    {
+      "page": "index.html",
+      "width": 1440,
+      "lang": "en",
+      "heading": "Make a pet from your own character art",
+      "overflow": false
+    },
+    {
+      "page": "creator-json.html",
+      "width": 768,
+      "lang": "zh-Hant",
+      "heading": "製作桌寵、特效與照顧玩法",
+      "headingWidth": 710,
+      "paragraphWidth": 710,
+      "headingLines": 0.999710648148148,
+      "phrases": [
+        {
+          "text": "製作桌寵、",
+          "width": 180,
+          "height": 48,
+          "left": 20,
+          "right": 200
+        },
+        {
+          "text": "特效與照顧玩法",
+          "width": 252,
+          "height": 48,
+          "left": 200,
+          "right": 452
+        }
+      ],
+      "centerError": 0,
+      "gapAbove": 28,
+      "gapBelow": 76,
+      "overflow": false,
+      "missingAnchors": []
+    },
+    {
+      "page": "creator-json.html",
+      "width": 768,
+      "lang": "zh-Hans",
+      "heading": "制作桌宠、特效与照顾玩法",
+      "headingWidth": 710,
+      "paragraphWidth": 710,
+      "headingLines": 0.999710648148148,
+      "phrases": [
+        {
+          "text": "制作桌宠、",
+          "width": 180,
+          "height": 48,
+          "left": 20,
+          "right": 200
+        },
+        {
+          "text": "特效与照顾玩法",
+          "width": 252,
+          "height": 48,
+          "left": 200,
+          "right": 452
+        }
+      ],
+      "centerError": 0,
+      "gapAbove": 28,
+      "gapBelow": 76,
+      "overflow": false,
+      "missingAnchors": []
+    },
+    {
+      "page": "creator-json.html",
+      "width": 768,
+      "lang": "en",
+      "heading": "Create pets, effects and care gameplay",
+      "headingWidth": 710,
+      "paragraphWidth": 710,
+      "headingLines": 0.999710648148148,
+      "phrases": [],
+      "centerError": 0,
+      "gapAbove": 28,
+      "gapBelow": 76,
+      "overflow": false,
+      "missingAnchors": []
+    },
+    {
+      "page": "creator-json.html",
+      "width": 390,
+      "lang": "zh-Hant",
+      "heading": "製作桌寵、特效與照顧玩法",
+      "headingWidth": 358,
+      "paragraphWidth": 358,
+      "headingLines": 1.999421296296296,
+      "phrases": [
+        {
+          "text": "製作桌寵、",
+          "width": 180,
+          "height": 48,
+          "left": 16,
+          "right": 196
+        },
+        {
+          "text": "特效與照顧玩法",
+          "width": 252,
+          "height": 48,
+          "left": 16,
+          "right": 268
+        }
+      ],
+      "centerError": 0,
+      "gapAbove": 28,
+      "gapBelow": 52,
+      "overflow": false,
+      "missingAnchors": []
+    },
+    {
+      "page": "index.html",
+      "width": 390,
+      "lang": "zh-Hant",
+      "heading": "用自己的角色素材製作桌寵",
+      "overflow": false
+    },
+    {
+      "page": "creator-json.html",
+      "width": 390,
+      "lang": "zh-Hans",
+      "heading": "制作桌宠、特效与照顾玩法",
+      "headingWidth": 358,
+      "paragraphWidth": 358,
+      "headingLines": 1.999421296296296,
+      "phrases": [
+        {
+          "text": "制作桌宠、",
+          "width": 180,
+          "height": 48,
+          "left": 16,
+          "right": 196
+        },
+        {
+          "text": "特效与照顾玩法",
+          "width": 252,
+          "height": 48,
+          "left": 16,
+          "right": 268
+        }
+      ],
+      "centerError": 0,
+      "gapAbove": 28,
+      "gapBelow": 52,
+      "overflow": false,
+      "missingAnchors": []
+    },
+    {
+      "page": "index.html",
+      "width": 390,
+      "lang": "zh-Hans",
+      "heading": "用自己的角色素材制作桌宠",
+      "overflow": false
+    },
+    {
+      "page": "creator-json.html",
+      "width": 390,
+      "lang": "en",
+      "heading": "Create pets, effects and care gameplay",
+      "headingWidth": 358,
+      "paragraphWidth": 358,
+      "headingLines": 1.999421296296296,
+      "phrases": [],
+      "centerError": 0,
+      "gapAbove": 28,
+      "gapBelow": 52,
+      "overflow": false,
+      "missingAnchors": []
+    },
+    {
+      "page": "index.html",
+      "width": 390,
+      "lang": "en",
+      "heading": "Make a pet from your own character art",
+      "overflow": false
+    },
+    {
+      "page": "creator-json.html",
+      "width": 320,
+      "lang": "zh-Hant",
+      "heading": "製作桌寵、特效與照顧玩法",
+      "headingWidth": 288,
+      "paragraphWidth": 288,
+      "headingLines": 1.999421296296296,
+      "phrases": [
+        {
+          "text": "製作桌寵、",
+          "width": 180,
+          "height": 48,
+          "left": 16,
+          "right": 196
+        },
+        {
+          "text": "特效與照顧玩法",
+          "width": 252,
+          "height": 48,
+          "left": 16,
+          "right": 268
+        }
+      ],
+      "centerError": 0,
+      "gapAbove": 28,
+      "gapBelow": 52,
+      "overflow": false,
+      "missingAnchors": []
+    },
+    {
+      "page": "creator-json.html",
+      "width": 320,
+      "lang": "zh-Hans",
+      "heading": "制作桌宠、特效与照顾玩法",
+      "headingWidth": 288,
+      "paragraphWidth": 288,
+      "headingLines": 1.999421296296296,
+      "phrases": [
+        {
+          "text": "制作桌宠、",
+          "width": 180,
+          "height": 48,
+          "left": 16,
+          "right": 196
+        },
+        {
+          "text": "特效与照顾玩法",
+          "width": 252,
+          "height": 48,
+          "left": 16,
+          "right": 268
+        }
+      ],
+      "centerError": 0,
+      "gapAbove": 28,
+      "gapBelow": 52,
+      "overflow": false,
+      "missingAnchors": []
+    },
+    {
+      "page": "creator-json.html",
+      "width": 320,
+      "lang": "en",
+      "heading": "Create pets, effects and care gameplay",
+      "headingWidth": 288,
+      "paragraphWidth": 288,
+      "headingLines": 2.999131944444444,
+      "phrases": [],
+      "centerError": 0,
+      "gapAbove": 28,
+      "gapBelow": 52,
+      "overflow": false,
+      "missingAnchors": []
+    }
+  ],
+  "errors": []
+}

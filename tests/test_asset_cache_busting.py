@@ -13,7 +13,7 @@ PAGES = (
     "support.html",
     "terms.html",
 )
-CURRENT_CSS_URL = "assets/css/site.css?v=20260826-05"
+CURRENT_CSS_URL = "assets/css/site.css?v=20261029-01"
 
 
 class AssetCacheBustingTests(unittest.TestCase):

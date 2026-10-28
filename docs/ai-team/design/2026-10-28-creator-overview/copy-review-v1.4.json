@@ -1,0 +1,422 @@
+[
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": "hero h1",
+    "before": "自訂桌寵，讓創作走進日常",
+    "after": "製作桌寵、特效與照顧玩法"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": "hero intro",
+    "before": "從角色動作、照顧玩法到 DIY 特效，做出你的桌面陪伴。v1.3.0 支援用封面整理收藏，預覽後再使用，也能把作品打包分享。",
+    "after": "製作角色動作、照顧玩法或 DIY 特效，打包分享給其他玩家。v1.3.0 可用名稱與封面整理桌寵收藏，預覽後再確認使用。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": ".creator-overview-heading h2",
+    "before": "四種作品，從你想做的開始",
+    "after": "四種可分享的作品"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": ".creator-overview-heading .lead",
+    "before": "做一個新動作、設計完整角色、加入照顧玩法，或獨立製作一款特效。先選擇作品類型，再依需要閱讀下方的技術指南。",
+    "after": "單一姿勢、完整桌寵、照顧玩法與獨立特效都能分開分享。下方說明各類型的用途與格式。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": ".creator-pack-card-teal > p:last-child",
+    "before": "整理角色素材、姿勢與可分享的設定，保存為桌寵收藏。加上選單名稱與封面，方便自己切換，也方便其他玩家辨識。",
+    "after": "將角色素材、姿勢與可分享的設定存成桌寵收藏，並設定選單名稱與封面，方便切換或分享。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": "[id^=\"collection-title-\"]",
+    "before": "用封面整理你的桌寵收藏",
+    "after": "收藏名稱、封面與預覽"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": "[id^=\"effects-title-\"]",
+    "before": "做出會跟著桌寵動的特效",
+    "after": "DIY 特效與觸發設定"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": "[id^=\"creator-effects-\"] .lead",
+    "before": "依 DIY 教學製作 HTML、CSS 與 JavaScript 動畫，搭配 PetFX 套件規則。從畫面效果開始，再安排它出現的時機與位置。",
+    "after": "DIY 教學提供 HTML、CSS 與 JavaScript 範例，可搭配 PetFX 套件規則製作動畫，設定觸發事件與跟隨位置。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": ".creator-topic-heading h2",
+    "before": "從一張角色圖，到一整套桌面互動",
+    "after": "角色動作與互動設定"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": ".creator-topic-heading .lead",
+    "before": "角色、動作與日常互動都能逐步調整。展開主題查看支援的設定，再連到對應 JSON 範例。",
+    "after": "展開下列主題，可查看動畫、移動、氣泡、音效與照顧玩法的設定，以及對應 JSON 範例。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": ".creator-workflow h2",
+    "before": "從收藏到分享，每一步都能先確認",
+    "after": "匯入、使用與分享流程"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": ".creator-workflow .creator-path:not(.creator-path-accent) h3",
+    "before": "找到作品，加入你的桌面",
+    "after": "匯入與使用作品"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": ".creator-workflow .creator-path-accent h3",
+    "before": "完成作品，再決定如何分享",
+    "after": "製作與分享作品"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": ".creator-overview-cta h3",
+    "before": "需要欄位格式與範例？",
+    "after": "JSON 格式與指南下載"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": ".creator-overview-cta > div > p:not(.section-kicker)",
+    "before": "下方保留姿勢、完整桌寵、照顧內容的 JSON 範例，以及收藏、封面、PetFX 與匯出說明。也可下載 v1.3.0 的繁中、簡中或英文 Markdown 指南。",
+    "after": "提供姿勢、完整桌寵與照顧內容的 JSON 範例，以及收藏、封面、PetFX 與匯出說明。v1.3.0 Markdown 指南有繁中、簡中、英文版本。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hant",
+    "selector": ".creator-capability-card:nth-child(5) summary small",
+    "before": "觀眾支持可以變成角色的即時動作。",
+    "after": "依 Bits、訂閱或贈送訂閱觸發指定姿勢。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": "hero h1",
+    "before": "自定义桌宠，让创作走进日常",
+    "after": "制作桌宠、特效与照顾玩法"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": "hero intro",
+    "before": "从角色动作、照顾玩法到 DIY 特效，做出你的桌面陪伴。v1.3.0 支持用封面整理收藏，预览后再使用，也能把作品打包分享。",
+    "after": "制作角色动作、照顾玩法或 DIY 特效，打包分享给其他玩家。v1.3.0 可用名称与封面整理桌宠收藏，预览后再确认使用。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": ".creator-overview-heading h2",
+    "before": "四种作品，从你想做的开始",
+    "after": "四种可分享的作品"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": ".creator-overview-heading .lead",
+    "before": "做一个新动作、设计完整角色、加入照顾玩法，或独立制作一款特效。先选择作品类型，再按需阅读下方的技术指南。",
+    "after": "单一姿势、完整桌宠、照顾玩法与独立特效都能分开分享。下方说明各类型的用途与格式。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": ".creator-pack-card-teal > p:last-child",
+    "before": "整理角色素材、姿势与可分享的设置，保存为桌宠收藏。加上菜单名称与封面，方便自己切换，也方便其他玩家辨识。",
+    "after": "将角色素材、姿势与可分享的设置存为桌宠收藏，并设置菜单名称与封面，方便切换或分享。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": "[id^=\"collection-title-\"]",
+    "before": "用封面整理你的桌宠收藏",
+    "after": "收藏名称、封面与预览"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": "[id^=\"effects-title-\"]",
+    "before": "做出会跟着桌宠动的特效",
+    "after": "DIY 特效与触发设置"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": "[id^=\"creator-effects-\"] .lead",
+    "before": "按 DIY 教程制作 HTML、CSS 与 JavaScript 动画，搭配 PetFX 套件规则。从画面效果开始，再安排它出现的时机与位置。",
+    "after": "DIY 教程提供 HTML、CSS 与 JavaScript 示例，可搭配 PetFX 套件规则制作动画，设置触发事件与跟随位置。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": ".creator-topic-heading h2",
+    "before": "从一张角色图，到一整套桌面互动",
+    "after": "角色动作与互动设置"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": ".creator-topic-heading .lead",
+    "before": "角色、动作与日常互动都能逐步调整。展开主题查看支持的设置，再跳转到对应 JSON 示例。",
+    "after": "展开下列主题，可查看动画、移动、气泡、音效与照顾玩法的设置，以及对应 JSON 示例。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": ".creator-workflow h2",
+    "before": "从收藏到分享，每一步都能先确认",
+    "after": "导入、使用与分享流程"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": ".creator-workflow .creator-path:not(.creator-path-accent) h3",
+    "before": "找到作品，加入你的桌面",
+    "after": "导入与使用作品"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": ".creator-workflow .creator-path-accent h3",
+    "before": "完成作品，再决定如何分享",
+    "after": "制作与分享作品"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": ".creator-overview-cta h3",
+    "before": "需要字段格式与示例？",
+    "after": "JSON 格式与指南下载"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": ".creator-overview-cta > div > p:not(.section-kicker)",
+    "before": "下方保留姿势、完整桌宠、照顾内容的 JSON 示例，以及收藏、封面、PetFX 与导出说明。也可下载 v1.3.0 的繁中、简中或英文 Markdown 指南。",
+    "after": "提供姿势、完整桌宠与照顾内容的 JSON 示例，以及收藏、封面、PetFX 与导出说明。v1.3.0 Markdown 指南有繁中、简中、英文版本。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "zh-Hans",
+    "selector": ".creator-capability-card:nth-child(5) summary small",
+    "before": "观众支持可以变成角色的即时动作。",
+    "after": "按 Bits、订阅或赠送订阅触发指定姿势。"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": "hero h1",
+    "before": "Create a pet that feels like yours",
+    "after": "Create pets, effects and care gameplay"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": "hero intro",
+    "before": "Give your desktop companion its own poses, care activities and DIY effects. In v1.3.0, organize pets with collection covers, preview before use, and package your creations to share.",
+    "after": "Make character poses, care gameplay or DIY effects and package them for other players. In v1.3.0, organize pet collections with names and covers, then preview before confirming use."
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": ".creator-overview-heading h2",
+    "before": "Four ways to make it your own",
+    "after": "Four types of content to share"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": ".creator-overview-heading .lead",
+    "before": "Start with a new pose, a complete character, care gameplay or a standalone effect. Choose what you want to make, then explore the technical guide when you need it.",
+    "after": "Share a single pose, a full pet, care gameplay or a standalone effect. The sections below explain what each type includes and how to package it."
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": ".creator-pack-card-teal > p:last-child",
+    "before": "Save character assets, poses and shareable settings as a pet collection. Add a menu name and cover so you and other players can recognize each creation.",
+    "after": "Save character assets, poses and shareable settings as a pet collection. Add a menu name and cover to identify pets when switching or sharing them."
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": "[id^=\"collection-title-\"]",
+    "before": "Find your pets by their covers",
+    "after": "Collection names, covers and previews"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": "[id^=\"effects-title-\"]",
+    "before": "Make effects that move with your pet",
+    "after": "DIY effects and triggers"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": "[id^=\"creator-effects-\"] .lead",
+    "before": "Follow the DIY tutorial to build HTML, CSS and JavaScript animations with PetFX package rules. Design the effect, then choose where and when it appears.",
+    "after": "The DIY tutorial includes HTML, CSS and JavaScript examples. Use them with PetFX package rules to create animations and set their triggers and follow positions."
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": ".creator-topic-heading h2",
+    "before": "From one character image to a full set of desktop interactions",
+    "after": "Character actions and interaction settings"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": ".creator-topic-heading .lead",
+    "before": "Build up your character, actions and everyday interactions one topic at a time. Expand a topic to see supported settings and its JSON example.",
+    "after": "Expand a topic for animation, movement, bubble, audio and care settings, with links to the corresponding JSON examples."
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": ".creator-workflow h2",
+    "before": "Preview, choose, then share",
+    "after": "Importing, using and sharing content"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": ".creator-workflow .creator-path:not(.creator-path-accent) h3",
+    "before": "Bring a creation to your desktop",
+    "after": "Import and use content"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": ".creator-workflow .creator-path-accent h3",
+    "before": "Finish your creation, then share it",
+    "after": "Create and share content"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": ".creator-overview-cta h3",
+    "before": "Ready for formats and examples?",
+    "after": "JSON formats and guide downloads"
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": ".creator-overview-cta > div > p:not(.section-kicker)",
+    "before": "Continue to JSON examples for poses, full pets and care content, plus collection, cover, PetFX and export guidance. Download the v1.3.0 Markdown guide in Traditional Chinese, Simplified Chinese or English.",
+    "after": "Find JSON examples for poses, full pets and care content, plus collection, cover, PetFX and export instructions. The v1.3.0 Markdown guide is available in Traditional Chinese, Simplified Chinese and English."
+  },
+  {
+    "page": "creator-json.html",
+    "language": "en",
+    "selector": ".creator-capability-card:nth-child(5) summary small",
+    "before": "Viewer support can become an immediate character reaction.",
+    "after": "Trigger a pose with Bits, subscriptions or gift subscriptions."
+  },
+  {
+    "page": "index.html",
+    "language": "zh-Hant",
+    "selector": ":scope > h2",
+    "before": "把任何角色做成你的桌寵",
+    "after": "用自己的角色素材製作桌寵"
+  },
+  {
+    "page": "index.html",
+    "language": "zh-Hant",
+    "selector": ":scope > .lead",
+    "before": "用自己的角色素材製作桌寵，也能分享單一姿勢、完整桌寵、照顧玩法或獨立 PetFX 特效。v1.3.0 加入收藏與封面整理，讓你先預覽，再確認使用。",
+    "after": "在程式中製作桌寵、單一姿勢、照顧玩法或獨立 PetFX 特效，再打包分享。v1.3.0 可用名稱與封面整理收藏，使用前先預覽並確認。"
+  },
+  {
+    "page": "index.html",
+    "language": "zh-Hant",
+    "selector": ".creator-path:not(.creator-path-accent) h3",
+    "before": "把角色帶進桌面",
+    "after": "匯入角色素材，製作桌寵"
+  },
+  {
+    "page": "index.html",
+    "language": "zh-Hant",
+    "selector": ".creator-path-accent h3",
+    "before": "從動作到特效，分享你的創作",
+    "after": "打包並分享作品"
+  },
+  {
+    "page": "index.html",
+    "language": "zh-Hans",
+    "selector": ":scope > h2",
+    "before": "把任何角色做成你的桌宠",
+    "after": "用自己的角色素材制作桌宠"
+  },
+  {
+    "page": "index.html",
+    "language": "zh-Hans",
+    "selector": ":scope > .lead",
+    "before": "用自己的角色素材制作桌宠，也能分享单一姿势、完整桌宠、照顾玩法或独立 PetFX 特效。v1.3.0 加入收藏与封面整理，让你先预览，再确认使用。",
+    "after": "在程序中制作桌宠、单一姿势、照顾玩法或独立 PetFX 特效，再打包分享。v1.3.0 可用名称与封面整理收藏，使用前先预览并确认。"
+  },
+  {
+    "page": "index.html",
+    "language": "zh-Hans",
+    "selector": ".creator-path:not(.creator-path-accent) h3",
+    "before": "把角色带进桌面",
+    "after": "导入角色素材，制作桌宠"
+  },
+  {
+    "page": "index.html",
+    "language": "zh-Hans",
+    "selector": ".creator-path-accent h3",
+    "before": "从动作到特效，分享你的创作",
+    "after": "打包并分享作品"
+  },
+  {
+    "page": "index.html",
+    "language": "en",
+    "selector": ":scope > h2",
+    "before": "Turn any character into your desktop pet",
+    "after": "Make a pet from your own character art"
+  },
+  {
+    "page": "index.html",
+    "language": "en",
+    "selector": ":scope > .lead",
+    "before": "Make a pet from your own character art, or share a pose, a full pet, care gameplay or a standalone PetFX effect. In v1.3.0, organize collections with covers and preview before confirming use.",
+    "after": "Create a pet, a single pose, care gameplay or a standalone PetFX effect in the app, then package it to share. In v1.3.0, organize collections with names and covers, and preview before confirming use."
+  },
+  {
+    "page": "index.html",
+    "language": "en",
+    "selector": ".creator-path:not(.creator-path-accent) h3",
+    "before": "Bring your character to the desktop",
+    "after": "Import art and make a pet"
+  },
+  {
+    "page": "index.html",
+    "language": "en",
+    "selector": ".creator-path-accent h3",
+    "before": "Share poses, pets and effects",
+    "after": "Package and share content"
+  }
+]
