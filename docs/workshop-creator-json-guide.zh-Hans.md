@@ -1,7 +1,25 @@
 # Desktop Pet Studio 工作坊 JSON 创作者指南
 
-版本：v1.2.1
-适用内容：Steam 工作坊或手动放入的桌宠包、姿势包
+版本：v1.3.0
+适用内容：v1.3.0 的桌宠、姿势、养成 JSON 包，以及独立的 PetFX 特效分享流程。
+
+更新日期：2026-10-28。程序版本为 v1.3.0；桌宠／姿势／养成 manifest 的 `schema_version` 仍为 `1`。
+
+## 桌宠收藏、菜单名称与封面
+
+v1.3.0 可将桌宠包加入收藏，设置菜单名称与封面，先预览再确认使用。收藏保存在当前玩家文件夹；本地保存完成不代表 Steam Cloud 已同步。
+
+完整桌宠包的 `title` 是收藏与工作坊菜单显示名称，不会修改 `pet_config.json` 中的 `pet_name`。未提供时按已有 `name`／文件夹名称显示；独立 JSON 使用 `pet_name`／文件名。可填写 `"cover_path": "cover.png"`，必须是包内相对路径，不可使用绝对路径或访问包外文件。没有有效封面时显示占位图，旧包仍可使用。
+
+打包封面会转换为静态 PNG：源文件不超过 8 MiB、最长边不超过 4096 px、总像素不超过 8,388,608；解码后取第一帧、等比例缩至最多 512 × 512，并移除源文件的元数据。无法安全解码的图片会被拒绝。这是本地封面限制，不替代 Steam 发布预览图小于 1 MB 的要求。
+
+“我的桌宠收藏”位于当前玩家的 `profile/pet_library/<content-id>/`。导入包或 JSON 时，复制有效设置、封面和所有引用的必要动画／音效素材，改用包内可移植路径；不移动或修改源文件，也不更换当前桌宠。必要素材缺失时导入失败，不生成可用的残缺收藏。下次打开直接显示收藏，无需重新选择源文件夹。规范化内容相同会复用已有收藏；同名但内容不同可共存。
+
+选择与动画预览均为只读操作；只有确认使用后才替换当前桌宠与设置。JSON 保留“仅打开，不加入收藏”，同样需要使用确认。收藏包含尚未使用的桌宠；Steam 模式使用当前 SteamID 的已有 Auto-Cloud 根目录，local 模式与其他账号保持隔离。local 收藏必须明确手动加入当前 Steam 收藏。
+
+Cloud 容量已知不足时，无法新增收藏。若容量或文件数上限未知，目前也无法确认能否同步；程序尚无法获取完整文件数配额或同步完成状态。保存在本机不等于已经上传。退出程序后，请先在 Steam 确认同步完成，再换到另一台电脑。收藏不会自动发布为 Workshop 作品。
+
+打包时可勾选完成后加入“我的桌宠收藏”。程序先保存输出的包，再将有效设置、封面与所有必要动画／音效复制到当前玩家收藏；不修改源文件或更换当前桌宠。相同内容不会重复加入，同名但内容不同可以共存。若加入收藏失败，已输出的包仍保留；处理错误后可再次导入。此选项不会自动发布，也不保证 Steam Cloud 已同步。
 
 ## Steam 工作坊发布流程
 
@@ -91,9 +109,9 @@ WorkshopLibrary/
       "id": "wave_ai_prompt",
       "name": "挥手姿势 AI 说明",
       "pose_id": "wave",
-      "zh": "请用我上传的角色或风格参考图，帮我制作桌宠挥手打招呼动画。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG，内含 6 个完整动画影格；不得拆成独立档案。每格 256 x 256 px，角色大小、镜头、中心点与底部中心定位完全一致，相邻格子正好保留 5px 透明间距。每格外侧边框或留白处以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入细的裁切辅助虚线与 90 度直角角标；不可压到角色、既有特徵、配件或动作内容。不要文字、格号或浮水印。",
-      "zh_cn": "请用我上传的角色或风格参考图，帮我制作桌宠挥手打招呼动画。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG，内含 6 个完整动画帧；不得拆成独立文件。每格 256 x 256 px，角色大小、镜头、中心点与底部中心定位必须完全一致，相邻格子正好保留 5px 透明间距。每格外侧边框或留白处以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入细的裁切辅助虚线与 90 度直角角标；不可压到角色、既有特征、配件或动作内容。不要文字、格号或水印。",
-      "en": "Use my uploaded character or style reference to create a waving desktop pet animation. Output one transparent-background 3 x 2 six-panel PNG image containing six complete animation frames; do not split the frames into separate files. Every panel must be 256 x 256 px with identical character size, camera, center point, and bottom-center anchor, separated by exactly 5px of transparent spacing. In each panel's outer border or blank margin, add a thin #0CB8EC (RGB 12, 184, 236; 100% opacity) dashed crop guide with sharp 90-degree corner marks; it must not overlap the character, existing features, accessories, or motion content. No text, panel numbers, or watermark."
+      "zh": "請直接輸出 1 張 3 x 2 的六宮格透明背景 PNG 圖片，內含 6 個完整動畫影格；不得拆成 6 個獨立檔案。 必須忠實保留我上傳角色的臉部、身形、肢體數量、衣著、配件與既有特徵。不得自行新增、移除、替換或改變原角色既有特徵與角色身份；只能讓原圖中確實存在的部位做對應動作。 每一格都請使用 256 x 256 px 的透明畫布。六格必須使用完全相同的畫布大小、角色大小、鏡頭、角色中心點與底部中心定位；完整保留角色與所有配件，不要被格子邊緣裁切。 六宮格必須嚴格排成 3 欄 x 2 列。相鄰格子之間必須保留正好 5px 的透明間距。 每一格外側邊框或留白處都必須加上完整、細的青色裁切輔助虛線與角標。裁切輔助虛線與角標必須嚴格使用色碼 #0CB8EC（RGB 12, 184, 236；100% 不透明）。 四個邊角一律使用 90 度垂直直角的 L 形或十字角標，線段必須是水平或垂直直線；禁止圓角、弧線、圓點、圓形標記或任何曲線。 輔助線與角標只能位於格子外側邊框或留白，且不得壓到角色、既有特徵、配件或任何動作內容，也不可放進每格圖片內容內。不要文字、格號、標籤、無間距 sprite sheet、拼貼或浮水印。",
+      "zh_cn": "请用我上传的角色或风格参考图，帮我制作桌宠挥手打招呼动画。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG 图片，内含 6 个完整动画帧；不得拆成 6 个独立文件。 必须忠实保留我上传角色的脸部、身形、肢体数量、衣着、配件与既有特征。不得自行新增、移除、替换或改变原角色既有特征与角色身份；只能让原图中确实存在的部位做对应动作。 每一格都请使用 256 x 256 px 的透明画布。六格必须使用完全相同的画布大小、角色大小、镜头、角色中心点与底部中心定位；完整保留角色与所有配件，不要被格子边缘裁切。 六宫格必须严格排成 3 列 x 2 行。相邻格子之间必须保留正好 5px 的透明间距。 每一格外侧边框或留白处都必须加上完整、细的青色裁切辅助虚线与角标。裁切辅助虚线与角标必须严格使用色码 #0CB8EC（RGB 12, 184, 236；100% 不透明）。 四个边角一律使用 90 度垂直直角的 L 形或十字角标，线段必须是水平或垂直直线；禁止圆角、弧线、圆点、圆形标记或任何曲线。 辅助线与角标只能位于格子外侧边框或留白，且不得压到角色、既有特征、配件或任何动作内容，也不可放进每格图片内容内。不要文字、格号、标签、无间距 sprite sheet、拼贴或水印。",
+      "en": "Use my uploaded character or style reference to create a waving desktop pet animation. Output one transparent-background 3 x 2 six-panel PNG image containing six complete animation frames; do not split the frames into separate files. Faithfully preserve the uploaded character's face, body shape, limb count, clothing, accessories, and existing features. Do not add, remove, replace, or alter the original character's existing features or identity; animate only parts that actually exist in the source artwork. Make every panel a 256 x 256 px transparent canvas. Keep exactly the same canvas size, character scale, camera, character center point, and bottom-center anchor across all six panels; keep the full character and any accessories inside each panel with no edge cropping. Arrange the six panels strictly in 3 columns by 2 rows. Leave exactly 5px of transparent spacing between adjacent panels. Every panel must have a complete thin cyan dashed crop-guide border and corner marks placed only in the outer border or gutter. Crop guides and corner marks must use exactly #0CB8EC (RGB 12, 184, 236; 100% opacity). Use only sharp 90-degree square L-shaped or crosshair corner marks with horizontal and vertical straight lines. Never use rounded corners, arcs, dots, circular marks, or any curved strokes. Guides and corner marks must never overlap the character, existing features, accessories, or motion content, and must not appear inside a panel's image area. No text, panel numbers, labels, zero-gap sprite sheet, collage, or watermark."
     }
   ]
 }
@@ -113,6 +131,7 @@ WorkshopLibrary/
   "type": "pet",
   "content_kind": "full_pet",
   "config_path": "pet_config.json",
+  "cover_path": "cover.png",
   "assets_mode": "bundled"
 }
 ```
@@ -128,7 +147,8 @@ WorkshopLibrary/
 | `schema_version` | number | 否 | 建议填 `1`，方便未来相容。 |
 | `id` | string | 否 | 工作坊项目 id。Steam 上可填 published file id；未填时用资料夹名称。 |
 | `steam_published_file_id` | string | 否 | 首次从程式发布成功後自动写入的 Steam 作品 ID。保留此栏位可在下次发布时更新原作品。 |
-| `title` | string | 否 | 工作坊清单显示名称。 |
+| `title` | string | 否 | 收藏与工作坊菜单显示名称；不修改桌宠的 `pet_name`。 |
+| `cover_path` | string | 否 | 包内相对封面路径，例如 `cover.png`；打包工具输出静态 PNG，缺图时显示占位图。 |
 | `type` | string | 是 | `pose`、`pet` 或 `care`。 |
 | `content_kind` | string | 否 | `single_pose`、`full_pet` 或 `care`，方便创作者辨识。 |
 | `assets_mode` | string | 否 | 建议填 `bundled`，表示素材已放在包内。 |
@@ -141,7 +161,7 @@ WorkshopLibrary/
 
 ## 5. AI 素材 Prompt 参数
 
-`ai_asset_prompts` 让创作者提供「玩家要如何用 AI 延伸这个作品」的说明。支援多语系栏位；玩家 UI 会优先显示目前语言，没有时 fallback 到中文或英文。
+`ai_asset_prompts` 用于提供这个作品的 AI 素材提示词，支持多语言字段。程序先显示玩家当前语言的版本；没有该语言时，再使用中文或英文。
 
 ```json
 "ai_asset_prompts": [
@@ -150,10 +170,10 @@ WorkshopLibrary/
     "name": "原地休息姿势",
     "pose_id": "idle",
     "description": "延伸这个桌宠的休息姿势素材",
-    "zh": "请用我上传的角色图，制作原地休息姿势。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG，内含 6 个完整动画影格；不得拆成独立档案。每格 256 x 256 px，角色大小、镜头、中心点与底部中心定位完全一致，相邻格子正好保留 5px 透明间距。每格外侧边框或留白处以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入细的裁切辅助虚线与 90 度直角角标；不可压到角色、既有特徵、配件或动作内容。不要文字、格号或浮水印。",
-    "zh_cn": "请用我上传的角色图，制作原地休息姿势。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG，内含 6 个完整动画帧；不得拆成独立文件。每格 256 x 256 px，角色大小、镜头、中心点与底部中心定位必须完全一致，相邻格子正好保留 5px 透明间距。每格外侧边框或留白处以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入细的裁切辅助虚线与 90 度直角角标；不可压到角色、既有特征、配件或动作内容。不要文字、格号或水印。",
-    "en": "Use my uploaded character reference to create an idle resting pose. Output one transparent-background 3 x 2 six-panel PNG image containing six complete animation frames; do not split the frames into separate files. Every panel must be 256 x 256 px with identical character size, camera, center point, and bottom-center anchor, separated by exactly 5px of transparent spacing. In each panel's outer border or blank margin, add a thin #0CB8EC (RGB 12, 184, 236; 100% opacity) dashed crop guide with sharp 90-degree corner marks; it must not overlap the character, existing features, accessories, or motion content. No text, panel numbers, or watermark.",
-    "ja": "アップロードしたキャラクター画像を使い、待机ポーズを作成してください。6コマを含む3列 x 2行の透过PNGを1枚だけ出力し、别々の6ファイルには分けないでください。各コマは256 x 256 px、キャラクターの大きさ・カメラ・中心点・下中央アンカーはすべて同じにし、コマ间は正确に5pxの透明な间隔を取ってください。各コマの外枠または余白には #0CB8EC（RGB 12, 184, 236、100%不透明）の细い裁切补助破线と90度の直角コーナーガイドを置き、キャラクター、既存の特徴、アクセサリー、动作内容には重ねないでください。文字、番号、透かしは不要です。"
+    "zh": "請直接輸出 1 張 3 x 2 的六宮格透明背景 PNG 圖片，內含 6 個完整動畫影格；不得拆成 6 個獨立檔案。 必須忠實保留我上傳角色的臉部、身形、肢體數量、衣著、配件與既有特徵。不得自行新增、移除、替換或改變原角色既有特徵與角色身份；只能讓原圖中確實存在的部位做對應動作。 每一格都請使用 256 x 256 px 的透明畫布。六格必須使用完全相同的畫布大小、角色大小、鏡頭、角色中心點與底部中心定位；完整保留角色與所有配件，不要被格子邊緣裁切。 六宮格必須嚴格排成 3 欄 x 2 列。相鄰格子之間必須保留正好 5px 的透明間距。 每一格外側邊框或留白處都必須加上完整、細的青色裁切輔助虛線與角標。裁切輔助虛線與角標必須嚴格使用色碼 #0CB8EC（RGB 12, 184, 236；100% 不透明）。 四個邊角一律使用 90 度垂直直角的 L 形或十字角標，線段必須是水平或垂直直線；禁止圓角、弧線、圓點、圓形標記或任何曲線。 輔助線與角標只能位於格子外側邊框或留白，且不得壓到角色、既有特徵、配件或任何動作內容，也不可放進每格圖片內容內。不要文字、格號、標籤、無間距 sprite sheet、拼貼或浮水印。",
+    "zh_cn": "请用我上传的角色图，制作原地休息姿势。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG 图片，内含 6 个完整动画帧；不得拆成 6 个独立文件。 必须忠实保留我上传角色的脸部、身形、肢体数量、衣着、配件与既有特征。不得自行新增、移除、替换或改变原角色既有特征与角色身份；只能让原图中确实存在的部位做对应动作。 每一格都请使用 256 x 256 px 的透明画布。六格必须使用完全相同的画布大小、角色大小、镜头、角色中心点与底部中心定位；完整保留角色与所有配件，不要被格子边缘裁切。 六宫格必须严格排成 3 列 x 2 行。相邻格子之间必须保留正好 5px 的透明间距。 每一格外侧边框或留白处都必须加上完整、细的青色裁切辅助虚线与角标。裁切辅助虚线与角标必须严格使用色码 #0CB8EC（RGB 12, 184, 236；100% 不透明）。 四个边角一律使用 90 度垂直直角的 L 形或十字角标，线段必须是水平或垂直直线；禁止圆角、弧线、圆点、圆形标记或任何曲线。 辅助线与角标只能位于格子外侧边框或留白，且不得压到角色、既有特征、配件或任何动作内容，也不可放进每格图片内容内。不要文字、格号、标签、无间距 sprite sheet、拼贴或水印。",
+    "en": "Use my uploaded character reference to create an idle resting pose. Output one transparent-background 3 x 2 six-panel PNG image containing six complete animation frames; do not split the frames into separate files. Faithfully preserve the uploaded character's face, body shape, limb count, clothing, accessories, and existing features. Do not add, remove, replace, or alter the original character's existing features or identity; animate only parts that actually exist in the source artwork. Make every panel a 256 x 256 px transparent canvas. Keep exactly the same canvas size, character scale, camera, character center point, and bottom-center anchor across all six panels; keep the full character and any accessories inside each panel with no edge cropping. Arrange the six panels strictly in 3 columns by 2 rows. Leave exactly 5px of transparent spacing between adjacent panels. Every panel must have a complete thin cyan dashed crop-guide border and corner marks placed only in the outer border or gutter. Crop guides and corner marks must use exactly #0CB8EC (RGB 12, 184, 236; 100% opacity). Use only sharp 90-degree square L-shaped or crosshair corner marks with horizontal and vertical straight lines. Never use rounded corners, arcs, dots, circular marks, or any curved strokes. Guides and corner marks must never overlap the character, existing features, accessories, or motion content, and must not appear inside a panel's image area. No text, panel numbers, labels, zero-gap sprite sheet, collage, or watermark.",
+    "ja": "アップロードしたキャラクター画像を使い、待机ポーズを作成してください。透明背景の 3 x 2・6 コマ PNG を 1 枚だけ出力し、完全なアニメーションフレームを 6 枚含めてください。フレームを個別ファイルに分割しないでください。 アップロードしたキャラクターの顔、体型、手足の数、服、アクセサリー、既存の特徴を忠実に維持してください。元のキャラクターの特徴やアイデンティティを追加、削除、置換、変更せず、元絵に実在する部位だけを動かしてください。 各コマは 256 x 256 px の透明キャンバスにしてください。6 コマすべてでキャンバスサイズ、キャラクターの大きさ、カメラ、キャラクター中心、下中央アンカーを完全に一致させ、キャラクターとアクセサリーが端で切れないようにしてください。 6 コマは必ず 3 列 x 2 行に配置し、隣接するコマの間には正確に 5px の透明な間隔を入れてください。 各コマの外側の枠または余白には、細いシアン色の破線の切り抜きガイドと角マークを完全に付けてください。切り抜きガイドと角マークは必ず #0CB8EC（RGB 12, 184, 236、100% 不透明）を使用してください。 角マークは水平・垂直の直線だけで作る鋭い 90 度の L 字または十字にしてください。丸角、弧、点、円形マーク、曲線は使用しないでください。 ガイドと角マークはキャラクター、既存の特徴、アクセサリー、動きの内容に重ならず、各コマの画像領域内にも表示しないでください。文字、コマ番号、ラベル、隙間のないスプライトシート、コラージュ、透かしは禁止です。"
   }
 ]
 ```
@@ -384,7 +404,7 @@ WorkshopLibrary/
 
 - 路径使用 `C:\...` 本机绝对路径：其他玩家订阅後会找不到素材。请改用 `assets/frame_01.png`。
 - 单一 JSON manifest 放在扫描资料夹时，`assets` 必须和该 JSON 同层；若没有 `assets/frame_01.png`，汇入後会只剩 fallback 外观。
-- 图片被做成单张六宫格：Desktop Pet Studio 需要多张独立 PNG 或 GIF，不会自动切 sprite sheet。
+- 把单张六宫格直接放进动画素材：Desktop Pet Studio 需要单独的 PNG 帧或 GIF，不会自动切 sprite sheet。AI 生成的六宫格请先用宫格裁切工具拆成单独的帧，再加入动画。
 - `mode` 拼错：不认得的 mode 会回到 `none`。
 - `easing` 拼错：不认得的 easing 会回到 `linear`。
 - `distance_px` 太大：桌宠会被限制在萤幕内，但视觉上可能像突然贴边。
@@ -540,5 +560,21 @@ WorkshopLibrary/
 
 - 将养成包 manifest 和 `assets/` 放在同一资料夹。不要使用 `C:\...` 等绝对路径。
 - 完整桌宠包可在 `pet_config.json` 的 `care` 中保存 `state`、`shop_items`、`inventory`、`work_jobs`、`events`、`mood_settings`、`refresh_settings` 与 `mood_bubble_rules`；内建打包会把引用的商品图示与 WAV 音效复制到包内 `assets/`。
-- 汇入时，系统只解析白名单 JSON 资料与允许的素材副档名；JSON 不会被当成程式码执行。
+- 导入时，程序只读取允许的 JSON 字段与素材扩展名，不会把 JSON 当作代码执行。
 - `source`、`source_id`、`last_triggered_at` 由玩家端管理，不需要在创作者 manifest 中填写。
+
+
+<!-- effects-diy-v1 -->
+## DIY 网页特效
+
+桌宠 JSON 包使用 `title` 与 `cover_path`；PetFX 特效包则使用 `petfx.json` 的 `displayName` 与 `cover`。两种格式不能互换。用 AI 制作 PetFX 封面时，请准备 1:1 单张图片；不要使用姿势所用的 3×2 六宫格或进入姿势裁切流程。特效的四文件示例、事件绑定与标记点跟随，请参阅程序内的 DIY 网页特效教程。
+
+
+<!-- effects-export-v1 -->
+## 将作品带到创意工坊
+
+1. 选择作品，点击“导出特效…”并选择保存位置。
+2. 导出完成后，点击“前往创意工坊上传”。
+3. 确认内容文件夹、标题和封面，再通过创意工坊原有流程确认发布。
+
+导出包含包名称、封面、动画素材、触发规则和标点。你的登录资料、OBS 连接和个人启停偏好不会导出。

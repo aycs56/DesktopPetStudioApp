@@ -1,7 +1,25 @@
 # Desktop Pet Studio Workshop JSON Creator Guide
 
-Version: v1.2.1
-Applies to: desktop pet packages and pose packages from Steam Workshop or manually added folders
+Version: v1.3.0
+Applies to: v1.3.0 pet, pose and care JSON packages, plus the separate PetFX effect-sharing workflow.
+
+Updated: 2026-10-28. The application version is v1.3.0; pet, pose and care manifests still use `schema_version: 1`.
+
+## Pet Collection, Menu Names, and Covers
+
+In v1.3.0, add pet packages to your collection, set menu names and covers, then preview before confirming use. Collections are stored in the current player folder; a successful local save does not mean Steam Cloud has finished syncing.
+
+A full-pet package's `title` supplies its collection and Workshop menu name without changing `pet_config.json`'s `pet_name`. Older packages fall back to `name` or the folder name; standalone JSON uses `pet_name` or its filename. The optional `"cover_path": "cover.png"` must be relative to the package and remain inside it. Absolute paths and paths outside the package are not accepted. Missing or invalid covers use a placeholder; older packages remain usable.
+
+The packager converts the cover to a static PNG. Input limits are 8 MiB, a maximum edge of 4096 px, and 8,388,608 total pixels. The first decoded frame is scaled proportionally to fit 512 × 512 and source metadata is removed. Unsafe or unreadable images are rejected. These local limits do not replace Steam's separate requirement that an uploaded preview be smaller than 1 MB.
+
+The collection resides at the current player's `profile/pet_library/<content-id>/`. Import copies supported settings, the cover, and every required referenced animation/audio asset into portable package-relative paths. It does not move or edit the source or replace the current pet. Missing required assets fail the import without adding a usable partial collection entry. Reopening the collection does not require choosing the source folder again. Identical normalized content reuses an existing entry; different content with the same name can coexist.
+
+Selection and animation preview are read-only. Only confirming Use replaces the current pet and settings. JSON retains an Open only, without adding to collection action with the same confirmation. The collection includes pets that have never been activated. Steam mode uses the current SteamID's existing Auto-Cloud root; local mode and other Steam accounts stay separate. Adding local-mode pets to the current Steam collection requires an explicit manual action.
+
+You cannot add items when the known Cloud capacity is insufficient. If byte or file quotas are unknown, the app cannot confirm that synchronization is available. It cannot yet obtain a complete file-count quota or a synchronization-complete status. Saving locally does not mean uploading succeeded. Exit the app and check Steam’s synchronization status before switching computers. Collection imports do not publish Workshop items.
+
+When packaging, you can choose to add the result to My collection. The app saves the output package first, then copies valid settings, the cover and all required animation/audio assets into the current player's collection without modifying the source or replacing the current pet. Identical content is not added twice; different content with the same name can coexist. If adding to the collection fails, the saved package remains available for another import after resolving the error. This option does not publish anything or confirm Steam Cloud synchronization.
 
 ## Publishing to Steam Workshop
 
@@ -91,9 +109,9 @@ In this layout, `assets/frame_01.png` is resolved relative to the JSON file. If 
       "id": "wave_ai_prompt",
       "name": "Wave Pose AI Guide",
       "pose_id": "wave",
-      "zh": "請用我上傳的角色或風格參考圖，幫我製作桌寵揮手打招呼動畫。請直接輸出 1 張 3 x 2 的六宮格透明背景 PNG，內含 6 個完整動畫影格；不得拆成獨立檔案。每格 256 x 256 px，角色大小、鏡頭、中心點與底部中心定位完全一致，相鄰格子正好保留 5px 透明間距。每格外側邊框或留白處以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入細的裁切輔助虛線與 90 度直角角標；不可壓到角色、既有特徵、配件或動作內容。不要文字、格號或浮水印。",
-      "zh_cn": "请用我上传的角色或风格参考图，帮我制作桌宠挥手打招呼动画。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG，内含 6 个完整动画帧；不得拆成独立文件。每格 256 x 256 px，角色大小、镜头、中心点与底部中心定位必须完全一致，相邻格子正好保留 5px 透明间距。每格外侧边框或留白处以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入细的裁切辅助虚线与 90 度直角角标；不可压到角色、既有特征、配件或动作内容。不要文字、格号或水印。",
-      "en": "Use my uploaded character or style reference to create a waving desktop pet animation. Output one transparent-background 3 x 2 six-panel PNG image containing six complete animation frames; do not split the frames into separate files. Every panel must be 256 x 256 px with identical character size, camera, center point, and bottom-center anchor, separated by exactly 5px of transparent spacing. In each panel's outer border or blank margin, add a thin #0CB8EC (RGB 12, 184, 236; 100% opacity) dashed crop guide with sharp 90-degree corner marks; it must not overlap the character, existing features, accessories, or motion content. No text, panel numbers, or watermark."
+      "zh": "請用我上傳的角色或風格參考圖，幫我製作桌寵揮手打招呼動畫。請直接輸出 1 張 3 x 2 的六宮格透明背景 PNG 圖片，內含 6 個完整動畫影格；不得拆成 6 個獨立檔案。 必須忠實保留我上傳角色的臉部、身形、肢體數量、衣著、配件與既有特徵。不得自行新增、移除、替換或改變原角色既有特徵與角色身份；只能讓原圖中確實存在的部位做對應動作。 每一格都請使用 256 x 256 px 的透明畫布。六格必須使用完全相同的畫布大小、角色大小、鏡頭、角色中心點與底部中心定位；完整保留角色與所有配件，不要被格子邊緣裁切。 六宮格必須嚴格排成 3 欄 x 2 列。相鄰格子之間必須保留正好 5px 的透明間距。 每一格外側邊框或留白處都必須加上完整、細的青色裁切輔助虛線與角標。裁切輔助虛線與角標必須嚴格使用色碼 #0CB8EC（RGB 12, 184, 236；100% 不透明）。 四個邊角一律使用 90 度垂直直角的 L 形或十字角標，線段必須是水平或垂直直線；禁止圓角、弧線、圓點、圓形標記或任何曲線。 輔助線與角標只能位於格子外側邊框或留白，且不得壓到角色、既有特徵、配件或任何動作內容，也不可放進每格圖片內容內。不要文字、格號、標籤、無間距 sprite sheet、拼貼或浮水印。",
+      "zh_cn": "请用我上传的角色或风格参考图，帮我制作桌宠挥手打招呼动画。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG 图片，内含 6 个完整动画帧；不得拆成 6 个独立文件。 必须忠实保留我上传角色的脸部、身形、肢体数量、衣着、配件与既有特征。不得自行新增、移除、替换或改变原角色既有特征与角色身份；只能让原图中确实存在的部位做对应动作。 每一格都请使用 256 x 256 px 的透明画布。六格必须使用完全相同的画布大小、角色大小、镜头、角色中心点与底部中心定位；完整保留角色与所有配件，不要被格子边缘裁切。 六宫格必须严格排成 3 列 x 2 行。相邻格子之间必须保留正好 5px 的透明间距。 每一格外侧边框或留白处都必须加上完整、细的青色裁切辅助虚线与角标。裁切辅助虚线与角标必须严格使用色码 #0CB8EC（RGB 12, 184, 236；100% 不透明）。 四个边角一律使用 90 度垂直直角的 L 形或十字角标，线段必须是水平或垂直直线；禁止圆角、弧线、圆点、圆形标记或任何曲线。 辅助线与角标只能位于格子外侧边框或留白，且不得压到角色、既有特征、配件或任何动作内容，也不可放进每格图片内容内。不要文字、格号、标签、无间距 sprite sheet、拼贴或水印。",
+      "en": "Use my uploaded character or style reference to create a waving desktop pet animation. Output one transparent-background 3 x 2 six-panel PNG image containing six complete animation frames; do not split the frames into separate files. Faithfully preserve the uploaded character's face, body shape, limb count, clothing, accessories, and existing features. Do not add, remove, replace, or alter the original character's existing features or identity; animate only parts that actually exist in the source artwork. Make every panel a 256 x 256 px transparent canvas. Keep exactly the same canvas size, character scale, camera, character center point, and bottom-center anchor across all six panels; keep the full character and any accessories inside each panel with no edge cropping. Arrange the six panels strictly in 3 columns by 2 rows. Leave exactly 5px of transparent spacing between adjacent panels. Every panel must have a complete thin cyan dashed crop-guide border and corner marks placed only in the outer border or gutter. Crop guides and corner marks must use exactly #0CB8EC (RGB 12, 184, 236; 100% opacity). Use only sharp 90-degree square L-shaped or crosshair corner marks with horizontal and vertical straight lines. Never use rounded corners, arcs, dots, circular marks, or any curved strokes. Guides and corner marks must never overlap the character, existing features, accessories, or motion content, and must not appear inside a panel's image area. No text, panel numbers, labels, zero-gap sprite sheet, collage, or watermark."
     }
   ]
 }
@@ -113,6 +131,7 @@ A full pet package points the manifest to a saved `pet_config.json`:
   "type": "pet",
   "content_kind": "full_pet",
   "config_path": "pet_config.json",
+  "cover_path": "cover.png",
   "assets_mode": "bundled"
 }
 ```
@@ -128,7 +147,8 @@ A full pet package may provide `ai_asset_prompts`. If it does not, Desktop Pet S
 | `schema_version` | number | No | Recommended value: `1`, reserved for future compatibility. |
 | `id` | string | No | Workshop item id. On Steam this may be the published file id. If omitted, the folder name is used. |
 | `steam_published_file_id` | string | No | Steam item ID written automatically after the first successful in-app publish. Keep it to update the existing item on a later publish. |
-| `title` | string | No | Display name in the Workshop list. |
+| `title` | string | No | Collection and Workshop menu name; does not change `pet_name`. |
+| `cover_path` | string | No | Package-relative cover path, such as `cover.png`; the packager writes a static PNG. Missing covers use a placeholder. |
 | `type` | string | Yes | `pose`, `pet`, or `care`. |
 | `content_kind` | string | No | `single_pose`, `full_pet`, or `care`, useful for creator-side organization. |
 | `assets_mode` | string | No | Recommended value: `bundled`, meaning the package includes its own assets. |
@@ -141,7 +161,7 @@ A full pet package may provide `ai_asset_prompts`. If it does not, Desktop Pet S
 
 ## 5. AI Asset Prompt Fields
 
-`ai_asset_prompts` lets creators explain how players should use AI tools to extend the package. It supports multilingual fields. The player UI first uses the current language, then falls back to Chinese or English.
+Use `ai_asset_prompts` to provide AI asset instructions for this package in multiple languages. The app shows the player’s current language first, then uses Chinese or English if that translation is missing.
 
 ```json
 "ai_asset_prompts": [
@@ -150,10 +170,10 @@ A full pet package may provide `ai_asset_prompts`. If it does not, Desktop Pet S
     "name": "Idle Rest Pose",
     "pose_id": "idle",
     "description": "Generate extra idle pose assets for this pet.",
-    "zh": "請用我上傳的角色圖，製作原地休息姿勢。請直接輸出 1 張 3 x 2 的六宮格透明背景 PNG，內含 6 個完整動畫影格；不得拆成獨立檔案。每格 256 x 256 px，角色大小、鏡頭、中心點與底部中心定位完全一致，相鄰格子正好保留 5px 透明間距。每格外側邊框或留白處以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入細的裁切輔助虛線與 90 度直角角標；不可壓到角色、既有特徵、配件或動作內容。不要文字、格號或浮水印。",
-    "zh_cn": "请用我上传的角色图，制作原地休息姿势。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG，内含 6 个完整动画帧；不得拆成独立文件。每格 256 x 256 px，角色大小、镜头、中心点与底部中心定位必须完全一致，相邻格子正好保留 5px 透明间距。每格外侧边框或留白处以 #0CB8EC（RGB 12, 184, 236；100% 不透明）加入细的裁切辅助虚线与 90 度直角角标；不可压到角色、既有特征、配件或动作内容。不要文字、格号或水印。",
-    "en": "Use my uploaded character reference to create an idle resting pose. Output one transparent-background 3 x 2 six-panel PNG image containing six complete animation frames; do not split the frames into separate files. Every panel must be 256 x 256 px with identical character size, camera, center point, and bottom-center anchor, separated by exactly 5px of transparent spacing. In each panel's outer border or blank margin, add a thin #0CB8EC (RGB 12, 184, 236; 100% opacity) dashed crop guide with sharp 90-degree corner marks; it must not overlap the character, existing features, accessories, or motion content. No text, panel numbers, or watermark.",
-    "ja": "アップロードしたキャラクター画像を使い、待機ポーズを作成してください。6コマを含む3列 x 2行の透過PNGを1枚だけ出力し、別々の6ファイルには分けないでください。各コマは256 x 256 px、キャラクターの大きさ・カメラ・中心点・下中央アンカーはすべて同じにし、コマ間は正確に5pxの透明な間隔を取ってください。各コマの外枠または余白には #0CB8EC（RGB 12, 184, 236、100%不透明）の細い裁切補助破線と90度の直角コーナーガイドを置き、キャラクター、既存の特徴、アクセサリー、動作内容には重ねないでください。文字、番号、透かしは不要です。"
+    "zh": "請用我上傳的角色圖，製作原地休息姿勢。請直接輸出 1 張 3 x 2 的六宮格透明背景 PNG 圖片，內含 6 個完整動畫影格；不得拆成 6 個獨立檔案。 必須忠實保留我上傳角色的臉部、身形、肢體數量、衣著、配件與既有特徵。不得自行新增、移除、替換或改變原角色既有特徵與角色身份；只能讓原圖中確實存在的部位做對應動作。 每一格都請使用 256 x 256 px 的透明畫布。六格必須使用完全相同的畫布大小、角色大小、鏡頭、角色中心點與底部中心定位；完整保留角色與所有配件，不要被格子邊緣裁切。 六宮格必須嚴格排成 3 欄 x 2 列。相鄰格子之間必須保留正好 5px 的透明間距。 每一格外側邊框或留白處都必須加上完整、細的青色裁切輔助虛線與角標。裁切輔助虛線與角標必須嚴格使用色碼 #0CB8EC（RGB 12, 184, 236；100% 不透明）。 四個邊角一律使用 90 度垂直直角的 L 形或十字角標，線段必須是水平或垂直直線；禁止圓角、弧線、圓點、圓形標記或任何曲線。 輔助線與角標只能位於格子外側邊框或留白，且不得壓到角色、既有特徵、配件或任何動作內容，也不可放進每格圖片內容內。不要文字、格號、標籤、無間距 sprite sheet、拼貼或浮水印。",
+    "zh_cn": "请用我上传的角色图，制作原地休息姿势。请直接输出 1 张 3 x 2 的六宫格透明背景 PNG 图片，内含 6 个完整动画帧；不得拆成 6 个独立文件。 必须忠实保留我上传角色的脸部、身形、肢体数量、衣着、配件与既有特征。不得自行新增、移除、替换或改变原角色既有特征与角色身份；只能让原图中确实存在的部位做对应动作。 每一格都请使用 256 x 256 px 的透明画布。六格必须使用完全相同的画布大小、角色大小、镜头、角色中心点与底部中心定位；完整保留角色与所有配件，不要被格子边缘裁切。 六宫格必须严格排成 3 列 x 2 行。相邻格子之间必须保留正好 5px 的透明间距。 每一格外侧边框或留白处都必须加上完整、细的青色裁切辅助虚线与角标。裁切辅助虚线与角标必须严格使用色码 #0CB8EC（RGB 12, 184, 236；100% 不透明）。 四个边角一律使用 90 度垂直直角的 L 形或十字角标，线段必须是水平或垂直直线；禁止圆角、弧线、圆点、圆形标记或任何曲线。 辅助线与角标只能位于格子外侧边框或留白，且不得压到角色、既有特征、配件或任何动作内容，也不可放进每格图片内容内。不要文字、格号、标签、无间距 sprite sheet、拼贴或水印。",
+    "en": "Use my uploaded character reference to create an idle resting pose. Output one transparent-background 3 x 2 six-panel PNG image containing six complete animation frames; do not split the frames into separate files. Faithfully preserve the uploaded character's face, body shape, limb count, clothing, accessories, and existing features. Do not add, remove, replace, or alter the original character's existing features or identity; animate only parts that actually exist in the source artwork. Make every panel a 256 x 256 px transparent canvas. Keep exactly the same canvas size, character scale, camera, character center point, and bottom-center anchor across all six panels; keep the full character and any accessories inside each panel with no edge cropping. Arrange the six panels strictly in 3 columns by 2 rows. Leave exactly 5px of transparent spacing between adjacent panels. Every panel must have a complete thin cyan dashed crop-guide border and corner marks placed only in the outer border or gutter. Crop guides and corner marks must use exactly #0CB8EC (RGB 12, 184, 236; 100% opacity). Use only sharp 90-degree square L-shaped or crosshair corner marks with horizontal and vertical straight lines. Never use rounded corners, arcs, dots, circular marks, or any curved strokes. Guides and corner marks must never overlap the character, existing features, accessories, or motion content, and must not appear inside a panel's image area. No text, panel numbers, labels, zero-gap sprite sheet, collage, or watermark.",
+    "ja": "アップロードしたキャラクター画像を使い、待機ポーズを作成してください。透明背景の 3 x 2・6 コマ PNG を 1 枚だけ出力し、完全なアニメーションフレームを 6 枚含めてください。フレームを個別ファイルに分割しないでください。 アップロードしたキャラクターの顔、体型、手足の数、服、アクセサリー、既存の特徴を忠実に維持してください。元のキャラクターの特徴やアイデンティティを追加、削除、置換、変更せず、元絵に実在する部位だけを動かしてください。 各コマは 256 x 256 px の透明キャンバスにしてください。6 コマすべてでキャンバスサイズ、キャラクターの大きさ、カメラ、キャラクター中心、下中央アンカーを完全に一致させ、キャラクターとアクセサリーが端で切れないようにしてください。 6 コマは必ず 3 列 x 2 行に配置し、隣接するコマの間には正確に 5px の透明な間隔を入れてください。 各コマの外側の枠または余白には、細いシアン色の破線の切り抜きガイドと角マークを完全に付けてください。切り抜きガイドと角マークは必ず #0CB8EC（RGB 12, 184, 236、100% 不透明）を使用してください。 角マークは水平・垂直の直線だけで作る鋭い 90 度の L 字または十字にしてください。丸角、弧、点、円形マーク、曲線は使用しないでください。 ガイドと角マークはキャラクター、既存の特徴、アクセサリー、動きの内容に重ならず、各コマの画像領域内にも表示しないでください。文字、コマ番号、ラベル、隙間のないスプライトシート、コラージュ、透かしは禁止です。"
   }
 ]
 ```
@@ -382,7 +402,7 @@ Poses with horizontal movement automatically mirror to match the actual travel d
 
 - Using local absolute paths such as `C:\...`: other players will not have those files. Use relative paths such as `assets/frame_01.png`.
 - Placing a single JSON manifest in the scan folder but putting `assets` somewhere else: `assets` should be beside that JSON file.
-- Exporting one six-panel image: Desktop Pet Studio needs separate PNG frames or a GIF. It does not cut sprite sheets automatically.
+- Adding one six-panel image directly as animation art: Desktop Pet Studio needs separate PNG frames or a GIF and does not cut sprite sheets automatically. First use the grid crop tool to split the AI-generated image into individual frames, then add those frames to the animation.
 - Misspelling `mode`: unknown movement modes fall back to `none`.
 - Misspelling `easing`: unknown easing values fall back to `linear`.
 - Setting `distance_px` too high: the app keeps the pet on screen, but the motion may look like it snapped to an edge.
@@ -533,5 +553,21 @@ Creators can share shop items, work jobs, and events as a separate package, or i
 
 - Keep the care manifest and its `assets/` directory together. Never use absolute paths such as `C:\...`.
 - A full pet package may keep `state`, `shop_items`, `inventory`, `work_jobs`, `events`, `mood_settings`, `refresh_settings`, and `mood_bubble_rules` inside `care` in `pet_config.json`. Built-in full-pet export copies referenced care icons and WAV files into its `assets/` directory.
-- The app parses only allowlisted JSON data and allowed asset extensions. It never executes JSON as code.
+- The app reads only supported JSON fields and permitted asset extensions. It does not run JSON as code.
 - `source`, `source_id`, and `last_triggered_at` are maintained by the player's local profile and should be omitted from creator manifests.
+
+
+<!-- effects-diy-v1 -->
+## DIY web effects
+
+Pet JSON packages use `title` and `cover_path`; PetFX effect packages use `displayName` and `cover` in `petfx.json`. These formats are not interchangeable. For an AI-made PetFX cover, request one 1:1 image, not the 3×2 pose sheet, and do not send it through pose cropping. See the in-app DIY web effects tutorial for the four-file examples, event bindings and anchor following.
+
+
+<!-- effects-export-v1 -->
+## Share your work on Workshop
+
+1. Select your work, click “Export effect…” and choose a save location.
+2. After exporting, click “Go to Workshop upload”.
+3. Check the content folder, title and cover, then confirm publishing through the existing Workshop flow.
+
+The export includes the package name, cover, animation assets, trigger rules and anchor points. Sign-in details, OBS connections and personal enabled preferences are not exported.
